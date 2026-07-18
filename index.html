@@ -1,1284 +1,867 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-
-  <!-- 适配电脑、平板与手机 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta
-    name="description"
-    content="王焱杰的教育经历、学业表现与荣誉奖励。"
-  >
-
-  <title>教育经历 | 王焱杰</title>
-
-  <style>
-    :root {
-      --page-width: 1160px;
-      --sidebar-width: 230px;
-      --content-width: 710px;
-      --nav-height: 58px;
-
-      --background: #ffffff;
-      --card-background: #fbfbfc;
-      --card-inner: #f8fafc;
-
-      --text: #172033;
-      --text-secondary: #49566a;
-      --muted: #687487;
-      --light-muted: #8b96a5;
-
-      --line: #e6e9ee;
-      --line-dark: #dce1e8;
-
-      --blue: #244a80;
-      --blue-soft: #eef4fb;
-
-      --shadow:
-        0 8px 24px rgba(32, 47, 68, 0.055);
-
-      --shadow-hover:
-        0 14px 34px rgba(32, 47, 68, 0.09);
-    }
-
-    /* =========================
-       全局
-    ========================= */
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      min-height: 100vh;
-      color: var(--text);
-      background: var(--background);
-      font-family:
-        Inter,
-        "Microsoft YaHei",
-        "PingFang SC",
-        "Segoe UI",
-        Arial,
-        sans-serif;
-      font-size: 15px;
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    body.lang-en .zh {
-      display: none !important;
-    }
-
-    body:not(.lang-en) .en {
-      display: none !important;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-
-    button {
-      font: inherit;
-    }
-
-    .container {
-      width: min(var(--page-width), calc(100% - 36px));
-      margin: 0 auto;
-    }
-
-    /* =========================
-       顶部导航
-    ========================= */
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      min-height: var(--nav-height);
-      background: rgba(255, 255, 255, 0.97);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(12px);
-    }
-
-    .topbar-inner {
-      min-height: var(--nav-height);
-      display: flex;
-      align-items: center;
-      gap: 26px;
-    }
-
-    .brand {
-      flex: 0 0 auto;
-      color: #172033;
-      font-size: 15px;
-      font-weight: 800;
-      letter-spacing: 0.01em;
-    }
-
-    .main-nav {
-      flex: 1;
-    }
-
-    .nav-list {
-      display: flex;
-      align-items: center;
-      gap: 2px;
-      list-style: none;
-    }
-
-    .nav-link {
-      min-height: 36px;
-      display: inline-flex;
-      align-items: center;
-      padding: 6px 11px;
-      color: #435064;
-      border-radius: 7px;
-      font-size: 13px;
-      font-weight: 600;
-      transition:
-        color 0.2s ease,
-        background 0.2s ease;
-    }
-
-    .nav-link:hover,
-    .nav-link.active {
-      color: var(--blue);
-      background: var(--blue-soft);
-    }
-
-    .language-button {
-      flex: 0 0 auto;
-      min-width: 39px;
-      height: 26px;
-      padding: 0 10px;
-      color: #3f4e63;
-      background: #ffffff;
-      border: 1px solid var(--line-dark);
-      border-radius: 999px;
-      box-shadow: 0 2px 7px rgba(32, 47, 68, 0.05);
-      cursor: pointer;
-      font-size: 10px;
-      font-weight: 700;
-    }
-
-    .language-button:hover {
-      color: var(--blue);
-      border-color: #b9c8d9;
-    }
-
-    .menu-button {
-      display: none;
-      width: 36px;
-      height: 36px;
-      margin-left: auto;
-      color: var(--text);
-      background: #ffffff;
-      border: 1px solid var(--line-dark);
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 17px;
-    }
-
-    /* =========================
-       主体布局
-    ========================= */
-
-    .page-layout {
-      display: grid;
-      grid-template-columns:
-        var(--sidebar-width)
-        minmax(0, var(--content-width));
-      justify-content: start;
-      gap: 54px;
-      align-items: start;
-      padding: 34px 0 70px;
-    }
-
-    /* =========================
-       左侧个人资料
-    ========================= */
-
-    .profile {
-      position: sticky;
-      top: calc(var(--nav-height) + 24px);
-    }
-
-    .avatar-frame {
-      width: 160px;
-      height: 160px;
-      margin-bottom: 18px;
-      padding: 5px;
-      overflow: hidden;
-      background: #ffffff;
-      border: 1px solid var(--line-dark);
-      border-radius: 50%;
-      box-shadow:
-        0 4px 14px rgba(32, 47, 68, 0.07);
-    }
-
-    .avatar {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 24%;
-      border-radius: 50%;
-    }
-
-    .avatar-fallback {
-      width: 100%;
-      height: 100%;
-      display: none;
-      place-items: center;
-      color: var(--blue);
-      background:
-        linear-gradient(145deg, #eff5fc, #f9fbfd);
-      border-radius: 50%;
-      font-size: 34px;
-      font-weight: 800;
-      letter-spacing: -0.04em;
-    }
-
-    .profile-name {
-      color: #273246;
-      font-size: 21px;
-      line-height: 1.05;
-    }
-
-    .profile-name span {
-      display: block;
-    }
-
-    .profile-role {
-      max-width: 180px;
-      margin-top: 8px;
-      color: #4f5c6e;
-      font-size: 13px;
-      line-height: 1.55;
-    }
-
-    .profile-meta {
-      display: grid;
-      gap: 9px;
-      margin-top: 19px;
-      list-style: none;
-    }
-
-    .profile-meta li {
-      display: grid;
-      grid-template-columns: 17px minmax(0, 1fr);
-      gap: 6px;
-      align-items: start;
-      color: #536071;
-      font-size: 12px;
-      line-height: 1.45;
-    }
-
-    .profile-icon {
-      color: #111827;
-      text-align: center;
-    }
-
-    .profile-meta a {
-      overflow-wrap: anywhere;
-    }
-
-    .profile-meta a:hover {
-      color: var(--blue);
-    }
-
-    .profile-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: 18px;
-    }
-
-    .profile-button {
-      min-height: 32px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 5px 10px;
-      color: var(--blue);
-      background: #ffffff;
-      border: 1px solid #ced8e5;
-      border-radius: 7px;
-      font-size: 10px;
-      font-weight: 700;
-      transition: 0.2s ease;
-    }
-
-    .profile-button:hover {
-      color: #ffffff;
-      background: var(--blue);
-      border-color: var(--blue);
-    }
-
-    /* =========================
-       右侧内容
-    ========================= */
-
-    .content {
-      width: 100%;
-      min-width: 0;
-    }
-
-    .section + .section {
-      margin-top: 28px;
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      margin-bottom: 15px;
-    }
-
-    .heading-icon {
-      width: 34px;
-      height: 34px;
-      display: grid;
-      place-items: center;
-      flex: 0 0 auto;
-      background: #fafafa;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      box-shadow:
-        0 3px 8px rgba(32, 47, 68, 0.04);
-      font-size: 15px;
-    }
-
-    .section-title {
-      flex: 0 0 auto;
-      color: #172033;
-      font-size: 21px;
-      line-height: 1.2;
-    }
-
-    .heading-line {
-      height: 1px;
-      flex: 1;
-      background: var(--line);
-    }
-
-    /* =========================
-       教育经历卡片
-    ========================= */
-
-    .education-card {
-      padding: 20px 23px;
-      background: var(--card-background);
-      border: 1px solid var(--line-dark);
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-    }
-
-    .education-header {
-      display: grid;
-      grid-template-columns: 66px minmax(0, 1fr);
-      gap: 15px;
-      align-items: center;
-    }
-
-    .school-logo {
-      width: 64px;
-      height: 64px;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      color: var(--blue);
-      background: #ffffff;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    .school-logo img {
-      width: 100%;
-      height: 100%;
-      padding: 7px;
-      object-fit: contain;
-    }
-
-    .school-logo-fallback {
-      display: none;
-      place-items: center;
-      width: 100%;
-      height: 100%;
-    }
-
-    .school-information h3 {
-      color: #172033;
-      font-size: 17px;
-      line-height: 1.35;
-    }
-
-    .school-information p {
-      margin-top: 4px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .divider {
-      display: inline-block;
-      margin: 0 8px;
-      color: #a1a9b4;
-    }
-
-    .academic-stats {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 11px;
-      margin-top: 18px;
-    }
-
-    .stat-card {
-      min-height: 63px;
-      padding: 12px 13px;
-      background: var(--card-inner);
-      border: 1px solid var(--line);
-      border-radius: 11px;
-    }
-
-    .stat-card strong {
-      display: block;
-      color: #3b4657;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .stat-card span {
-      display: block;
-      margin-top: 3px;
-      color: #566275;
-      font-size: 12px;
-    }
-
-    .course-area {
-      margin-top: 17px;
-      padding-top: 16px;
-      border-top: 1px solid var(--line);
-    }
-
-    .course-area h4 {
-      margin-bottom: 9px;
-      color: #394557;
-      font-size: 12px;
-    }
-
-    .course-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-    }
-
-    .course-tag {
-      padding: 4px 8px;
-      color: #586476;
-      background: #ffffff;
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      font-size: 10px;
-    }
-
-    /* =========================
-       荣誉奖励
-    ========================= */
-
-    .award-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .award-card {
-      min-height: 82px;
-      padding: 14px 16px;
-      background: var(--card-background);
-      border: 1px solid var(--line-dark);
-      border-radius: 14px;
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        background 0.2s ease;
-    }
-
-    .award-card:hover {
-      background: #ffffff;
-      box-shadow: var(--shadow-hover);
-      transform: translateY(-2px);
-    }
-
-    .award-card h3 {
-      color: #172033;
-      font-size: 14px;
-      line-height: 1.4;
-    }
-
-    .award-card p {
-      margin-top: 4px;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.5;
-    }
-
-    .award-card ul {
-      margin-top: 5px;
-      padding-left: 16px;
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    .award-card li + li {
-      margin-top: 2px;
-    }
-
-    /* =========================
-       页脚
-    ========================= */
-
-    footer {
-      padding: 21px 0 32px;
-      color: var(--light-muted);
-      border-top: 1px solid var(--line);
-      font-size: 10px;
-      text-align: center;
-    }
-
-    /* =========================
-       平板
-    ========================= */
-
-    @media (max-width: 900px) {
-      .main-nav {
-        position: fixed;
-        top: calc(var(--nav-height) + 7px);
-        left: 18px;
-        right: 18px;
-        display: none;
-        padding: 8px;
-        background: #ffffff;
-        border: 1px solid var(--line-dark);
-        border-radius: 11px;
-        box-shadow: var(--shadow-hover);
-      }
-
-      .main-nav.open {
-        display: block;
-      }
-
-      .nav-list {
-        display: grid;
-      }
-
-      .nav-link {
-        width: 100%;
-      }
-
-      .menu-button {
-        display: block;
-      }
-
-      .page-layout {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-
-      .profile {
-        position: static;
-        display: grid;
-        grid-template-columns: 138px minmax(0, 1fr);
-        gap: 21px;
-        align-items: start;
-      }
-
-      .avatar-frame {
-        width: 138px;
-        height: 138px;
-        margin: 0;
-      }
-
-      .profile-meta,
-      .profile-actions {
-        grid-column: 2;
-      }
-
-      .content {
-        max-width: none;
-      }
-    }
-
-    /* =========================
-       手机
-    ========================= */
-
-    @media (max-width: 650px) {
-      .container {
-        width: min(100% - 26px, var(--page-width));
-      }
-
-      .topbar-inner {
-        gap: 9px;
-      }
-
-      .brand {
-        font-size: 14px;
-      }
-
-      .page-layout {
-        padding-top: 27px;
-      }
-
-      .profile {
-        grid-template-columns: 90px minmax(0, 1fr);
-        gap: 15px;
-      }
-
-      .avatar-frame {
-        width: 90px;
-        height: 90px;
-      }
-
-      .profile-name {
-        font-size: 18px;
-      }
-
-      .profile-role {
-        margin-top: 5px;
-      }
-
-      .profile-meta,
-      .profile-actions {
-        grid-column: 1 / -1;
-      }
-
-      .section-title {
-        font-size: 19px;
-      }
-
-      .education-card {
-        padding: 17px;
-      }
-
-      .education-header {
-        grid-template-columns: 52px minmax(0, 1fr);
-        gap: 11px;
-      }
-
-      .school-logo {
-        width: 50px;
-        height: 50px;
-        border-radius: 11px;
-      }
-
-      .academic-stats {
-        grid-template-columns: 1fr;
-      }
-
-      .award-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* =========================
-       超小屏手机
-    ========================= */
-
-    @media (max-width: 380px) {
-      .profile {
-        grid-template-columns: 76px minmax(0, 1fr);
-      }
-
-      .avatar-frame {
-        width: 76px;
-        height: 76px;
-      }
-
-      .education-header {
-        grid-template-columns: 1fr;
-      }
-
-      .divider {
-        display: none;
-      }
-
-      .school-information p span {
-        display: block;
-      }
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="王焱杰的教育经历、学业表现与荣誉奖励。" />
+    <title>教育经历 | 王焱杰</title>
+
+    <style>
+        /* ===== 设计令牌 ===== */
+        :root {
+            --page-width: 1160px;
+            --sidebar-width: 230px;
+            --content-width: 710px;
+            --nav-height: 58px;
+
+            --bg: #ffffff;
+            --card-bg: #fbfbfc;
+            --card-inner: #f8fafc;
+
+            --text: #172033;
+            --text-secondary: #49566a;
+            --muted: #687487;
+            --light-muted: #8b96a5;
+
+            --line: #e6e9ee;
+            --line-dark: #dce1e8;
+
+            --blue: #244a80;
+            --blue-soft: #eef4fb;
+
+            --shadow: 0 8px 24px rgba(32, 47, 68, 0.055);
+            --shadow-hover: 0 14px 34px rgba(32, 47, 68, 0.09);
+
+            --radius: 14px;
+            --radius-sm: 8px;
+            --radius-full: 9999px;
+
+            --transition: 0.2s ease;
+        }
+
+        /* ===== 重置 & 基础 ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Inter, "Microsoft YaHei", "PingFang SC", "Segoe UI", Arial, sans-serif;
+            font-size: 15px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 中英文切换 */
+        body.lang-en .zh {
+            display: none !important;
+        }
+        body:not(.lang-en) .en {
+            display: none !important;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        img {
+            display: block;
+            max-width: 100%;
+        }
+        button {
+            font: inherit;
+            cursor: pointer;
+        }
+
+        .container {
+            width: min(var(--page-width), calc(100% - 36px));
+            margin: 0 auto;
+        }
+
+        /* ===== 顶部导航 ===== */
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            min-height: var(--nav-height);
+            background: rgba(255, 255, 255, 0.97);
+            border-bottom: 1px solid var(--line);
+            backdrop-filter: blur(12px);
+        }
+
+        .topbar-inner {
+            min-height: var(--nav-height);
+            display: flex;
+            align-items: center;
+            gap: 26px;
+        }
+
+        .brand {
+            flex: 0 0 auto;
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 0.01em;
+            color: var(--text);
+        }
+
+        .main-nav {
+            flex: 1;
+        }
+
+        .nav-list {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            list-style: none;
+        }
+
+        .nav-link {
+            min-height: 36px;
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 11px;
+            border-radius: 7px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #435064;
+            transition: color var(--transition), background var(--transition);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--blue);
+            background: var(--blue-soft);
+        }
+
+        .lang-toggle {
+            flex: 0 0 auto;
+            min-width: 39px;
+            height: 26px;
+            padding: 0 10px;
+            border: 1px solid var(--line-dark);
+            border-radius: var(--radius-full);
+            background: #fff;
+            box-shadow: 0 2px 7px rgba(32, 47, 68, 0.05);
+            font-size: 10px;
+            font-weight: 700;
+            color: #3f4e63;
+            transition: color var(--transition), border-color var(--transition);
+        }
+
+        .lang-toggle:hover {
+            color: var(--blue);
+            border-color: #b9c8d9;
+        }
+
+        .menu-toggle {
+            display: none;
+            width: 36px;
+            height: 36px;
+            margin-left: auto;
+            border: 1px solid var(--line-dark);
+            border-radius: var(--radius-sm);
+            background: #fff;
+            font-size: 17px;
+            color: var(--text);
+        }
+
+        /* ===== 页面布局 ===== */
+        .page-layout {
+            display: grid;
+            grid-template-columns: var(--sidebar-width) minmax(0, var(--content-width));
+            gap: 54px;
+            align-items: start;
+            padding: 34px 0 70px;
+        }
+
+        /* ===== 左侧个人资料 ===== */
+        .profile {
+            position: sticky;
+            top: calc(var(--nav-height) + 24px);
+        }
+
+        .avatar-wrap {
+            width: 160px;
+            height: 160px;
+            margin-bottom: 18px;
+            padding: 5px;
+            border: 1px solid var(--line-dark);
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 4px 14px rgba(32, 47, 68, 0.07);
+            overflow: hidden;
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 24%;
+            border-radius: 50%;
+        }
+
+        .avatar-fallback {
+            display: none;
+            place-items: center;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #eff5fc, #f9fbfd);
+            font-size: 34px;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            color: var(--blue);
+        }
+
+        .profile-name {
+            font-size: 21px;
+            line-height: 1.05;
+            color: #273246;
+        }
+        .profile-name span {
+            display: block;
+        }
+
+        .profile-role {
+            max-width: 180px;
+            margin-top: 8px;
+            font-size: 13px;
+            line-height: 1.55;
+            color: #4f5c6e;
+        }
+
+        .profile-meta {
+            display: grid;
+            gap: 9px;
+            margin-top: 19px;
+            list-style: none;
+        }
+
+        .profile-meta li {
+            display: grid;
+            grid-template-columns: 17px 1fr;
+            gap: 6px;
+            align-items: start;
+            font-size: 12px;
+            line-height: 1.45;
+            color: #536071;
+        }
+
+        .profile-meta .icon {
+            text-align: center;
+            color: #111827;
+        }
+        .profile-meta a {
+            overflow-wrap: anywhere;
+        }
+        .profile-meta a:hover {
+            color: var(--blue);
+        }
+
+        .profile-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 18px;
+        }
+
+        .btn-outline {
+            min-height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px 10px;
+            border: 1px solid #ced8e5;
+            border-radius: 7px;
+            background: #fff;
+            font-size: 10px;
+            font-weight: 700;
+            color: var(--blue);
+            transition: var(--transition);
+        }
+
+        .btn-outline:hover {
+            background: var(--blue);
+            border-color: var(--blue);
+            color: #fff;
+        }
+
+        /* ===== 右侧内容 ===== */
+        .content {
+            min-width: 0;
+        }
+
+        .section+.section {
+            margin-top: 28px;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+            margin-bottom: 15px;
+        }
+
+        .heading-icon {
+            flex: 0 0 34px;
+            width: 34px;
+            height: 34px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: #fafafa;
+            box-shadow: 0 3px 8px rgba(32, 47, 68, 0.04);
+            font-size: 15px;
+        }
+
+        .section-title {
+            flex: 0 0 auto;
+            font-size: 21px;
+            line-height: 1.2;
+            color: var(--text);
+        }
+
+        .heading-line {
+            flex: 1;
+            height: 1px;
+            background: var(--line);
+        }
+
+        /* ===== 教育经历卡片 ===== */
+        .edu-card {
+            padding: 20px 23px;
+            border: 1px solid var(--line-dark);
+            border-radius: 16px;
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
+        }
+
+        .edu-header {
+            display: grid;
+            grid-template-columns: 66px 1fr;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .school-logo {
+            width: 64px;
+            height: 64px;
+            display: grid;
+            place-items: center;
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            background: #fff;
+            font-size: 14px;
+            font-weight: 800;
+            color: var(--blue);
+            overflow: hidden;
+        }
+
+        .school-logo img {
+            width: 100%;
+            height: 100%;
+            padding: 7px;
+            object-fit: contain;
+        }
+
+        .school-logo .fallback {
+            display: none;
+            place-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .school-info h3 {
+            font-size: 17px;
+            line-height: 1.35;
+            color: var(--text);
+        }
+
+        .school-info p {
+            margin-top: 4px;
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .divider {
+            display: inline-block;
+            margin: 0 8px;
+            color: #a1a9b4;
+        }
+
+        /* 学业数据 */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 11px;
+            margin-top: 18px;
+        }
+
+        .stat-item {
+            min-height: 63px;
+            padding: 12px 13px;
+            border: 1px solid var(--line);
+            border-radius: 11px;
+            background: var(--card-inner);
+        }
+
+        .stat-item strong {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            color: #3b4657;
+        }
+
+        .stat-item span {
+            display: block;
+            margin-top: 3px;
+            font-size: 12px;
+            color: #566275;
+        }
+
+        /* 课程标签 */
+        .course-area {
+            margin-top: 17px;
+            padding-top: 16px;
+            border-top: 1px solid var(--line);
+        }
+
+        .course-area h4 {
+            margin-bottom: 9px;
+            font-size: 12px;
+            color: #394557;
+        }
+
+        .course-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .course-tag {
+            padding: 4px 8px;
+            border: 1px solid var(--line);
+            border-radius: 6px;
+            background: #fff;
+            font-size: 10px;
+            color: #586476;
+        }
+
+        /* ===== 荣誉奖励 ===== */
+        .award-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .award-item {
+            min-height: 82px;
+            padding: 14px 16px;
+            border: 1px solid var(--line-dark);
+            border-radius: var(--radius);
+            background: var(--card-bg);
+            transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+        }
+
+        .award-item:hover {
+            background: #fff;
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+
+        .award-item h3 {
+            font-size: 14px;
+            line-height: 1.4;
+            color: var(--text);
+        }
+
+        .award-item p {
+            margin-top: 4px;
+            font-size: 12px;
+            line-height: 1.5;
+            color: var(--muted);
+        }
+
+        /* ===== 页脚 ===== */
+        footer {
+            padding: 21px 0 32px;
+            border-top: 1px solid var(--line);
+            font-size: 10px;
+            text-align: center;
+            color: var(--light-muted);
+        }
+
+        /* ===== 平板 ===== */
+        @media (max-width: 900px) {
+            .main-nav {
+                position: fixed;
+                top: calc(var(--nav-height) + 7px);
+                left: 18px;
+                right: 18px;
+                display: none;
+                padding: 8px;
+                border: 1px solid var(--line-dark);
+                border-radius: 11px;
+                background: #fff;
+                box-shadow: var(--shadow-hover);
+            }
+
+            .main-nav.open {
+                display: block;
+            }
+
+            .nav-list {
+                display: grid;
+            }
+            .nav-link {
+                width: 100%;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .page-layout {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .profile {
+                position: static;
+                display: grid;
+                grid-template-columns: 138px 1fr;
+                gap: 21px;
+                align-items: start;
+            }
+
+            .avatar-wrap {
+                width: 138px;
+                height: 138px;
+                margin: 0;
+            }
+
+            .profile-meta,
+            .profile-actions {
+                grid-column: 2;
+            }
+        }
+
+        /* ===== 手机 ===== */
+        @media (max-width: 650px) {
+            .container {
+                width: min(100% - 26px, var(--page-width));
+            }
+
+            .topbar-inner {
+                gap: 9px;
+            }
+            .brand {
+                font-size: 14px;
+            }
+
+            .page-layout {
+                padding-top: 27px;
+            }
+
+            .profile {
+                grid-template-columns: 90px 1fr;
+                gap: 15px;
+            }
+
+            .avatar-wrap {
+                width: 90px;
+                height: 90px;
+            }
+
+            .profile-name {
+                font-size: 18px;
+            }
+            .profile-role {
+                margin-top: 5px;
+            }
+            .profile-meta,
+            .profile-actions {
+                grid-column: 1 / -1;
+            }
+
+            .section-title {
+                font-size: 19px;
+            }
+
+            .edu-card {
+                padding: 17px;
+            }
+
+            .edu-header {
+                grid-template-columns: 52px 1fr;
+                gap: 11px;
+            }
+
+            .school-logo {
+                width: 50px;
+                height: 50px;
+                border-radius: 11px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .award-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== 超小屏 ===== */
+        @media (max-width: 380px) {
+            .profile {
+                grid-template-columns: 76px 1fr;
+            }
+            .avatar-wrap {
+                width: 76px;
+                height: 76px;
+            }
+
+            .edu-header {
+                grid-template-columns: 1fr;
+            }
+            .divider {
+                display: none;
+            }
+            .school-info p span {
+                display: block;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <!-- 顶部导航 -->
-  <header class="topbar">
-    <div class="container topbar-inner">
+    <!-- ===== 顶部导航 ===== -->
+    <header class="topbar">
+        <div class="container topbar-inner">
+            <a class="brand" href="index.html">王焱杰</a>
 
-      <a class="brand" href="index.html">
-        王焱杰
-      </a>
+            <button class="menu-toggle" id="menuToggle" type="button" aria-label="展开导航菜单" aria-expanded="false">
+                ☰
+            </button>
 
-      <button
-        class="menu-button"
-        id="menuButton"
-        type="button"
-        aria-label="展开导航菜单"
-        aria-expanded="false"
-      >
-        ☰
-      </button>
+            <nav class="main-nav" id="mainNav">
+                <ul class="nav-list">
+                    <li><a class="nav-link" href="index.html"><span class="zh">首页</span><span class="en">Home</span></a></li>
+                    <li><a class="nav-link" href="news.html"><span class="zh">动态</span><span class="en">News</span></a></li>
+                    <li><a class="nav-link active" href="education.html"><span class="zh">教育</span><span class="en">Education</span></a></li>
+                    <li><a class="nav-link" href="publications.html"><span class="zh">论文</span><span class="en">Publications</span></a></li>
+                    <li><a class="nav-link" href="projects.html"><span class="zh">项目</span><span class="en">Projects</span></a></li>
+                    <li><a class="nav-link" href="life.html"><span class="zh">生活</span><span class="en">Life</span></a></li>
+                </ul>
+            </nav>
 
-      <nav class="main-nav" id="mainNav">
-        <ul class="nav-list">
+            <button class="lang-toggle" id="langToggle" type="button" aria-label="切换中英文">EN</button>
+        </div>
+    </header>
 
-          <li>
-            <a class="nav-link" href="index.html">
-              <span class="zh">首页</span>
-              <span class="en">Home</span>
-            </a>
-          </li>
+    <!-- ===== 主体 ===== -->
+    <div class="container page-layout">
 
-          <li>
-            <a class="nav-link" href="news.html">
-              <span class="zh">动态</span>
-              <span class="en">News</span>
-            </a>
-          </li>
+        <!-- 左侧个人信息 -->
+        <aside class="profile">
 
-          <li>
-            <a class="nav-link active" href="education.html">
-              <span class="zh">教育</span>
-              <span class="en">Education</span>
-            </a>
-          </li>
+            <div class="avatar-wrap">
+                <img class="avatar" src="assets/image/avatar.jpg" alt="王焱杰个人照片"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+                <div class="avatar-fallback">WYJ</div>
+            </div>
 
-          <li>
-            <a class="nav-link" href="publications.html">
-              <span class="zh">论文</span>
-              <span class="en">Publications</span>
-            </a>
-          </li>
+            <div class="profile-main">
+                <h1 class="profile-name"><span>Yanjie</span><span>Wang</span></h1>
+                <p class="profile-role">
+                    <span class="zh">机械电子工程专业本科生<br>可穿戴人体感知与运动康复</span>
+                    <span class="en">Undergraduate Student in<br>Mechatronic Engineering</span>
+                </p>
+            </div>
 
-          <li>
-            <a class="nav-link" href="projects.html">
-              <span class="zh">项目</span>
-              <span class="en">Projects</span>
-            </a>
-          </li>
+            <ul class="profile-meta">
+                <li><span class="icon">●</span><span><span class="zh">中国，武汉</span><span class="en">Wuhan, China</span></span></li>
+                <li><span class="icon">●</span><span><span class="zh">武汉体育学院</span><span class="en">Wuhan Sports University</span></span></li>
+                <li><span class="icon">↗</span><a href="https://jackwilliam555.github.io/"><span class="zh">个人主页</span><span class="en">Website</span></a></li>
+                <li><span class="icon">✉</span><a href="mailto:your-email@example.com"><span class="zh">电子邮箱</span><span class="en">Email</span></a></li>
+                <li><span class="icon">●</span><a href="https://github.com/jackwilliam555" target="_blank" rel="noopener">GitHub</a></li>
+            </ul>
 
-          <li>
-            <a class="nav-link" href="life.html">
-              <span class="zh">生活</span>
-              <span class="en">Life</span>
-            </a>
-          </li>
+            <div class="profile-actions">
+                <a class="btn-outline" href="files/CV.pdf" target="_blank" rel="noopener"><span class="zh">个人简历</span><span class="en">CV</span></a>
+                <a class="btn-outline" href="mailto:your-email@example.com"><span class="zh">联系我</span><span class="en">Contact</span></a>
+            </div>
 
-        </ul>
-      </nav>
+        </aside>
 
-      <button
-        class="language-button"
-        id="languageButton"
-        type="button"
-        aria-label="切换中英文"
-      >
-        EN
-      </button>
+        <!-- 右侧内容 -->
+        <main class="content">
+
+            <!-- 教育经历 -->
+            <section class="section">
+
+                <div class="section-heading">
+                    <div class="heading-icon">🎓</div>
+                    <h2 class="section-title"><span class="zh">教育经历</span><span class="en">Education</span></h2>
+                    <div class="heading-line"></div>
+                </div>
+
+                <article class="edu-card">
+
+                    <div class="edu-header">
+
+                        <div class="school-logo">
+                            <img src="assets/wsu-logo.png" alt="武汉体育学院校徽"
+                            onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
+                            <div class="fallback">WSU</div>
+                        </div>
+
+                        <div class="school-info">
+                            <h3><span class="zh">武汉体育学院</span><span class="en">Wuhan Sports University</span></h3>
+                            <p>
+                                <span><span class="zh">机械电子工程专业本科生</span><span class="en">B.Eng. Candidate in Mechatronic Engineering</span></span>
+                                <span class="divider">|</span>
+                                <span>2023.09 - 2027.06</span>
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <strong><span class="zh">平均绩点</span><span class="en">GPA</span></strong>
+                            <span>4.2 / 5.0</span>
+                        </div>
+                        <div class="stat-item">
+                            <strong><span class="zh">专业排名</span><span class="en">Major Ranking</span></strong>
+                            <span>1 / 31</span>
+                        </div>
+                        <div class="stat-item">
+                            <strong><span class="zh">英语水平</span><span class="en">English Proficiency</span></strong>
+                            <span>CET-6</span>
+                        </div>
+                    </div>
+
+                    <div class="course-area">
+                        <h4><span class="zh">主要课程</span><span class="en">Major Coursework</span></h4>
+                        <div class="course-tags">
+                            <span class="course-tag"><span class="zh">机械原理</span><span class="en">Theory of Machines</span></span>
+                            <span class="course-tag"><span class="zh">机械设计</span><span class="en">Machine Design</span></span>
+                            <span class="course-tag"><span class="zh">模拟电子技术</span><span class="en">Analog Electronics</span></span>
+                            <span class="course-tag"><span class="zh">数字电子技术</span><span class="en">Digital Electronics</span></span>
+                            <span class="course-tag"><span class="zh">单片机原理与应用</span><span class="en">Microcontroller Systems</span></span>
+                            <span class="course-tag"><span class="zh">自动控制原理</span><span class="en">Automatic Control</span></span>
+                            <span class="course-tag"><span class="zh">传感器原理</span><span class="en">Sensor Technology</span></span>
+                        </div>
+                    </div>
+
+                </article>
+
+            </section>
+
+            <!-- 荣誉奖励 -->
+            <section class="section">
+
+                <div class="section-heading">
+                    <div class="heading-icon">🏆</div>
+                    <h2 class="section-title"><span class="zh">荣誉奖励</span><span class="en">Honors and Awards</span></h2>
+                    <div class="heading-line"></div>
+                </div>
+
+                <div class="award-grid">
+
+                    <article class="award-item">
+                        <h3><span class="zh">国家级金奖</span><span class="en">National Gold Award</span></h3>
+                        <p><span class="zh">中国国际大学生创新大赛</span><span class="en">China International College Students' Innovation Competition</span></p>
+                    </article>
+
+                    <article class="award-item">
+                        <h3><span class="zh">一等奖学金</span><span class="en">First-Class Scholarship</span></h3>
+                        <p><span class="zh">武汉体育学院</span><span class="en">Wuhan Sports University</span></p>
+                    </article>
+
+                    <article class="award-item">
+                        <h3><span class="zh">三好学生</span><span class="en">Outstanding Student</span></h3>
+                        <p><span class="zh">校级荣誉称号</span><span class="en">University Honor</span></p>
+                    </article>
+
+                    <article class="award-item">
+                        <h3><span class="zh">优秀共青团员</span><span class="en">Outstanding Youth League Member</span></h3>
+                        <p><span class="zh">校级荣誉称号</span><span class="en">University Honor</span></p>
+                    </article>
+
+                </div>
+
+            </section>
+
+        </main>
 
     </div>
-  </header>
 
-  <!-- 页面主体 -->
-  <div class="container page-layout">
-
-    <!-- 左侧个人信息 -->
-    <aside class="profile">
-
-      <div class="avatar-frame">
-
-        <img
-          class="avatar"
-          src="assets/image/avatar.jpg"
-          alt="王焱杰个人照片"
-          onerror="
-            this.style.display='none';
-            this.nextElementSibling.style.display='grid';
-          "
-        >
-
-        <div class="avatar-fallback">
-          WYJ
+    <!-- ===== 页脚 ===== -->
+    <footer>
+        <div class="container">
+            © <span id="year"></span> 王焱杰 · Hosted on GitHub Pages
         </div>
-
-      </div>
-
-      <div class="profile-main">
-
-        <h1 class="profile-name">
-          <span>Yanjie</span>
-          <span>Wang</span>
-        </h1>
-
-        <p class="profile-role">
-
-          <span class="zh">
-            机械电子工程专业本科生<br>
-            可穿戴人体感知与运动康复
-          </span>
-
-          <span class="en">
-            Undergraduate Student in<br>
-            Mechatronic Engineering
-          </span>
-
-        </p>
-
-      </div>
-
-      <ul class="profile-meta">
-
-        <li>
-          <span class="profile-icon">●</span>
-
-          <span>
-            <span class="zh">中国，武汉</span>
-            <span class="en">Wuhan, China</span>
-          </span>
-        </li>
-
-        <li>
-          <span class="profile-icon">●</span>
-
-          <span>
-            <span class="zh">武汉体育学院</span>
-            <span class="en">Wuhan Sports University</span>
-          </span>
-        </li>
-
-        <li>
-          <span class="profile-icon">↗</span>
-
-          <a href="https://jackwilliam555.github.io/">
-            <span class="zh">个人主页</span>
-            <span class="en">Website</span>
-          </a>
-        </li>
-
-        <li>
-          <span class="profile-icon">✉</span>
-
-          <a href="mailto:your-email@example.com">
-            <span class="zh">电子邮箱</span>
-            <span class="en">Email</span>
-          </a>
-        </li>
-
-        <li>
-          <span class="profile-icon">●</span>
-
-          <a
-            href="https://github.com/jackwilliam555"
-            target="_blank"
-            rel="noopener"
-          >
-            GitHub
-          </a>
-        </li>
-
-      </ul>
-
-      <div class="profile-actions">
-
-        <a
-          class="profile-button"
-          href="files/CV.pdf"
-          target="_blank"
-          rel="noopener"
-        >
-          <span class="zh">个人简历</span>
-          <span class="en">CV</span>
-        </a>
-
-        <a
-          class="profile-button"
-          href="mailto:your-email@example.com"
-        >
-          <span class="zh">联系我</span>
-          <span class="en">Contact</span>
-        </a>
-
-      </div>
-
-    </aside>
-
-    <!-- 右侧内容 -->
-    <main class="content">
-
-      <!-- 教育经历 -->
-      <section class="section">
-
-        <div class="section-heading">
-
-          <div class="heading-icon">
-            🎓
-          </div>
-
-          <h2 class="section-title">
-            <span class="zh">教育经历</span>
-            <span class="en">Education</span>
-          </h2>
-
-          <div class="heading-line"></div>
-
-        </div>
-
-        <article class="education-card">
-
-          <div class="education-header">
-
-            <div class="school-logo">
-
-              <img
-                src="assets/wsu-logo.png"
-                alt="武汉体育学院校徽"
-                onerror="
-                  this.style.display='none';
-                  this.nextElementSibling.style.display='grid';
-                "
-              >
-
-              <div class="school-logo-fallback">
-                WSU
-              </div>
-
-            </div>
-
-            <div class="school-information">
-
-              <h3>
-                <span class="zh">武汉体育学院</span>
-                <span class="en">Wuhan Sports University</span>
-              </h3>
-
-              <p>
-
-                <span>
-                  <span class="zh">机械电子工程专业本科生</span>
-                  <span class="en">
-                    B.Eng. Candidate in Mechatronic Engineering
-                  </span>
-                </span>
-
-                <span class="divider">|</span>
-
-                <span>
-                  2023.09 - 2027.06
-                </span>
-
-              </p>
-
-            </div>
-
-          </div>
-
-          <div class="academic-stats">
-
-            <div class="stat-card">
-
-              <strong>
-                <span class="zh">平均绩点</span>
-                <span class="en">GPA</span>
-              </strong>
-
-              <span>4.2 / 5.0</span>
-
-            </div>
-
-            <div class="stat-card">
-
-              <strong>
-                <span class="zh">专业排名</span>
-                <span class="en">Major Ranking</span>
-              </strong>
-
-              <span>1 / 31</span>
-
-            </div>
-
-            <div class="stat-card">
-
-              <strong>
-                <span class="zh">英语水平</span>
-                <span class="en">English Proficiency</span>
-              </strong>
-
-              <span>CET-6</span>
-
-            </div>
-
-          </div>
-
-          <div class="course-area">
-
-            <h4>
-              <span class="zh">主要课程</span>
-              <span class="en">Major Coursework</span>
-            </h4>
-
-            <div class="course-list">
-
-              <span class="course-tag">
-                <span class="zh">机械原理</span>
-                <span class="en">Theory of Machines</span>
-              </span>
-
-              <span class="course-tag">
-                <span class="zh">机械设计</span>
-                <span class="en">Machine Design</span>
-              </span>
-
-              <span class="course-tag">
-                <span class="zh">模拟电子技术</span>
-                <span class="en">Analog Electronics</span>
-              </span>
-
-              <span class="course-tag">
-                <span class="zh">数字电子技术</span>
-                <span class="en">Digital Electronics</span>
-              </span>
-
-              <span class="course-tag">
-                <span class="zh">单片机原理与应用</span>
-                <span class="en">Microcontroller Systems</span>
-              </span>
-
-              <span class="course-tag">
-                <span class="zh">自动控制原理</span>
-                <span class="en">Automatic Control</span>
-              </span>
-
-              <span class="course-tag">
-                <span class="zh">传感器原理</span>
-                <span class="en">Sensor Technology</span>
-              </span>
-
-            </div>
-
-          </div>
-
-        </article>
-
-      </section>
-
-      <!-- 荣誉奖励 -->
-      <section class="section">
-
-        <div class="section-heading">
-
-          <div class="heading-icon">
-            🏆
-          </div>
-
-          <h2 class="section-title">
-            <span class="zh">荣誉奖励</span>
-            <span class="en">Honors and Awards</span>
-          </h2>
-
-          <div class="heading-line"></div>
-
-        </div>
-
-        <div class="award-grid">
-
-          <article class="award-card">
-
-            <h3>
-              <span class="zh">国家级金奖</span>
-              <span class="en">National Gold Award</span>
-            </h3>
-
-            <p>
-              <span class="zh">
-                中国国际大学生创新大赛
-              </span>
-
-              <span class="en">
-                China International College Students'
-                Innovation Competition
-              </span>
-            </p>
-
-          </article>
-
-          <article class="award-card">
-
-            <h3>
-              <span class="zh">一等奖学金</span>
-              <span class="en">First-Class Scholarship</span>
-            </h3>
-
-            <p>
-              <span class="zh">武汉体育学院</span>
-              <span class="en">Wuhan Sports University</span>
-            </p>
-
-          </article>
-
-          <article class="award-card">
-
-            <h3>
-              <span class="zh">三好学生</span>
-              <span class="en">Outstanding Student</span>
-            </h3>
-
-            <p>
-              <span class="zh">校级荣誉称号</span>
-              <span class="en">University Honor</span>
-            </p>
-
-          </article>
-
-          <article class="award-card">
-
-            <h3>
-              <span class="zh">优秀共青团员</span>
-              <span class="en">
-                Outstanding Youth League Member
-              </span>
-            </h3>
-
-            <p>
-              <span class="zh">校级荣誉称号</span>
-              <span class="en">University Honor</span>
-            </p>
-
-          </article>
-
-          <!-- 添加新奖项时，复制一个award-card即可 -->
-
-        </div>
-
-      </section>
-
-    </main>
-
-  </div>
-
-  <footer>
-    <div class="container">
-      © <span id="year"></span> 王焱杰 · Hosted on GitHub Pages
-    </div>
-  </footer>
-
-  <script>
-    const body = document.body;
-
-    const languageButton =
-      document.getElementById("languageButton");
-
-    const menuButton =
-      document.getElementById("menuButton");
-
-    const mainNav =
-      document.getElementById("mainNav");
-
-    /*
-      读取其他页面已经保存的语言设置
-    */
-    const savedLanguage =
-      localStorage.getItem("homepage-language");
-
-    if (savedLanguage === "en") {
-      body.classList.add("lang-en");
-      document.documentElement.lang = "en";
-      languageButton.textContent = "中";
-    }
-
-    /*
-      中英文切换
-    */
-    languageButton.addEventListener(
-      "click",
-      function () {
-        body.classList.toggle("lang-en");
-
-        const isEnglish =
-          body.classList.contains("lang-en");
-
-        document.documentElement.lang =
-          isEnglish ? "en" : "zh-CN";
-
-        languageButton.textContent =
-          isEnglish ? "中" : "EN";
-
-        localStorage.setItem(
-          "homepage-language",
-          isEnglish ? "en" : "zh"
-        );
-      }
-    );
-
-    /*
-      手机端导航菜单
-    */
-    menuButton.addEventListener(
-      "click",
-      function () {
-        const isOpen =
-          mainNav.classList.toggle("open");
-
-        menuButton.setAttribute(
-          "aria-expanded",
-          String(isOpen)
-        );
-
-        menuButton.textContent =
-          isOpen ? "×" : "☰";
-      }
-    );
-
-    /*
-      点击导航后自动关闭菜单
-    */
-    document
-      .querySelectorAll(".nav-link")
-      .forEach(function (link) {
-        link.addEventListener(
-          "click",
-          function () {
-            mainNav.classList.remove("open");
-
-            menuButton.setAttribute(
-              "aria-expanded",
-              "false"
-            );
-
-            menuButton.textContent = "☰";
-          }
-        );
-      });
-
-    /*
-      自动更新年份
-    */
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-  </script>
+    </footer>
+
+    <script>
+        (function() {
+            'use strict';
+
+            const body = document.body;
+            const langToggle = document.getElementById('langToggle');
+            const menuToggle = document.getElementById('menuToggle');
+            const mainNav = document.getElementById('mainNav');
+            const yearSpan = document.getElementById('year');
+
+            // ---------- 语言 ----------
+            const savedLang = localStorage.getItem('homepage-language');
+            if (savedLang === 'en') {
+                body.classList.add('lang-en');
+                document.documentElement.lang = 'en';
+                langToggle.textContent = '中';
+            }
+
+            langToggle.addEventListener('click', function() {
+                const isEn = body.classList.toggle('lang-en');
+                document.documentElement.lang = isEn ? 'en' : 'zh-CN';
+                langToggle.textContent = isEn ? '中' : 'EN';
+                localStorage.setItem('homepage-language', isEn ? 'en' : 'zh');
+            });
+
+            // ---------- 移动端菜单 ----------
+            menuToggle.addEventListener('click', function() {
+                const open = mainNav.classList.toggle('open');
+                menuToggle.setAttribute('aria-expanded', String(open));
+                menuToggle.textContent = open ? '×' : '☰';
+            });
+
+            // 点击导航链接后自动关闭菜单
+            document.querySelectorAll('.nav-link').forEach(function(link) {
+                link.addEventListener('click', function() {
+                    mainNav.classList.remove('open');
+                    menuToggle.setAttribute('aria-expanded', 'false');
+                    menuToggle.textContent = '☰';
+                });
+            });
+
+            // ---------- 自动更新年份 ----------
+            if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+        })();
+    </script>
 
 </body>
 </html>
