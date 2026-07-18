@@ -1,479 +1,95 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="home-section" id="education">
+  <div class="home-title" data-icon="🎓"><span class="lang-en">Education</span><span class="lang-zh">教育经历</span></div>
 
-    <title>王焱杰 | 个人主页</title>
+  <div class="info-card soft">
+    <div class="edu-head">
+      <img class="edu-logo" src="/images/huel-logo.png" alt="Henan University of Economics and Law Logo">
 
-    <meta
-        name="description"
-        content="王焱杰的个人学术主页，展示教育经历、科研项目、竞赛经历和研究兴趣。"
-    >
-
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family:
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                "Microsoft YaHei",
-                Arial,
-                sans-serif;
-            line-height: 1.7;
-            color: #243447;
-            background: #f5f8fc;
-        }
-
-        a {
-            color: #1769aa;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid #dce5ef;
-            backdrop-filter: blur(10px);
-        }
-
-        .nav-container {
-            max-width: 1050px;
-            margin: 0 auto;
-            padding: 14px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-size: 20px;
-            font-weight: 700;
-            color: #17324d;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 24px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #334e68;
-            font-size: 15px;
-            font-weight: 500;
-        }
-
-        .hero {
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(21, 101, 192, 0.95),
-                    rgba(25, 60, 110, 0.96)
-                );
-            color: white;
-            padding: 90px 24px;
-        }
-
-        .hero-container {
-            max-width: 1050px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 170px 1fr;
-            gap: 45px;
-            align-items: center;
-        }
-
-        .avatar {
-            width: 170px;
-            height: 170px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid rgba(255, 255, 255, 0.8);
-            background: #d9e7f5;
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 8px;
-        }
-
-        .hero .english-name {
-            font-size: 21px;
-            opacity: 0.9;
-            margin-bottom: 18px;
-        }
-
-        .hero .summary {
-            max-width: 720px;
-            font-size: 17px;
-            opacity: 0.95;
-        }
-
-        .hero-buttons {
-            margin-top: 26px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 14px;
-        }
-
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: 600;
-        }
-
-        .button-primary {
-            color: #17476f;
-            background: white;
-        }
-
-        .button-secondary {
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.7);
-        }
-
-        main {
-            max-width: 1050px;
-            margin: 0 auto;
-            padding: 55px 24px;
-        }
-
-        section {
-            margin-bottom: 65px;
-            scroll-margin-top: 85px;
-        }
-
-        .section-title {
-            font-size: 28px;
-            color: #17324d;
-            margin-bottom: 25px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #2d78b7;
-        }
-
-        .card {
-            background: white;
-            border: 1px solid #e1e8f0;
-            border-radius: 10px;
-            padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 18px rgba(31, 56, 80, 0.06);
-        }
-
-        .card h3 {
-            color: #1d4f7a;
-            margin-bottom: 8px;
-        }
-
-        .card-meta {
-            color: #718096;
-            font-size: 14px;
-            margin-bottom: 12px;
-        }
-
-        .card ul {
-            padding-left: 20px;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 16px;
-        }
-
-        .tag {
-            padding: 4px 11px;
-            border-radius: 20px;
-            background: #edf5fc;
-            color: #1769aa;
-            font-size: 13px;
-        }
-
-        .two-column {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        footer {
-            background: #17324d;
-            color: #d9e2ec;
-            text-align: center;
-            padding: 30px 20px;
-        }
-
-        footer a {
-            color: white;
-        }
-
-        @media (max-width: 720px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                padding: 60px 20px;
-            }
-
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .avatar {
-                margin: 0 auto;
-            }
-
-            .hero h1 {
-                font-size: 34px;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .two-column {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-
-<body>
-
-<nav>
-    <div class="nav-container">
-        <div class="logo">王焱杰</div>
-
-        <ul class="nav-links">
-            <li><a href="#about">个人简介</a></li>
-            <li><a href="#education">教育经历</a></li>
-            <li><a href="#research">科研项目</a></li>
-            <li><a href="#awards">荣誉奖项</a></li>
-            <li><a href="#contact">联系方式</a></li>
-        </ul>
+      <div>
+        <div class="edu-name"><span class="lang-en">Henan University of Economics and Law</span><span class="lang-zh">河南财经政法大学</span></div>
+        <div class="edu-meta">
+          <span class="lang-en">B.Eng. Candidate in Internet of Things Engineering &nbsp; | &nbsp; Sep. 2023 - Jun. 2027</span>
+          <span class="lang-zh">物联网工程专业本科生 &nbsp; | &nbsp; 2023.09 - 2027.06</span>
+        </div>
+      </div>
     </div>
-</nav>
 
-<header class="hero">
-    <div class="hero-container">
+    <div class="edu-grid">
+      <div class="edu-item">
+        <strong>GPA</strong><br>
+        3.90
+      </div>
 
-        <!-- 将照片上传为 assets/avatar.jpg -->
-        <img
-            class="avatar"
-            src="assets/avatar.jpg"
-            alt="王焱杰个人照片"
-        >
+      <div class="edu-item">
+        <strong><span class="lang-en">Ranking</span><span class="lang-zh">专业排名</span></strong><br>
+        1 / 40
+      </div>
 
-        <div>
-            <h1>王焱杰</h1>
-            <div class="english-name">Yanjie Wang</div>
-
-            <p class="summary">
-                机械电子工程专业本科生，研究兴趣包括柔性可穿戴设备、
-                人体运动感知、智能康复器械和生理信号监测。
-                本科期间围绕康复器材设计、多节点惯性动作捕捉和运动状态下的
-                PPG心率监测开展科研训练。
-            </p>
-
-            <div class="hero-buttons">
-                <a class="button button-primary"
-                   href="files/CV.pdf"
-                   target="_blank">
-                    查看个人简历
-                </a>
-
-                <a class="button button-secondary"
-                   href="https://github.com/你的GitHub用户名"
-                   target="_blank">
-                    GitHub
-                </a>
-            </div>
-        </div>
-
+      <div class="edu-item">
+        <strong><span class="lang-en">English</span><span class="lang-zh">英语水平</span></strong><br>
+        CET-4: 505
+      </div>
     </div>
-</header>
+  </div>
 
-<main>
+  <div class="home-title sub-title" data-icon="🏆"><span class="lang-en">Honors & Awards</span><span class="lang-zh">荣誉奖励</span></div>
 
-    <section id="about">
-        <h2 class="section-title">个人简介</h2>
+  <div class="award-grid">
+    <div class="award-card">
+      <div class="award-name"><span class="lang-en">National Second Prize</span><span class="lang-zh">国家级二等奖</span></div>
+      <div class="award-meta">
+        <span class="lang-en">China Collegiate Computing Design Competition</span><span class="lang-zh">中国大学生计算机设计大赛</span>
+      </div>
+    </div>
 
-        <div class="card">
-            <p>
-                我目前就读于武汉体育学院机械电子工程专业，
-                专业排名第一，已通过大学英语六级。
-                我的研究主要关注工程技术与人体健康的交叉应用，
-                希望通过传感器、嵌入式系统和信号处理方法，
-                实现人体运动状态与生理状态的准确感知。
-            </p>
+    <div class="award-card">
+      <div class="award-name"><span class="lang-en">Provincial First Prize</span><span class="lang-zh">省级一等奖</span></div>
+      <div class="award-meta">
+        <span class="lang-en">China Collegiate Computing Design Competition</span><span class="lang-zh">中国大学生计算机设计大赛</span>
+      </div>
+    </div>
 
-            <div class="tags">
-                <span class="tag">可穿戴设备</span>
-                <span class="tag">运动康复</span>
-                <span class="tag">嵌入式系统</span>
-                <span class="tag">生理信号处理</span>
-                <span class="tag">人体运动感知</span>
-            </div>
-        </div>
-    </section>
+    <div class="award-card">
+      <div class="award-name"><span class="lang-en">First Prize</span><span class="lang-zh">一等奖</span></div>
+      <div class="award-meta">
+        <span class="lang-en">Henan Provincial IoT Design Competition</span><span class="lang-zh">河南省物联网设计大赛</span>
+      </div>
+    </div>
 
-    <section id="education">
-        <h2 class="section-title">教育经历</h2>
+    <div class="award-card">
+      <div class="award-name"><span class="lang-en">Provincial Second Prize</span><span class="lang-zh">省级二等奖</span></div>
+      <div class="award-meta">
+        <span class="lang-en">Challenge Cup National College Students' Extracurricular Academic Science and Technology Works Competition</span><span class="lang-zh">“挑战杯”全国大学生课外学术科技作品竞赛</span>
+      </div>
+    </div>
 
-        <div class="card">
-            <h3>武汉体育学院</h3>
-            <div class="card-meta">
-                机械电子工程 · 本科 · 2023—2027
-            </div>
+    <div class="award-card">
+      <div class="award-name"><span class="lang-en">Provincial Second Prize</span><span class="lang-zh">省级二等奖</span></div>
+      <div class="award-meta">
+        <span class="lang-en">China Undergraduate Mathematical Contest in Modeling</span><span class="lang-zh">全国大学生数学建模竞赛</span>
+      </div>
+    </div>
 
-            <ul>
-                <li>专业排名：1/31</li>
-                <li>英语水平：CET-6</li>
-                <li>主要课程：机械原理、机械设计、模拟电子技术、单片机原理等</li>
-            </ul>
-        </div>
-    </section>
+    <div class="award-card">
+      <div class="award-name"><span class="lang-en">Provincial Second Prize</span><span class="lang-zh">省级二等奖</span></div>
+      <div class="award-meta">
+        <span class="lang-en">Lanqiao Cup National Software and Information Technology Competition</span><span class="lang-zh">蓝桥杯全国大学生软件和信息技术大赛</span>
+      </div>
+    </div>
 
-    <section id="research">
-        <h2 class="section-title">科研与项目经历</h2>
+    <div class="award-card">
+      <div class="award-name"><span class="lang-en">Provincial Third Prize</span><span class="lang-zh">省级三等奖</span></div>
+      <div class="award-meta">
+        <span class="lang-en">National 3D Digital Innovation Design Competition</span><span class="lang-zh">全国三维数字化创新设计大赛</span>
+      </div>
+    </div>
 
-        <div class="card">
-            <h3>运动状态下的PPG心率监测研究</h3>
-            <div class="card-meta">
-                生理信号采集 · 信号处理 · 嵌入式实现
-            </div>
-
-            <p>
-                基于PPG光电容积脉搏波信号开展心率估计研究，
-                使用三轴加速度信号识别运动状态和运动伪影，
-                并探索适用于STM32等嵌入式平台的轻量化心率跟踪算法。
-            </p>
-
-            <div class="tags">
-                <span class="tag">PPG</span>
-                <span class="tag">ACC</span>
-                <span class="tag">STM32</span>
-                <span class="tag">Python</span>
-                <span class="tag">MATLAB</span>
-            </div>
-        </div>
-
-        <div class="card">
-            <h3>多节点无线惯性动作捕捉系统</h3>
-            <div class="card-meta">
-                传感器硬件 · 姿态解算 · 无线通信
-            </div>
-
-            <p>
-                参与多节点人体运动数据采集终端的设计，
-                负责传感器节点原理图设计、PCB设计、嵌入式程序开发与系统调试，
-                利用惯性测量单元完成姿态数据采集和四元数姿态解算。
-            </p>
-
-            <div class="tags">
-                <span class="tag">IMU</span>
-                <span class="tag">ICM20948</span>
-                <span class="tag">PCB</span>
-                <span class="tag">姿态解算</span>
-                <span class="tag">无线通信</span>
-            </div>
-        </div>
-
-        <div class="card">
-            <h3>孤独症儿童运动康复训练器械设计</h3>
-            <div class="card-meta">
-                机械结构设计 · 轨迹分析 · 康复工程
-            </div>
-
-            <p>
-                参与面向孤独症儿童的运动训练器械设计，
-                采用可调偏心机构与圆柱凸轮机构模拟训练过程中的空间运动轨迹，
-                并完成三维建模、装配设计和运动轨迹分析。
-            </p>
-
-            <div class="tags">
-                <span class="tag">SolidWorks</span>
-                <span class="tag">机构设计</span>
-                <span class="tag">轨迹分析</span>
-                <span class="tag">康复工程</span>
-            </div>
-        </div>
-    </section>
-
-    <section id="awards">
-        <h2 class="section-title">荣誉与竞赛</h2>
-
-        <div class="two-column">
-            <div class="card">
-                <h3>中国国际大学生创新大赛</h3>
-                <p>国家级金奖</p>
-            </div>
-
-            <div class="card">
-                <h3>校级荣誉</h3>
-                <p>一等奖学金、三好学生、优秀共青团员等</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2 class="section-title">联系方式</h2>
-
-        <div class="card">
-            <p>
-                <strong>邮箱：</strong>
-                <a href="mailto:your-email@example.com">
-                    your-email@example.com
-                </a>
-            </p>
-
-            <p>
-                <strong>GitHub：</strong>
-                <a
-                    href="https://github.com/你的GitHub用户名"
-                    target="_blank"
-                >
-                    github.com/你的GitHub用户名
-                </a>
-            </p>
-
-            <p>
-                <strong>研究兴趣：</strong>
-                柔性可穿戴设备、智能康复仪器、人体运动评估与健康监测
-            </p>
-        </div>
-    </section>
-
-</main>
-
-<footer>
-    <p>
-        © 2026 王焱杰 · Hosted on
-        <a href="https://pages.github.com/" target="_blank">
-            GitHub Pages
-        </a>
-    </p>
-</footer>
-
-</body>
-</html>
+    <div class="award-card">
+      <div class="award-name"><span class="lang-en">University Honors</span><span class="lang-zh">校级荣誉</span></div>
+      <div class="award-meta">
+        <span class="lang-en">Merit Student<br>First-Class Scholarship<br>National Encouragement Scholarship</span>
+        <span class="lang-zh">三好学生<br>一等奖学金<br>国家励志奖学金</span>
+      </div>
+    </div>
+  </div>
+</div>
