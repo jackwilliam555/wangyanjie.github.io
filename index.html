@@ -1,95 +1,1827 @@
-<div class="home-section" id="education">
-  <div class="home-title" data-icon="🎓"><span class="lang-en">Education</span><span class="lang-zh">教育经历</span></div>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
 
-  <div class="info-card soft">
-    <div class="edu-head">
-      <img class="edu-logo" src="/images/huel-logo.png" alt="Henan University of Economics and Law Logo">
+  <!-- 适配电脑、平板和手机 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <div>
-        <div class="edu-name"><span class="lang-en">Henan University of Economics and Law</span><span class="lang-zh">河南财经政法大学</span></div>
-        <div class="edu-meta">
-          <span class="lang-en">B.Eng. Candidate in Internet of Things Engineering &nbsp; | &nbsp; Sep. 2023 - Jun. 2027</span>
-          <span class="lang-zh">物联网工程专业本科生 &nbsp; | &nbsp; 2023.09 - 2027.06</span>
+  <meta
+    name="description"
+    content="王焱杰的个人学术主页，研究方向包括可穿戴人体感知、智能运动康复、嵌入式系统与生理信号处理。"
+  >
+
+  <title>王焱杰 | 个人主页</title>
+
+  <style>
+    :root {
+      --page-width: 1160px;
+      --sidebar-width: 230px;
+      --nav-height: 64px;
+
+      --background: #ffffff;
+      --card-background: #fbfbfc;
+      --text: #182230;
+      --muted: #657181;
+      --light-muted: #8b96a5;
+      --line: #e7eaf0;
+      --line-dark: #dce1e8;
+      --blue: #274f87;
+      --blue-dark: #1d3e6b;
+      --blue-soft: #eef4fb;
+      --green-soft: #edf8f2;
+      --red-soft: #fff1f1;
+
+      --shadow: 0 8px 22px rgba(35, 50, 70, 0.055);
+      --shadow-hover: 0 14px 32px rgba(35, 50, 70, 0.09);
+    }
+
+    /* ==============================
+       全局样式
+    ============================== */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--nav-height) + 22px);
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--text);
+      background: var(--background);
+      font-family:
+        Inter,
+        "Microsoft YaHei",
+        "PingFang SC",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.lang-en .zh {
+      display: none !important;
+    }
+
+    body:not(.lang-en) .en {
+      display: none !important;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(var(--page-width), calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    /* ==============================
+       顶部导航栏
+    ============================== */
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      min-height: var(--nav-height);
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .topbar-inner {
+      min-height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .brand {
+      flex: 0 0 auto;
+      color: #172235;
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .main-nav {
+      flex: 1;
+    }
+
+    .nav-list {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      list-style: none;
+    }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 7px 12px;
+      color: #4f5b6c;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      transition:
+        color 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--blue);
+      background: var(--blue-soft);
+    }
+
+    .language-button {
+      flex: 0 0 auto;
+      min-width: 42px;
+      height: 28px;
+      padding: 0 11px;
+      color: #40506a;
+      background: #ffffff;
+      border: 1px solid var(--line-dark);
+      border-radius: 999px;
+      box-shadow: 0 2px 7px rgba(40, 55, 75, 0.05);
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .language-button:hover {
+      color: var(--blue);
+      border-color: #b9c7d9;
+    }
+
+    .menu-button {
+      display: none;
+      width: 38px;
+      height: 38px;
+      margin-left: auto;
+      color: var(--text);
+      background: #ffffff;
+      border: 1px solid var(--line-dark);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    /* ==============================
+       页面整体布局
+    ============================== */
+
+    .page-layout {
+      display: grid;
+      grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+      gap: 54px;
+      align-items: start;
+      padding: 42px 0 68px;
+    }
+
+    /* ==============================
+       左侧个人资料
+    ============================== */
+
+    .profile {
+      position: sticky;
+      top: calc(var(--nav-height) + 24px);
+    }
+
+    .avatar-frame {
+      width: 164px;
+      height: 164px;
+      margin-bottom: 18px;
+      padding: 5px;
+      overflow: hidden;
+      background: #ffffff;
+      border: 1px solid var(--line-dark);
+      border-radius: 50%;
+      box-shadow: 0 4px 14px rgba(35, 50, 70, 0.07);
+    }
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+      border-radius: 50%;
+    }
+
+    .avatar-fallback {
+      width: 100%;
+      height: 100%;
+      display: none;
+      place-items: center;
+      color: var(--blue);
+      background: linear-gradient(145deg, #eff5fc, #f9fbfd);
+      border-radius: 50%;
+      font-size: 36px;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+    }
+
+    .profile-name {
+      margin-bottom: 5px;
+      color: #1d2939;
+      font-size: 22px;
+      line-height: 1.08;
+    }
+
+    .profile-name span {
+      display: block;
+    }
+
+    .profile-role {
+      margin-top: 10px;
+      color: #4c596b;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .profile-meta {
+      display: grid;
+      gap: 10px;
+      margin-top: 22px;
+      list-style: none;
+    }
+
+    .profile-meta li {
+      display: grid;
+      grid-template-columns: 18px minmax(0, 1fr);
+      gap: 7px;
+      align-items: start;
+      color: #536071;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .profile-meta .icon {
+      color: #172235;
+      text-align: center;
+    }
+
+    .profile-meta a {
+      overflow-wrap: anywhere;
+    }
+
+    .profile-meta a:hover {
+      color: var(--blue);
+    }
+
+    .profile-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .profile-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 33px;
+      padding: 6px 11px;
+      color: var(--blue);
+      background: #ffffff;
+      border: 1px solid #ccd7e5;
+      border-radius: 7px;
+      font-size: 11px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .profile-button:hover {
+      color: #ffffff;
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    /* ==============================
+       右侧主要内容
+    ============================== */
+
+    .content {
+      min-width: 0;
+    }
+
+    /* 个人介绍 */
+
+    .introduction {
+      padding: 8px 0 10px;
+    }
+
+    .introduction h1 {
+      color: #172235;
+      font-size: clamp(28px, 4vw, 36px);
+      line-height: 1.25;
+      letter-spacing: -0.025em;
+    }
+
+    .intro-subtitle {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .intro-copy {
+      max-width: 790px;
+      margin-top: 19px;
+      color: #465365;
+    }
+
+    .intro-copy p + p {
+      margin-top: 11px;
+    }
+
+    .highlight-text {
+      color: var(--blue);
+      font-weight: 700;
+    }
+
+    .intro-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 20px;
+    }
+
+    .primary-button,
+    .secondary-button {
+      min-height: 37px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 7px 13px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .primary-button {
+      color: #ffffff;
+      background: var(--blue);
+      border: 1px solid var(--blue);
+    }
+
+    .primary-button:hover {
+      background: var(--blue-dark);
+      border-color: var(--blue-dark);
+    }
+
+    .secondary-button {
+      color: var(--blue);
+      background: #ffffff;
+      border: 1px solid #ccd7e5;
+    }
+
+    .secondary-button:hover {
+      color: #ffffff;
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    /* ==============================
+       分区标题
+    ============================== */
+
+    .section {
+      margin-top: 34px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .heading-icon {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      background: #fafafa;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      box-shadow: 0 3px 9px rgba(40, 55, 75, 0.04);
+      font-size: 16px;
+    }
+
+    .section-title {
+      flex: 0 0 auto;
+      color: #172235;
+      font-size: 22px;
+      line-height: 1.25;
+    }
+
+    .heading-line {
+      height: 1px;
+      flex: 1;
+      background: var(--line);
+    }
+
+    .more-link {
+      flex: 0 0 auto;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .more-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ==============================
+       研究兴趣
+    ============================== */
+
+    .interest-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 13px;
+    }
+
+    .interest-card {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 13px;
+      align-items: start;
+      padding: 16px 17px;
+      background: var(--card-background);
+      border: 1px solid var(--line-dark);
+      border-radius: 15px;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .interest-card:hover {
+      background: #ffffff;
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+
+    .interest-icon {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      color: var(--blue);
+      background: var(--blue-soft);
+      border-radius: 11px;
+      font-size: 18px;
+    }
+
+    .interest-card h3 {
+      color: #172235;
+      font-size: 14px;
+    }
+
+    .interest-card p {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    /* ==============================
+       最新动态
+    ============================== */
+
+    .news-list {
+      display: grid;
+      gap: 11px;
+    }
+
+    .news-card {
+      display: grid;
+      grid-template-columns: 88px minmax(0, 1fr);
+      gap: 16px;
+      padding: 15px 18px;
+      background: var(--card-background);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      transition: 0.2s ease;
+    }
+
+    .news-card:hover {
+      background: #ffffff;
+      box-shadow: var(--shadow);
+      transform: translateY(-1px);
+    }
+
+    .news-date {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .news-text {
+      color: #4d5969;
+      font-size: 13px;
+    }
+
+    .news-label {
+      display: inline-block;
+      margin-right: 6px;
+      padding: 1px 7px;
+      color: var(--blue);
+      background: var(--blue-soft);
+      border-radius: 999px;
+      font-size: 9px;
+      font-weight: 800;
+      vertical-align: 1px;
+    }
+
+    /* ==============================
+       代表项目摘要
+    ============================== */
+
+    .project-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: 155px minmax(0, 1fr);
+      gap: 19px;
+      padding: 17px;
+      background: var(--card-background);
+      border: 1px solid var(--line-dark);
+      border-radius: 16px;
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .project-card:hover {
+      background: #ffffff;
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+
+    .project-image-wrap {
+      position: relative;
+      width: 100%;
+      height: 104px;
+      overflow: hidden;
+      background: #f3f6f9;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+    }
+
+    .project-image {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 104px;
+      object-fit: cover;
+    }
+
+    .project-placeholder {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: var(--blue);
+      background:
+        linear-gradient(135deg, rgba(39, 79, 135, 0.08), transparent),
+        #f6f8fb;
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .project-main h3 {
+      color: #172235;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .project-meta {
+      margin-top: 3px;
+      color: var(--light-muted);
+      font-size: 10px;
+    }
+
+    .project-description {
+      margin-top: 7px;
+      color: #526071;
+      font-size: 12px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 9px;
+    }
+
+    .project-tag {
+      padding: 2px 7px;
+      color: var(--blue);
+      background: var(--blue-soft);
+      border-radius: 999px;
+      font-size: 9px;
+      font-weight: 700;
+    }
+
+    .project-detail-link {
+      display: inline-block;
+      margin-top: 9px;
+      color: var(--blue);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .project-detail-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ==============================
+       简要教育信息
+    ============================== */
+
+    .education-summary {
+      padding: 20px 22px;
+      background: var(--card-background);
+      border: 1px solid var(--line-dark);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .education-summary-top {
+      display: grid;
+      grid-template-columns: 60px minmax(0, 1fr);
+      gap: 15px;
+      align-items: center;
+    }
+
+    .school-logo {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      color: var(--blue);
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .school-logo img {
+      width: 100%;
+      height: 100%;
+      padding: 6px;
+      object-fit: contain;
+    }
+
+    .school-logo-fallback {
+      display: none;
+      place-items: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    .education-summary h3 {
+      color: #172235;
+      font-size: 16px;
+    }
+
+    .education-summary p {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .education-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 11px;
+      margin-top: 17px;
+    }
+
+    .education-stat {
+      padding: 11px 12px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+
+    .education-stat strong {
+      display: block;
+      color: #344054;
+      font-size: 12px;
+    }
+
+    .education-stat span {
+      display: block;
+      margin-top: 2px;
+      color: #526071;
+      font-size: 11px;
+    }
+
+    /* ==============================
+       页脚
+    ============================== */
+
+    footer {
+      padding: 22px 0 34px;
+      color: #8b96a5;
+      border-top: 1px solid var(--line);
+      font-size: 11px;
+      text-align: center;
+    }
+
+    /* ==============================
+       平板适配
+    ============================== */
+
+    @media (max-width: 900px) {
+      .main-nav {
+        position: fixed;
+        top: calc(var(--nav-height) + 8px);
+        left: 18px;
+        right: 18px;
+        display: none;
+        padding: 8px;
+        background: #ffffff;
+        border: 1px solid var(--line-dark);
+        border-radius: 12px;
+        box-shadow: var(--shadow-hover);
+      }
+
+      .main-nav.open {
+        display: block;
+      }
+
+      .nav-list {
+        display: grid;
+      }
+
+      .nav-link {
+        width: 100%;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .page-layout {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      .profile {
+        position: static;
+        display: grid;
+        grid-template-columns: 140px minmax(0, 1fr);
+        gap: 22px;
+        align-items: start;
+      }
+
+      .avatar-frame {
+        width: 140px;
+        height: 140px;
+        margin: 0;
+      }
+
+      .profile-meta,
+      .profile-buttons {
+        grid-column: 2;
+      }
+    }
+
+    /* ==============================
+       手机适配
+    ============================== */
+
+    @media (max-width: 650px) {
+      .container {
+        width: min(100% - 26px, var(--page-width));
+      }
+
+      .topbar-inner {
+        gap: 10px;
+      }
+
+      .brand {
+        font-size: 14px;
+      }
+
+      .page-layout {
+        padding-top: 28px;
+      }
+
+      .profile {
+        grid-template-columns: 92px minmax(0, 1fr);
+        gap: 16px;
+      }
+
+      .avatar-frame {
+        width: 92px;
+        height: 92px;
+      }
+
+      .profile-name {
+        font-size: 18px;
+      }
+
+      .profile-role {
+        margin-top: 5px;
+      }
+
+      .profile-meta,
+      .profile-buttons {
+        grid-column: 1 / -1;
+      }
+
+      .interest-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .news-card {
+        grid-template-columns: 1fr;
+        gap: 3px;
+      }
+
+      .project-card {
+        grid-template-columns: 1fr;
+      }
+
+      .project-image-wrap {
+        width: 100%;
+        max-width: 320px;
+        height: 150px;
+      }
+
+      .project-image {
+        height: 150px;
+      }
+
+      .education-stat-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 19px;
+      }
+
+      .heading-icon {
+        width: 33px;
+        height: 33px;
+      }
+
+      .more-link {
+        display: none;
+      }
+    }
+
+    /* ==============================
+       小尺寸手机适配
+    ============================== */
+
+    @media (max-width: 380px) {
+      .language-button {
+        padding: 0 8px;
+      }
+
+      .profile {
+        grid-template-columns: 78px minmax(0, 1fr);
+      }
+
+      .avatar-frame {
+        width: 78px;
+        height: 78px;
+      }
+
+      .introduction h1 {
+        font-size: 25px;
+      }
+
+      .education-summary-top {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ==============================
+       顶部导航栏
+  ============================== -->
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+
+      <a class="brand" href="index.html">王焱杰</a>
+
+      <button
+        class="menu-button"
+        id="menuButton"
+        type="button"
+        aria-label="展开导航菜单"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+      <nav class="main-nav" id="mainNav">
+        <ul class="nav-list">
+
+          <li>
+            <a class="nav-link active" href="index.html">
+              <span class="zh">首页</span>
+              <span class="en">Home</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="nav-link" href="news.html">
+              <span class="zh">动态</span>
+              <span class="en">News</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="nav-link" href="education.html">
+              <span class="zh">教育</span>
+              <span class="en">Education</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="nav-link" href="publications.html">
+              <span class="zh">论文</span>
+              <span class="en">Publications</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="nav-link" href="projects.html">
+              <span class="zh">项目</span>
+              <span class="en">Projects</span>
+            </a>
+          </li>
+
+          <li>
+            <a class="nav-link" href="life.html">
+              <span class="zh">生活</span>
+              <span class="en">Life</span>
+            </a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <button
+        class="language-button"
+        id="languageButton"
+        type="button"
+        aria-label="切换中英文"
+      >
+        EN
+      </button>
+
+    </div>
+  </header>
+
+  <!-- ==============================
+       页面主体
+  ============================== -->
+
+  <div class="container page-layout">
+
+    <!-- 左侧个人资料 -->
+    <aside class="profile">
+
+      <div class="avatar-frame">
+
+        <img
+          class="avatar"
+          src="assets/avatar.jpg"
+          alt="王焱杰个人照片"
+          onerror="
+            this.style.display='none';
+            this.nextElementSibling.style.display='grid';
+          "
+        >
+
+        <div class="avatar-fallback">WYJ</div>
+
+      </div>
+
+      <div class="profile-main">
+
+        <h1 class="profile-name">
+          <span>Yanjie</span>
+          <span>Wang</span>
+        </h1>
+
+        <p class="profile-role">
+
+          <span class="zh">
+            机械电子工程专业本科生<br>
+            可穿戴人体感知与运动康复
+          </span>
+
+          <span class="en">
+            Undergraduate Student in<br>
+            Mechatronic Engineering
+          </span>
+
+        </p>
+
+      </div>
+
+      <ul class="profile-meta">
+
+        <li>
+          <span class="icon">●</span>
+
+          <span>
+            <span class="zh">中国，武汉</span>
+            <span class="en">Wuhan, China</span>
+          </span>
+        </li>
+
+        <li>
+          <span class="icon">●</span>
+
+          <span>
+            <span class="zh">武汉体育学院</span>
+            <span class="en">Wuhan Sports University</span>
+          </span>
+        </li>
+
+        <li>
+          <span class="icon">↗</span>
+
+          <a href="https://jackwilliam555.github.io/">
+            <span class="zh">个人主页</span>
+            <span class="en">Website</span>
+          </a>
+        </li>
+
+        <li>
+          <span class="icon">✉</span>
+
+          <a href="mailto:your-email@example.com">
+            <span class="zh">电子邮箱</span>
+            <span class="en">Email</span>
+          </a>
+        </li>
+
+        <li>
+          <span class="icon">●</span>
+
+          <a
+            href="https://github.com/jackwilliam555"
+            target="_blank"
+            rel="noopener"
+          >
+            GitHub
+          </a>
+        </li>
+
+      </ul>
+
+      <div class="profile-buttons">
+
+        <a
+          class="profile-button"
+          href="files/CV.pdf"
+          target="_blank"
+          rel="noopener"
+        >
+          <span class="zh">个人简历</span>
+          <span class="en">CV</span>
+        </a>
+
+        <a
+          class="profile-button"
+          href="mailto:your-email@example.com"
+        >
+          <span class="zh">联系我</span>
+          <span class="en">Contact</span>
+        </a>
+
+      </div>
+
+    </aside>
+
+    <!-- 右侧内容 -->
+    <main class="content">
+
+      <!-- 个人介绍 -->
+      <section class="introduction">
+
+        <h1>
+          <span class="zh">你好，我是王焱杰</span>
+          <span class="en">Hello, I am Yanjie Wang</span>
+        </h1>
+
+        <p class="intro-subtitle">
+
+          <span class="zh">
+            机械电子工程 · 可穿戴人体感知 · 智能运动康复
+          </span>
+
+          <span class="en">
+            Mechatronic Engineering · Wearable Sensing · Rehabilitation
+          </span>
+
+        </p>
+
+        <div class="intro-copy zh">
+
+          <p>
+            我目前就读于
+            <span class="highlight-text">武汉体育学院机械电子工程专业</span>，
+            专业排名第一，已通过大学英语六级。
+          </p>
+
+          <p>
+            本科期间，我主要围绕运动康复器材设计、人体运动感知与生理信号监测
+            开展科研训练，参与了孤独症儿童运动训练器械、多节点无线惯性动作捕捉系统，
+            以及运动状态下的PPG心率监测等项目。
+          </p>
+
+          <p>
+            我的研究兴趣包括
+            <span class="highlight-text">柔性可穿戴设备、智能康复仪器、人体姿态评估、嵌入式系统与生理信号处理</span>。
+            希望通过机械结构、电子硬件与算法的融合，为运动康复和人体健康监测提供
+            可靠、轻量且能够实际部署的技术方案。
+          </p>
+
         </div>
-      </div>
-    </div>
 
-    <div class="edu-grid">
-      <div class="edu-item">
-        <strong>GPA</strong><br>
-        3.90
-      </div>
+        <div class="intro-copy en">
 
-      <div class="edu-item">
-        <strong><span class="lang-en">Ranking</span><span class="lang-zh">专业排名</span></strong><br>
-        1 / 40
-      </div>
+          <p>
+            I am an undergraduate student majoring in
+            <span class="highlight-text">Mechatronic Engineering at Wuhan Sports University</span>.
+            I currently rank first in my major and have passed CET-6.
+          </p>
 
-      <div class="edu-item">
-        <strong><span class="lang-en">English</span><span class="lang-zh">英语水平</span></strong><br>
-        CET-4: 505
-      </div>
-    </div>
+          <p>
+            My undergraduate research focuses on sports rehabilitation devices,
+            human motion sensing, and physiological signal monitoring.
+          </p>
+
+          <p>
+            My research interests include wearable devices, intelligent
+            rehabilitation systems, human posture assessment, embedded systems,
+            and physiological signal processing.
+          </p>
+
+        </div>
+
+        <div class="intro-actions">
+
+          <a class="primary-button" href="projects.html">
+            <span class="zh">查看项目</span>
+            <span class="en">View Projects</span>
+            <span>→</span>
+          </a>
+
+          <a
+            class="secondary-button"
+            href="files/CV.pdf"
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="zh">查看简历</span>
+            <span class="en">View CV</span>
+          </a>
+
+          <a
+            class="secondary-button"
+            href="https://github.com/jackwilliam555"
+            target="_blank"
+            rel="noopener"
+          >
+            GitHub
+          </a>
+
+        </div>
+
+      </section>
+
+      <!-- 研究兴趣 -->
+      <section class="section">
+
+        <div class="section-heading">
+
+          <div class="heading-icon">🔬</div>
+
+          <h2 class="section-title">
+            <span class="zh">研究兴趣</span>
+            <span class="en">Research Interests</span>
+          </h2>
+
+          <div class="heading-line"></div>
+
+        </div>
+
+        <div class="interest-grid">
+
+          <article class="interest-card">
+
+            <div class="interest-icon">⌚</div>
+
+            <div>
+              <h3>
+                <span class="zh">可穿戴人体感知</span>
+                <span class="en">Wearable Human Sensing</span>
+              </h3>
+
+              <p>
+                <span class="zh">
+                  利用IMU、PPG等传感器采集人体运动与生理信息。
+                </span>
+
+                <span class="en">
+                  Human motion and physiological sensing using IMU and PPG sensors.
+                </span>
+              </p>
+            </div>
+
+          </article>
+
+          <article class="interest-card">
+
+            <div class="interest-icon">🦾</div>
+
+            <div>
+              <h3>
+                <span class="zh">智能运动康复</span>
+                <span class="en">Intelligent Rehabilitation</span>
+              </h3>
+
+              <p>
+                <span class="zh">
+                  面向康复训练的机械结构、人机交互与个体化训练评估。
+                </span>
+
+                <span class="en">
+                  Mechanism design and personalized assessment for rehabilitation.
+                </span>
+              </p>
+            </div>
+
+          </article>
+
+          <article class="interest-card">
+
+            <div class="interest-icon">〽</div>
+
+            <div>
+              <h3>
+                <span class="zh">生理信号处理</span>
+                <span class="en">Physiological Signal Processing</span>
+              </h3>
+
+              <p>
+                <span class="zh">
+                  研究PPG运动伪影识别、心率估计与轻量化算法部署。
+                </span>
+
+                <span class="en">
+                  PPG motion artifact handling and lightweight heart-rate estimation.
+                </span>
+              </p>
+            </div>
+
+          </article>
+
+          <article class="interest-card">
+
+            <div class="interest-icon">⬡</div>
+
+            <div>
+              <h3>
+                <span class="zh">人体姿态评估</span>
+                <span class="en">Human Posture Assessment</span>
+              </h3>
+
+              <p>
+                <span class="zh">
+                  基于惯性传感器实现姿态解算、动作重构与运动质量分析。
+                </span>
+
+                <span class="en">
+                  Attitude estimation, motion reconstruction, and movement assessment.
+                </span>
+              </p>
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+      <!-- 教育经历摘要 -->
+      <section class="section">
+
+        <div class="section-heading">
+
+          <div class="heading-icon">🎓</div>
+
+          <h2 class="section-title">
+            <span class="zh">教育经历</span>
+            <span class="en">Education</span>
+          </h2>
+
+          <div class="heading-line"></div>
+
+          <a class="more-link" href="education.html">
+            <span class="zh">查看详情 →</span>
+            <span class="en">View More →</span>
+          </a>
+
+        </div>
+
+        <article class="education-summary">
+
+          <div class="education-summary-top">
+
+            <div class="school-logo">
+
+              <img
+                src="assets/wsu-logo.png"
+                alt="武汉体育学院校徽"
+                onerror="
+                  this.style.display='none';
+                  this.nextElementSibling.style.display='grid';
+                "
+              >
+
+              <div class="school-logo-fallback">WSU</div>
+
+            </div>
+
+            <div>
+              <h3>
+                <span class="zh">武汉体育学院</span>
+                <span class="en">Wuhan Sports University</span>
+              </h3>
+
+              <p>
+                <span class="zh">
+                  机械电子工程专业本科生　|　2023.09 - 2027.06
+                </span>
+
+                <span class="en">
+                  B.Eng. Candidate in Mechatronic Engineering |
+                  Sep. 2023 - Jun. 2027
+                </span>
+              </p>
+            </div>
+
+          </div>
+
+          <div class="education-stat-grid">
+
+            <div class="education-stat">
+              <strong>
+                <span class="zh">专业排名</span>
+                <span class="en">Ranking</span>
+              </strong>
+
+              <span>1 / 31</span>
+            </div>
+
+            <div class="education-stat">
+              <strong>
+                <span class="zh">英语水平</span>
+                <span class="en">English</span>
+              </strong>
+
+              <span>CET-6</span>
+            </div>
+
+            <div class="education-stat">
+              <strong>
+                <span class="zh">主要方向</span>
+                <span class="en">Research</span>
+              </strong>
+
+              <span>
+                <span class="zh">可穿戴感知与康复</span>
+                <span class="en">Wearable Sensing</span>
+              </span>
+            </div>
+
+          </div>
+
+        </article>
+
+      </section>
+
+      <!-- 最新动态摘要 -->
+      <section class="section">
+
+        <div class="section-heading">
+
+          <div class="heading-icon">📢</div>
+
+          <h2 class="section-title">
+            <span class="zh">最新动态</span>
+            <span class="en">News</span>
+          </h2>
+
+          <div class="heading-line"></div>
+
+          <a class="more-link" href="news.html">
+            <span class="zh">全部动态 →</span>
+            <span class="en">All News →</span>
+          </a>
+
+        </div>
+
+        <div class="news-list">
+
+          <article class="news-card">
+
+            <time class="news-date">2026.07</time>
+
+            <p class="news-text">
+
+              <span class="news-label">
+                <span class="zh">主页</span>
+                <span class="en">WEB</span>
+              </span>
+
+              <span class="zh">
+                建立个人学术主页，用于集中展示教育背景、科研项目与研究兴趣。
+              </span>
+
+              <span class="en">
+                Launched this academic homepage to present my education,
+                projects, and research interests.
+              </span>
+
+            </p>
+
+          </article>
+
+          <article class="news-card">
+
+            <time class="news-date">2026.07</time>
+
+            <p class="news-text">
+
+              <span class="news-label">
+                <span class="zh">项目</span>
+                <span class="en">PROJECT</span>
+              </span>
+
+              <span class="zh">
+                基于PPG-DaLiA公开数据集完成运动心率算法的对比实验与消融分析。
+              </span>
+
+              <span class="en">
+                Completed comparative and ablation studies for exercise
+                heart-rate estimation on the PPG-DaLiA dataset.
+              </span>
+
+            </p>
+
+          </article>
+
+          <article class="news-card">
+
+            <time class="news-date">2026</time>
+
+            <p class="news-text">
+
+              <span class="news-label">
+                <span class="zh">项目</span>
+                <span class="en">PROJECT</span>
+              </span>
+
+              <span class="zh">
+                持续开展多节点无线惯性动作捕捉系统的硬件设计、姿态解算与系统调试。
+              </span>
+
+              <span class="en">
+                Continued the development of a multi-node wireless inertial
+                motion capture system.
+              </span>
+
+            </p>
+
+          </article>
+
+        </div>
+
+      </section>
+
+      <!-- 代表项目摘要 -->
+      <section class="section">
+
+        <div class="section-heading">
+
+          <div class="heading-icon">🛠</div>
+
+          <h2 class="section-title">
+            <span class="zh">代表项目</span>
+            <span class="en">Selected Projects</span>
+          </h2>
+
+          <div class="heading-line"></div>
+
+          <a class="more-link" href="projects.html">
+            <span class="zh">全部项目 →</span>
+            <span class="en">All Projects →</span>
+          </a>
+
+        </div>
+
+        <div class="project-list">
+
+          <!-- 项目一 -->
+          <article class="project-card">
+
+            <div class="project-image-wrap">
+
+              <img
+                class="project-image"
+                src="assets/project-ppg.jpg"
+                alt="运动状态下的PPG心率监测项目"
+                onerror="this.style.display='none';"
+              >
+
+              <div class="project-placeholder">PPG</div>
+
+            </div>
+
+            <div class="project-main">
+
+              <h3>
+                <span class="zh">运动状态下的PPG心率监测研究</span>
+                <span class="en">
+                  PPG Heart-Rate Monitoring During Exercise
+                </span>
+              </h3>
+
+              <p class="project-meta">
+                PPG · ACC · STM32 · Python · MATLAB
+              </p>
+
+              <p class="project-description zh">
+                基于PPG与三轴ACC开展运动心率估计研究，
+                进行运动伪影识别、心率跟踪和嵌入式算法验证。
+              </p>
+
+              <p class="project-description en">
+                Developed a PPG and ACC based heart-rate estimation workflow
+                with motion artifact recognition and embedded evaluation.
+              </p>
+
+              <div class="project-tags">
+                <span class="project-tag">PPG</span>
+                <span class="project-tag">ACC</span>
+                <span class="project-tag">STM32</span>
+              </div>
+
+              <a class="project-detail-link" href="projects.html#ppg">
+                <span class="zh">查看项目详情 →</span>
+                <span class="en">View Details →</span>
+              </a>
+
+            </div>
+
+          </article>
+
+          <!-- 项目二 -->
+          <article class="project-card">
+
+            <div class="project-image-wrap">
+
+              <img
+                class="project-image"
+                src="assets/project-imu.jpg"
+                alt="多节点无线惯性动作捕捉系统"
+                onerror="this.style.display='none';"
+              >
+
+              <div class="project-placeholder">IMU</div>
+
+            </div>
+
+            <div class="project-main">
+
+              <h3>
+                <span class="zh">多节点无线惯性动作捕捉系统</span>
+                <span class="en">
+                  Multi-Node Wireless Inertial Motion Capture System
+                </span>
+              </h3>
+
+              <p class="project-meta">
+                ICM20948 · STM32 · ESP32 · PCB · Quaternion
+              </p>
+
+              <p class="project-description zh">
+                负责惯性传感节点的原理图、PCB、嵌入式程序与系统调试，
+                实现IMU数据采集、无线传输与姿态解算。
+              </p>
+
+              <p class="project-description en">
+                Designed inertial sensor nodes and implemented IMU acquisition,
+                wireless transmission, and attitude estimation.
+              </p>
+
+              <div class="project-tags">
+                <span class="project-tag">IMU</span>
+                <span class="project-tag">PCB</span>
+                <span class="project-tag">Embedded</span>
+              </div>
+
+              <a class="project-detail-link" href="projects.html#imu">
+                <span class="zh">查看项目详情 →</span>
+                <span class="en">View Details →</span>
+              </a>
+
+            </div>
+
+          </article>
+
+          <!-- 项目三 -->
+          <article class="project-card">
+
+            <div class="project-image-wrap">
+
+              <img
+                class="project-image"
+                src="assets/project-rehab.jpg"
+                alt="孤独症儿童运动康复训练器械"
+                onerror="this.style.display='none';"
+              >
+
+              <div class="project-placeholder">V8</div>
+
+            </div>
+
+            <div class="project-main">
+
+              <h3>
+                <span class="zh">孤独症儿童运动康复训练器械设计</span>
+                <span class="en">
+                  Rehabilitation Device for Children with Autism
+                </span>
+              </h3>
+
+              <p class="project-meta">
+                SolidWorks · MATLAB · Mechanism Design
+              </p>
+
+              <p class="project-description zh">
+                采用可调偏心套筒与圆柱凸轮机构模拟盆骨复合运动，
+                优化单电机驱动下的空间“V8”字轨迹。
+              </p>
+
+              <p class="project-description en">
+                Designed an adjustable eccentric and cylindrical cam mechanism
+                to reproduce compound pelvic motion.
+              </p>
+
+              <div class="project-tags">
+                <span class="project-tag">Mechanical</span>
+                <span class="project-tag">Rehabilitation</span>
+                <span class="project-tag">Trajectory</span>
+              </div>
+
+              <a class="project-detail-link" href="projects.html#rehab">
+                <span class="zh">查看项目详情 →</span>
+                <span class="en">View Details →</span>
+              </a>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+    </main>
+
   </div>
 
-  <div class="home-title sub-title" data-icon="🏆"><span class="lang-en">Honors & Awards</span><span class="lang-zh">荣誉奖励</span></div>
-
-  <div class="award-grid">
-    <div class="award-card">
-      <div class="award-name"><span class="lang-en">National Second Prize</span><span class="lang-zh">国家级二等奖</span></div>
-      <div class="award-meta">
-        <span class="lang-en">China Collegiate Computing Design Competition</span><span class="lang-zh">中国大学生计算机设计大赛</span>
-      </div>
+  <!-- 页脚 -->
+  <footer>
+    <div class="container">
+      © <span id="year"></span> 王焱杰 · Hosted on GitHub Pages
     </div>
+  </footer>
 
-    <div class="award-card">
-      <div class="award-name"><span class="lang-en">Provincial First Prize</span><span class="lang-zh">省级一等奖</span></div>
-      <div class="award-meta">
-        <span class="lang-en">China Collegiate Computing Design Competition</span><span class="lang-zh">中国大学生计算机设计大赛</span>
-      </div>
-    </div>
+  <script>
+    const body = document.body;
+    const languageButton = document.getElementById("languageButton");
+    const menuButton = document.getElementById("menuButton");
+    const mainNav = document.getElementById("mainNav");
 
-    <div class="award-card">
-      <div class="award-name"><span class="lang-en">First Prize</span><span class="lang-zh">一等奖</span></div>
-      <div class="award-meta">
-        <span class="lang-en">Henan Provincial IoT Design Competition</span><span class="lang-zh">河南省物联网设计大赛</span>
-      </div>
-    </div>
+    /*
+      读取用户之前选择的语言。
+      index.html、education.html 等页面会共享这一设置。
+    */
+    const savedLanguage = localStorage.getItem("homepage-language");
 
-    <div class="award-card">
-      <div class="award-name"><span class="lang-en">Provincial Second Prize</span><span class="lang-zh">省级二等奖</span></div>
-      <div class="award-meta">
-        <span class="lang-en">Challenge Cup National College Students' Extracurricular Academic Science and Technology Works Competition</span><span class="lang-zh">“挑战杯”全国大学生课外学术科技作品竞赛</span>
-      </div>
-    </div>
+    if (savedLanguage === "en") {
+      body.classList.add("lang-en");
+      document.documentElement.lang = "en";
+      languageButton.textContent = "中";
+    }
 
-    <div class="award-card">
-      <div class="award-name"><span class="lang-en">Provincial Second Prize</span><span class="lang-zh">省级二等奖</span></div>
-      <div class="award-meta">
-        <span class="lang-en">China Undergraduate Mathematical Contest in Modeling</span><span class="lang-zh">全国大学生数学建模竞赛</span>
-      </div>
-    </div>
+    /*
+      中英文切换
+    */
+    languageButton.addEventListener("click", function () {
+      body.classList.toggle("lang-en");
 
-    <div class="award-card">
-      <div class="award-name"><span class="lang-en">Provincial Second Prize</span><span class="lang-zh">省级二等奖</span></div>
-      <div class="award-meta">
-        <span class="lang-en">Lanqiao Cup National Software and Information Technology Competition</span><span class="lang-zh">蓝桥杯全国大学生软件和信息技术大赛</span>
-      </div>
-    </div>
+      const isEnglish = body.classList.contains("lang-en");
 
-    <div class="award-card">
-      <div class="award-name"><span class="lang-en">Provincial Third Prize</span><span class="lang-zh">省级三等奖</span></div>
-      <div class="award-meta">
-        <span class="lang-en">National 3D Digital Innovation Design Competition</span><span class="lang-zh">全国三维数字化创新设计大赛</span>
-      </div>
-    </div>
+      document.documentElement.lang = isEnglish ? "en" : "zh-CN";
+      languageButton.textContent = isEnglish ? "中" : "EN";
 
-    <div class="award-card">
-      <div class="award-name"><span class="lang-en">University Honors</span><span class="lang-zh">校级荣誉</span></div>
-      <div class="award-meta">
-        <span class="lang-en">Merit Student<br>First-Class Scholarship<br>National Encouragement Scholarship</span>
-        <span class="lang-zh">三好学生<br>一等奖学金<br>国家励志奖学金</span>
-      </div>
-    </div>
-  </div>
-</div>
+      localStorage.setItem(
+        "homepage-language",
+        isEnglish ? "en" : "zh"
+      );
+    });
+
+    /*
+      手机和平板端导航菜单
+    */
+    menuButton.addEventListener("click", function () {
+      const isOpen = mainNav.classList.toggle("open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+
+      menuButton.textContent = isOpen ? "×" : "☰";
+    });
+
+    /*
+      点击导航链接后关闭手机端菜单
+    */
+    document
+      .querySelectorAll(".nav-link")
+      .forEach(function (link) {
+        link.addEventListener("click", function () {
+          mainNav.classList.remove("open");
+
+          menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+          );
+
+          menuButton.textContent = "☰";
+        });
+      });
+
+    /*
+      自动更新页脚年份
+    */
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
