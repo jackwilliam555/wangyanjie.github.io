@@ -13,15 +13,7 @@
     <title>首页 | 王焱杰</title>
 
     <style>
-        /* ==================================================
-           设计变量
-        ================================================== */
-
         :root {
-            /*
-             * 桌面端整体宽度放大
-             * 左侧250px + 间距60px + 右侧840px
-             */
             --page-width: 1320px;
             --sidebar-width: 250px;
             --content-width: 840px;
@@ -61,10 +53,6 @@
                 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* ==================================================
-           全局基础
-        ================================================== */
-
         * {
             box-sizing: border-box;
             margin: 0;
@@ -77,7 +65,6 @@
 
         body {
             min-height: 100vh;
-
             color: var(--text);
             background: var(--bg);
 
@@ -128,9 +115,7 @@
             margin: 0 auto;
         }
 
-        /* ==================================================
-           顶部导航栏
-        ================================================== */
+        /* 顶部导航栏 */
 
         .topbar {
             position: sticky;
@@ -139,11 +124,9 @@
 
             min-height: var(--nav-height);
 
-            background:
-                rgba(255, 255, 255, 0.97);
+            background: rgba(255, 255, 255, 0.97);
 
-            border-bottom:
-                1px solid var(--line);
+            border-bottom: 1px solid var(--line);
 
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -221,9 +204,7 @@
             color: #3f4e63;
             background: #ffffff;
 
-            border:
-                1px solid var(--line-dark);
-
+            border: 1px solid var(--line-dark);
             border-radius: var(--radius-full);
 
             box-shadow:
@@ -257,17 +238,13 @@
             color: var(--text);
             background: #ffffff;
 
-            border:
-                1px solid var(--line-dark);
-
+            border: 1px solid var(--line-dark);
             border-radius: var(--radius-small);
 
             font-size: 18px;
         }
 
-        /* ==================================================
-           页面整体布局
-        ================================================== */
+        /* 页面布局 */
 
         .page-layout {
             display: grid;
@@ -284,9 +261,7 @@
             padding: 40px 0 78px;
         }
 
-        /* ==================================================
-           左侧个人资料
-        ================================================== */
+        /* 左侧个人资料 */
 
         .profile {
             position: sticky;
@@ -315,8 +290,7 @@
         .avatar-wrap:hover {
             box-shadow:
                 0 10px 32px rgba(32, 47, 68, 0.17),
-                0 0 0 1px
-                rgba(255, 255, 255, 0.92) inset;
+                0 0 0 1px rgba(255, 255, 255, 0.92) inset;
 
             transform: scale(1.012);
         }
@@ -376,10 +350,6 @@
             font-size: 14px;
             line-height: 1.6;
         }
-
-        /* ==================================================
-           左侧个人信息图标列表
-        ================================================== */
 
         .profile-meta {
             display: grid;
@@ -448,8 +418,7 @@
         .profile-meta a {
             overflow-wrap: anywhere;
 
-            transition:
-                color var(--transition);
+            transition: color var(--transition);
         }
 
         .profile-meta a:hover {
@@ -497,9 +466,7 @@
             transform: translateY(-1px);
         }
 
-        /* ==================================================
-           右侧内容
-        ================================================== */
+        /* 右侧内容 */
 
         .content {
             min-width: 0;
@@ -533,8 +500,7 @@
             border-radius: 12px;
 
             box-shadow:
-                0 4px 10px
-                rgba(32, 47, 68, 0.045);
+                0 4px 10px rgba(32, 47, 68, 0.045);
 
             font-size: 17px;
         }
@@ -555,18 +521,14 @@
             background: var(--line);
         }
 
-        /* ==================================================
-           教育经历卡片
-        ================================================== */
+        /* 教育经历 */
 
         .education-card {
             padding: 25px 28px;
 
             background: var(--card-bg);
 
-            border:
-                1px solid var(--line-dark);
-
+            border: 1px solid var(--line-dark);
             border-radius: 19px;
 
             box-shadow: var(--shadow);
@@ -641,9 +603,7 @@
             color: #a1a9b4;
         }
 
-        /* ==================================================
-           学业数据
-        ================================================== */
+        /* 学业数据 */
 
         .stats-grid {
             display: grid;
@@ -686,9 +646,7 @@
             font-size: 14px;
         }
 
-        /* ==================================================
-           主要课程
-        ================================================== */
+        /* 主要课程 */
 
         .course-area {
             margin-top: 22px;
@@ -734,9 +692,7 @@
             border-color: #cedced;
         }
 
-        /* ==================================================
-           荣誉奖励
-        ================================================== */
+        /* 荣誉奖励 */
 
         .award-grid {
             display: grid;
@@ -754,9 +710,7 @@
 
             background: var(--card-bg);
 
-            border:
-                1px solid var(--line-dark);
-
+            border: 1px solid var(--line-dark);
             border-radius: 16px;
 
             transition:
@@ -789,10 +743,6 @@
             line-height: 1.55;
         }
 
-        /* ==================================================
-           页脚
-        ================================================== */
-
         footer {
             padding: 24px 0 36px;
 
@@ -804,9 +754,7 @@
             text-align: center;
         }
 
-        /* ==================================================
-           中等尺寸电脑与小屏笔记本
-        ================================================== */
+        /* 中等尺寸电脑 */
 
         @media
         (min-width: 901px)
@@ -860,9 +808,7 @@
             }
         }
 
-        /* ==================================================
-           平板自适应
-        ================================================== */
+        /* 平板 */
 
         @media (max-width: 900px) {
             .main-nav {
@@ -878,9 +824,7 @@
 
                 background: #ffffff;
 
-                border:
-                    1px solid var(--line-dark);
-
+                border: 1px solid var(--line-dark);
                 border-radius: 12px;
 
                 box-shadow: var(--shadow-hover);
@@ -938,9 +882,7 @@
             }
         }
 
-        /* ==================================================
-           手机自适应
-        ================================================== */
+        /* 手机 */
 
         @media (max-width: 650px) {
             .container {
@@ -994,8 +936,10 @@
 
             .heading-icon {
                 flex-basis: 34px;
+
                 width: 34px;
                 height: 34px;
+
                 font-size: 15px;
             }
 
@@ -1042,10 +986,6 @@
             }
         }
 
-        /* ==================================================
-           小尺寸手机
-        ================================================== */
-
         @media (max-width: 380px) {
             .profile {
                 grid-template-columns:
@@ -1073,10 +1013,6 @@
 </head>
 
 <body>
-
-    <!-- ==================================================
-         顶部导航栏
-    ================================================== -->
 
     <header class="topbar">
         <div class="container topbar-inner">
@@ -1169,24 +1105,15 @@
         </div>
     </header>
 
-    <!-- ==================================================
-         页面主体
-    ================================================== -->
-
     <div class="container page-layout">
-
-        <!-- ==================================================
-             左侧个人资料
-        ================================================== -->
 
         <aside class="profile">
 
-            <!-- 证件照 -->
             <div class="avatar-wrap">
 
                 <img
                     class="avatar"
-                    src="assets/images/avatar.png"
+                    src="assets/images/avatar.jpg"
                     alt="王焱杰个人照片"
 
                     onerror="
@@ -1201,7 +1128,6 @@
 
             </div>
 
-            <!-- 姓名和身份 -->
             <div class="profile-main">
 
                 <h1 class="profile-name">
@@ -1225,10 +1151,8 @@
 
             </div>
 
-            <!-- 个人信息 -->
             <ul class="profile-meta">
 
-                <!-- 所在城市 -->
                 <li>
 
                     <span
@@ -1236,22 +1160,7 @@
                         aria-hidden="true"
                     >
                         <svg viewBox="0 0 384 512">
-                            <path
-                                d="
-                                M384 192
-                                c0 87.4-117 243-168.3 307.2
-                                c-12.3 15.3-35.1 15.3-47.4 0
-                                C117 435 0 279.4 0 192
-                                C0 86 86 0 192 0
-                                s192 86 192 192
-                                z
-
-                                m-192 64
-                                a64 64 0 1 0 0-128
-                                a64 64 0 1 0 0 128
-                                z
-                                "
-                            />
+                            <path d="M384 192c0 87.4-117 243-168.3 307.2-12.3 15.3-35.1 15.3-47.4 0C117 435 0 279.4 0 192 0 86 86 0 192 0s192 86 192 192zm-192 64a64 64 0 1 0 0-128 64 64 0 1 0 0 128z"/>
                         </svg>
                     </span>
 
@@ -1262,7 +1171,6 @@
 
                 </li>
 
-                <!-- 学校 -->
                 <li>
 
                     <span
@@ -1270,22 +1178,7 @@
                         aria-hidden="true"
                     >
                         <svg viewBox="0 0 384 512">
-                            <path
-                                d="
-                                M384 192
-                                c0 87.4-117 243-168.3 307.2
-                                c-12.3 15.3-35.1 15.3-47.4 0
-                                C117 435 0 279.4 0 192
-                                C0 86 86 0 192 0
-                                s192 86 192 192
-                                z
-
-                                m-192 64
-                                a64 64 0 1 0 0-128
-                                a64 64 0 1 0 0 128
-                                z
-                                "
-                            />
+                            <path d="M384 192c0 87.4-117 243-168.3 307.2-12.3 15.3-35.1 15.3-47.4 0C117 435 0 279.4 0 192 0 86 86 0 192 0s192 86 192 192zm-192 64a64 64 0 1 0 0-128 64 64 0 1 0 0 128z"/>
                         </svg>
                     </span>
 
@@ -1298,7 +1191,6 @@
 
                 </li>
 
-                <!-- 个人主页 -->
                 <li>
 
                     <span
@@ -1306,48 +1198,7 @@
                         aria-hidden="true"
                     >
                         <svg viewBox="0 0 512 512">
-                            <path
-                                d="
-                                M0 256
-                                C0 167.6 71.6 96 160 96
-                                h72
-                                c13.3 0 24 10.7 24 24
-                                s-10.7 24-24 24
-                                h-72
-                                C98.1 144 48 194.1 48 256
-                                s50.1 112 112 112
-                                h72
-                                c13.3 0 24 10.7 24 24
-                                s-10.7 24-24 24
-                                h-72
-                                C71.6 416 0 344.4 0 256
-                                z
-
-                                m192-24
-                                h128
-                                c13.3 0 24 10.7 24 24
-                                s-10.7 24-24 24
-                                H192
-                                c-13.3 0-24-10.7-24-24
-                                s10.7-24 24-24
-                                z
-
-                                M352 96
-                                h-72
-                                c-13.3 0-24-10.7-24-24
-                                s10.7-24 24-24
-                                h72
-                                c88.4 0 160 71.6 160 160
-                                s-71.6 160-160 160
-                                h-72
-                                c-13.3 0-24-10.7-24-24
-                                s10.7-24 24-24
-                                h72
-                                c61.9 0 112-50.1 112-112
-                                S413.9 96 352 96
-                                z
-                                "
-                            />
+                            <path d="M0 256C0 167.6 71.6 96 160 96h72c13.3 0 24 10.7 24 24s-10.7 24-24 24h-72C98.1 144 48 194.1 48 256s50.1 112 112 112h72c13.3 0 24 10.7 24 24s-10.7 24-24 24h-72C71.6 416 0 344.4 0 256zm192-24h128c13.3 0 24 10.7 24 24s-10.7 24-24 24H192c-13.3 0-24-10.7-24-24s10.7-24 24-24zM352 96h-72c-13.3 0-24-10.7-24-24s10.7-24 24-24h72c88.4 0 160 71.6 160 160s-71.6 160-160 160h-72c-13.3 0-24-10.7-24-24s10.7-24 24-24h72c61.9 0 112-50.1 112-112S413.9 96 352 96z"/>
                         </svg>
                     </span>
 
@@ -1360,7 +1211,6 @@
 
                 </li>
 
-                <!-- 邮箱 -->
                 <li>
 
                     <span
@@ -1368,55 +1218,22 @@
                         aria-hidden="true"
                     >
                         <svg viewBox="0 0 512 512">
-                            <path
-                                d="
-                                M64 112
-                                c-8.8 0-16 7.2-16 16
-                                v22.1
-                                l172.5 141.4
-                                c20.7 17 50.4 17 71.1 0
-                                L464 150.1
-                                V128
-                                c0-8.8-7.2-16-16-16
-                                H64
-                                z
-
-                                M48 212.2
-                                V384
-                                c0 8.8 7.2 16 16 16
-                                h384
-                                c8.8 0 16-7.2 16-16
-                                V212.2
-                                L322 328.8
-                                c-38.4 31.5-93.7 31.5-132 0
-                                L48 212.2
-                                z
-
-                                M0 128
-                                C0 92.7 28.7 64 64 64
-                                h384
-                                c35.3 0 64 28.7 64 64
-                                v256
-                                c0 35.3-28.7 64-64 64
-                                H64
-                                c-35.3 0-64-28.7-64-64
-                                V128
-                                z
-                                "
-                            />
+                            <path d="M64 112c-8.8 0-16 7.2-16 16v22.1l172.5 141.4c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128C0 92.7 28.7 64 64 64h384c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"/>
                         </svg>
                     </span>
 
-                    <a href="mailto:1289423102@qq.com">
-
+                    <a
+                        href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=1289423102%40qq.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="通过QQ邮箱联系我"
+                    >
                         <span class="zh">电子邮箱</span>
                         <span class="en">Email</span>
-
                     </a>
 
                 </li>
 
-                <!-- GitHub -->
                 <li>
 
                     <span
@@ -1424,44 +1241,14 @@
                         aria-hidden="true"
                     >
                         <svg viewBox="0 0 24 24">
-                            <path
-                                d="
-                                M12 .297
-                                c-6.63 0-12 5.373-12 12
-                                0 5.303 3.438 9.8 8.205 11.385
-                                .6.113.82-.258.82-.577
-                                0-.285-.01-1.04-.015-2.04
-                                -3.338.724-4.042-1.61-4.042-1.61
-                                -.546-1.387-1.333-1.756-1.333-1.756
-                                -1.089-.745.083-.729.083-.729
-                                1.205.084 1.839 1.237 1.839 1.237
-                                1.07 1.834 2.807 1.304 3.492.997
-                                .108-.775.418-1.305.762-1.605
-                                -2.665-.3-5.466-1.332-5.466-5.93
-                                0-1.31.465-2.38 1.235-3.22
-                                -.135-.303-.54-1.523.105-3.176
-                                0 0 1.005-.322 3.3 1.23
-                                .96-.267 1.98-.399 3-.405
-                                1.02.006 2.04.138 3 .405
-                                2.28-1.552 3.285-1.23 3.285-1.23
-                                .645 1.653.24 2.873.12 3.176
-                                .765.84 1.23 1.91 1.23 3.22
-                                0 4.61-2.805 5.625-5.475 5.92
-                                .42.36.81 1.096.81 2.22
-                                0 1.606-.015 2.896-.015 3.286
-                                0 .315.21.69.825.57
-                                C20.565 22.092 24 17.592 24 12.297
-                                24 5.67 18.627.297 12 .297
-                                z
-                                "
-                            />
+                            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297 24 5.67 18.627.297 12 .297z"/>
                         </svg>
                     </span>
 
                     <a
                         href="https://github.com/jackwilliam555"
                         target="_blank"
-                        rel="noopener"
+                        rel="noopener noreferrer"
                     >
                         GitHub
                     </a>
@@ -1470,14 +1257,13 @@
 
             </ul>
 
-            <!-- 简历和联系按钮 -->
             <div class="profile-actions">
 
                 <a
                     class="button-outline"
                     href="files/CV.pdf"
                     target="_blank"
-                    rel="noopener"
+                    rel="noopener noreferrer"
                 >
                     <span class="zh">个人简历</span>
                     <span class="en">CV</span>
@@ -1485,7 +1271,10 @@
 
                 <a
                     class="button-outline"
-                    href="mailto:1289423102@qq.com"
+                    href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=1289423102%40qq.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="通过QQ邮箱联系我"
                 >
                     <span class="zh">联系我</span>
                     <span class="en">Contact</span>
@@ -1495,13 +1284,8 @@
 
         </aside>
 
-        <!-- ==================================================
-             右侧内容
-        ================================================== -->
-
         <main class="content">
 
-            <!-- 教育经历 -->
             <section class="section">
 
                 <div class="section-heading">
@@ -1511,10 +1295,8 @@
                     </div>
 
                     <h2 class="section-title">
-
                         <span class="zh">教育经历</span>
                         <span class="en">Education</span>
-
                     </h2>
 
                     <div class="heading-line"></div>
@@ -1525,7 +1307,6 @@
 
                     <div class="education-header">
 
-                        <!-- 学校校徽 -->
                         <div class="school-logo">
 
                             <img
@@ -1544,11 +1325,9 @@
 
                         </div>
 
-                        <!-- 学校信息 -->
                         <div class="school-info">
 
                             <h3>
-
                                 <span class="zh">
                                     武汉体育学院
                                 </span>
@@ -1556,13 +1335,11 @@
                                 <span class="en">
                                     Wuhan Sports University
                                 </span>
-
                             </h3>
 
                             <p>
 
                                 <span>
-
                                     <span class="zh">
                                         机械电子工程专业本科生
                                     </span>
@@ -1571,7 +1348,6 @@
                                         B.Eng. Candidate in
                                         Mechatronic Engineering
                                     </span>
-
                                 </span>
 
                                 <span class="divider">
@@ -1588,158 +1364,80 @@
 
                     </div>
 
-                    <!-- 学业数据 -->
                     <div class="stats-grid">
 
                         <div class="stat-item">
 
                             <strong>
-
-                                <span class="zh">
-                                    平均绩点
-                                </span>
-
-                                <span class="en">
-                                    GPA
-                                </span>
-
+                                <span class="zh">平均绩点</span>
+                                <span class="en">GPA</span>
                             </strong>
 
-                            <span>
-                                4.23 / 5.0
-                            </span>
+                            <span>4.23 / 5.0</span>
 
                         </div>
 
                         <div class="stat-item">
 
                             <strong>
-
-                                <span class="zh">
-                                    专业排名
-                                </span>
-
-                                <span class="en">
-                                    Major Ranking
-                                </span>
-
+                                <span class="zh">专业排名</span>
+                                <span class="en">Major Ranking</span>
                             </strong>
 
-                            <span>
-                                1 / 32
-                            </span>
+                            <span>1 / 32</span>
 
                         </div>
 
                         <div class="stat-item">
 
                             <strong>
-
-                                <span class="zh">
-                                    英语水平
-                                </span>
-
-                                <span class="en">
-                                    English Proficiency
-                                </span>
-
+                                <span class="zh">英语水平</span>
+                                <span class="en">English Proficiency</span>
                             </strong>
 
-                            <span>
-                                CET-6：425
-                            </span>
+                            <span>CET-6：425</span>
 
                         </div>
 
                     </div>
 
-                    <!-- 主要课程 -->
                     <div class="course-area">
 
                         <h4>
-
-                            <span class="zh">
-                                主要课程
-                            </span>
-
-                            <span class="en">
-                                Major Coursework
-                            </span>
-
+                            <span class="zh">主要课程</span>
+                            <span class="en">Major Coursework</span>
                         </h4>
 
                         <div class="course-tags">
 
                             <span class="course-tag">
-
-                                <span class="zh">
-                                    机械原理
-                                </span>
-
-                                <span class="en">
-                                    Theory of Machines
-                                </span>
-
+                                <span class="zh">机械原理</span>
+                                <span class="en">Theory of Machines</span>
                             </span>
 
                             <span class="course-tag">
-
-                                <span class="zh">
-                                    机械设计
-                                </span>
-
-                                <span class="en">
-                                    Machine Design
-                                </span>
-
+                                <span class="zh">机械设计</span>
+                                <span class="en">Machine Design</span>
                             </span>
 
                             <span class="course-tag">
-
-                                <span class="zh">
-                                    模拟电子技术
-                                </span>
-
-                                <span class="en">
-                                    Analog Electronics
-                                </span>
-
+                                <span class="zh">模拟电子技术</span>
+                                <span class="en">Analog Electronics</span>
                             </span>
 
                             <span class="course-tag">
-
-                                <span class="zh">
-                                    数字电子技术
-                                </span>
-
-                                <span class="en">
-                                    Digital Electronics
-                                </span>
-
+                                <span class="zh">数字电子技术</span>
+                                <span class="en">Digital Electronics</span>
                             </span>
 
                             <span class="course-tag">
-
-                                <span class="zh">
-                                    单片机原理与应用
-                                </span>
-
-                                <span class="en">
-                                    Microcontroller Systems
-                                </span>
-
+                                <span class="zh">单片机原理与应用</span>
+                                <span class="en">Microcontroller Systems</span>
                             </span>
 
                             <span class="course-tag">
-
-                                <span class="zh">
-                                    传感器原理
-                                </span>
-
-                                <span class="en">
-                                    Sensor Technology
-                                </span>
-
+                                <span class="zh">传感器原理</span>
+                                <span class="en">Sensor Technology</span>
                             </span>
 
                         </div>
@@ -1750,7 +1448,6 @@
 
             </section>
 
-            <!-- 荣誉奖励 -->
             <section class="section">
 
                 <div class="section-heading">
@@ -1760,15 +1457,8 @@
                     </div>
 
                     <h2 class="section-title">
-
-                        <span class="zh">
-                            荣誉奖励
-                        </span>
-
-                        <span class="en">
-                            Honors and Awards
-                        </span>
-
+                        <span class="zh">荣誉奖励</span>
+                        <span class="en">Honors and Awards</span>
                     </h2>
 
                     <div class="heading-line"></div>
@@ -1780,28 +1470,19 @@
                     <article class="award-item">
 
                         <h3>
-
-                            <span class="zh">
-                                国家级金奖
-                            </span>
-
-                            <span class="en">
-                                National Gold Award
-                            </span>
-
+                            <span class="zh">国家级金奖</span>
+                            <span class="en">National Gold Award</span>
                         </h3>
 
                         <p>
-
                             <span class="zh">
                                 中国国际大学生创新大赛
                             </span>
 
                             <span class="en">
-                                China International College
-                                Students' Innovation Competition
+                                China International College Students'
+                                Innovation Competition
                             </span>
-
                         </p>
 
                     </article>
@@ -1809,28 +1490,19 @@
                     <article class="award-item">
 
                         <h3>
-
-                            <span class="zh">
-                                国家级铜奖
-                            </span>
-
-                            <span class="en">
-                                National Bronze Award
-                            </span>
-
+                            <span class="zh">国家级铜奖</span>
+                            <span class="en">National Bronze Award</span>
                         </h3>
 
                         <p>
-
                             <span class="zh">
                                 中国体育智能制造创新大赛
                             </span>
 
                             <span class="en">
-                                China Sports Intelligent
-                                Manufacturing Innovation Competition
+                                China Sports Intelligent Manufacturing
+                                Innovation Competition
                             </span>
-
                         </p>
 
                     </article>
@@ -1838,19 +1510,11 @@
                     <article class="award-item">
 
                         <h3>
-
-                            <span class="zh">
-                                省级一等奖
-                            </span>
-
-                            <span class="en">
-                                Provincial First Prize
-                            </span>
-
+                            <span class="zh">省级一等奖</span>
+                            <span class="en">Provincial First Prize</span>
                         </h3>
 
                         <p>
-
                             <span class="zh">
                                 湖北省挑战杯
                             </span>
@@ -1858,7 +1522,6 @@
                             <span class="en">
                                 Hubei Challenge Cup
                             </span>
-
                         </p>
 
                     </article>
@@ -1866,28 +1529,19 @@
                     <article class="award-item">
 
                         <h3>
-
-                            <span class="zh">
-                                省级二等奖
-                            </span>
-
-                            <span class="en">
-                                Provincial Second Prize
-                            </span>
-
+                            <span class="zh">省级二等奖</span>
+                            <span class="en">Provincial Second Prize</span>
                         </h3>
 
                         <p>
-
                             <span class="zh">
                                 蓝桥杯全国大学生软件和信息技术大赛
                             </span>
 
                             <span class="en">
-                                Blue Bridge Cup National College
-                                Students Software and IT Competition
+                                Blue Bridge Cup National College Students
+                                Software and IT Competition
                             </span>
-
                         </p>
 
                     </article>
@@ -1895,28 +1549,19 @@
                     <article class="award-item">
 
                         <h3>
-
-                            <span class="zh">
-                                省级铜奖
-                            </span>
-
-                            <span class="en">
-                                Provincial Bronze Award
-                            </span>
-
+                            <span class="zh">省级铜奖</span>
+                            <span class="en">Provincial Bronze Award</span>
                         </h3>
 
                         <p>
-
                             <span class="zh">
                                 湖北省体育产业创新创业大赛
                             </span>
 
                             <span class="en">
-                                Hubei Sports Industry Innovation
-                                and Entrepreneurship Competition
+                                Hubei Sports Industry Innovation and
+                                Entrepreneurship Competition
                             </span>
-
                         </p>
 
                     </article>
@@ -1924,19 +1569,11 @@
                     <article class="award-item">
 
                         <h3>
-
-                            <span class="zh">
-                                一等奖学金
-                            </span>
-
-                            <span class="en">
-                                First-Class Scholarship
-                            </span>
-
+                            <span class="zh">一等奖学金</span>
+                            <span class="en">First-Class Scholarship</span>
                         </h3>
 
                         <p>
-
                             <span class="zh">
                                 校级荣誉奖励
                             </span>
@@ -1944,7 +1581,6 @@
                             <span class="en">
                                 University Scholarship
                             </span>
-
                         </p>
 
                     </article>
@@ -1952,19 +1588,11 @@
                     <article class="award-item">
 
                         <h3>
-
-                            <span class="zh">
-                                三好学生
-                            </span>
-
-                            <span class="en">
-                                Outstanding Student
-                            </span>
-
+                            <span class="zh">三好学生</span>
+                            <span class="en">Outstanding Student</span>
                         </h3>
 
                         <p>
-
                             <span class="zh">
                                 校级荣誉称号
                             </span>
@@ -1972,7 +1600,6 @@
                             <span class="en">
                                 University Honor
                             </span>
-
                         </p>
 
                     </article>
@@ -1980,19 +1607,13 @@
                     <article class="award-item">
 
                         <h3>
-
-                            <span class="zh">
-                                优秀共青团员
-                            </span>
-
+                            <span class="zh">优秀共青团员</span>
                             <span class="en">
                                 Outstanding Youth League Member
                             </span>
-
                         </h3>
 
                         <p>
-
                             <span class="zh">
                                 校级荣誉称号
                             </span>
@@ -2000,7 +1621,6 @@
                             <span class="en">
                                 University Honor
                             </span>
-
                         </p>
 
                     </article>
@@ -2013,25 +1633,14 @@
 
     </div>
 
-    <!-- ==================================================
-         页脚
-    ================================================== -->
-
     <footer>
 
         <div class="container">
-
-            ©
-            <span id="year"></span>
+            © <span id="year"></span>
             王焱杰 · Hosted on GitHub Pages
-
         </div>
 
     </footer>
-
-    <!-- ==================================================
-         JavaScript
-    ================================================== -->
 
     <script>
         (function () {
