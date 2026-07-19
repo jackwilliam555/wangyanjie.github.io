@@ -67,7 +67,6 @@
 
         body {
             min-height: 100vh;
-
             color: var(--text);
             background: var(--background);
 
@@ -129,11 +128,8 @@
 
             min-height: var(--nav-height);
 
-            background:
-                rgba(255, 255, 255, 0.97);
-
-            border-bottom:
-                1px solid var(--line);
+            background: rgba(255, 255, 255, 0.97);
+            border-bottom: 1px solid var(--line);
 
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
@@ -156,8 +152,7 @@
             font-weight: 800;
             letter-spacing: 0.01em;
 
-            transition:
-                color var(--transition);
+            transition: color var(--transition);
         }
 
         .brand:hover {
@@ -212,9 +207,7 @@
             color: #3f4e63;
             background: #ffffff;
 
-            border:
-                1px solid var(--line-dark);
-
+            border: 1px solid var(--line-dark);
             border-radius: var(--radius-full);
 
             box-shadow:
@@ -248,9 +241,7 @@
             color: var(--text);
             background: #ffffff;
 
-            border:
-                1px solid var(--line-dark);
-
+            border: 1px solid var(--line-dark);
             border-radius: var(--radius-small);
 
             font-size: 18px;
@@ -368,7 +359,7 @@
         }
 
         /* =========================
-           个人信息列表
+           左侧信息列表
         ========================= */
 
         .profile-meta {
@@ -462,9 +453,7 @@
             color: var(--blue);
             background: #ffffff;
 
-            border:
-                1px solid #ced8e5;
-
+            border: 1px solid #ced8e5;
             border-radius: 8px;
 
             font-size: 11px;
@@ -517,9 +506,7 @@
 
             background: #fafafa;
 
-            border:
-                1px solid var(--line);
-
+            border: 1px solid var(--line);
             border-radius: 12px;
 
             box-shadow:
@@ -553,9 +540,7 @@
 
             background: var(--card-background);
 
-            border:
-                1px solid var(--line-dark);
-
+            border: 1px solid var(--line-dark);
             border-radius: 19px;
 
             box-shadow: var(--shadow);
@@ -583,9 +568,7 @@
             color: var(--blue);
             background: #ffffff;
 
-            border:
-                1px solid var(--line);
-
+            border: 1px solid var(--line);
             border-radius: 16px;
 
             font-size: 15px;
@@ -654,9 +637,7 @@
 
             background: var(--card-inner);
 
-            border:
-                1px solid var(--line);
-
+            border: 1px solid var(--line);
             border-radius: 13px;
         }
 
@@ -687,8 +668,7 @@
             margin-top: 22px;
             padding-top: 20px;
 
-            border-top:
-                1px solid var(--line);
+            border-top: 1px solid var(--line);
         }
 
         .course-area h4 {
@@ -711,9 +691,7 @@
             color: #586476;
             background: #ffffff;
 
-            border:
-                1px solid var(--line);
-
+            border: 1px solid var(--line);
             border-radius: 8px;
 
             font-size: 12px;
@@ -750,9 +728,7 @@
 
             background: var(--card-background);
 
-            border:
-                1px solid var(--line-dark);
-
+            border: 1px solid var(--line-dark);
             border-radius: 16px;
 
             transition:
@@ -786,51 +762,6 @@
         }
 
         /* =========================
-           邮箱复制提示
-        ========================= */
-
-        .toast {
-            position: fixed;
-            left: 50%;
-            bottom: 30px;
-            z-index: 3000;
-
-            max-width: calc(100% - 32px);
-
-            padding: 11px 16px;
-
-            color: #ffffff;
-            background: rgba(23, 32, 51, 0.94);
-
-            border-radius: 9px;
-
-            box-shadow:
-                0 10px 28px rgba(23, 32, 51, 0.22);
-
-            font-size: 13px;
-            line-height: 1.5;
-
-            opacity: 0;
-            visibility: hidden;
-
-            transform:
-                translate(-50%, 14px);
-
-            transition:
-                opacity 0.25s ease,
-                visibility 0.25s ease,
-                transform 0.25s ease;
-        }
-
-        .toast.show {
-            opacity: 1;
-            visibility: visible;
-
-            transform:
-                translate(-50%, 0);
-        }
-
-        /* =========================
            页脚
         ========================= */
 
@@ -839,8 +770,7 @@
 
             color: var(--light-muted);
 
-            border-top:
-                1px solid var(--line);
+            border-top: 1px solid var(--line);
 
             font-size: 11px;
             text-align: center;
@@ -920,9 +850,7 @@
 
                 background: #ffffff;
 
-                border:
-                    1px solid var(--line-dark);
-
+                border: 1px solid var(--line-dark);
                 border-radius: 12px;
 
                 box-shadow: var(--shadow-hover);
@@ -975,10 +903,6 @@
             .profile-actions {
                 grid-column: 2;
             }
-
-            .content {
-                width: 100%;
-            }
         }
 
         /* =========================
@@ -1023,7 +947,6 @@
 
             .profile-role {
                 margin-top: 6px;
-
                 font-size: 12px;
             }
 
@@ -1071,18 +994,12 @@
                 font-size: 11px;
             }
 
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stat-item {
-                min-height: auto;
-            }
-
+            .stats-grid,
             .award-grid {
                 grid-template-columns: 1fr;
             }
 
+            .stat-item,
             .award-item {
                 min-height: auto;
             }
@@ -1213,10 +1130,9 @@
     <!-- 页面主体 -->
     <div class="container page-layout">
 
-        <!-- 左侧个人资料 -->
+        <!-- 左侧资料 -->
         <aside class="profile">
 
-            <!-- PNG格式证件照 -->
             <div class="avatar-wrap">
 
                 <img
@@ -1260,7 +1176,7 @@
 
             <ul class="profile-meta">
 
-                <!-- 所在城市 -->
+                <!-- 所在地 -->
                 <li>
 
                     <span
@@ -1320,7 +1236,7 @@
 
                 </li>
 
-                <!-- QQ邮箱 -->
+                <!-- 电子邮箱 -->
                 <li>
 
                     <span
@@ -1333,11 +1249,8 @@
                     </span>
 
                     <a
-                        class="qq-mail-link"
-                        href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=1289423102@qq.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        title="通过QQ邮箱向王焱杰发送邮件"
+                        href="mailto:1289423102@qq.com?subject=%E6%9D%A5%E8%87%AA%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E7%9A%84%E8%81%94%E7%B3%BB&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E9%80%9A%E8%BF%87%E6%82%A8%E7%9A%84%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E8%81%94%E7%B3%BB%E6%82%A8%E3%80%82"
+                        title="向王焱杰发送邮件"
                     >
                         <span class="zh">电子邮箱</span>
                         <span class="en">Email</span>
@@ -1382,11 +1295,9 @@
                 </a>
 
                 <a
-                    class="button-outline qq-mail-link"
-                    href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=1289423102@qq.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="通过QQ邮箱向王焱杰发送邮件"
+                    class="button-outline"
+                    href="mailto:1289423102@qq.com?subject=%E6%9D%A5%E8%87%AA%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E7%9A%84%E8%81%94%E7%B3%BB&amp;body=%E6%82%A8%E5%A5%BD%EF%BC%8C%E6%88%91%E9%80%9A%E8%BF%87%E6%82%A8%E7%9A%84%E4%B8%AA%E4%BA%BA%E4%B8%BB%E9%A1%B5%E8%81%94%E7%B3%BB%E6%82%A8%E3%80%82"
+                    title="向王焱杰发送邮件"
                 >
                     <span class="zh">联系我</span>
                     <span class="en">Contact</span>
@@ -1739,31 +1650,9 @@
         </div>
     </footer>
 
-    <!-- 点击邮箱后的复制提示 -->
-    <div
-        class="toast"
-        id="emailToast"
-        role="status"
-        aria-live="polite"
-    >
-        收件人地址已复制：1289423102@qq.com
-    </div>
-
     <script>
         (function () {
             "use strict";
-
-            const EMAIL_ADDRESS =
-                "1289423102@qq.com";
-
-            /*
-             * QQ邮箱链接统一写在这里。
-             *
-             * 如果你以后在QQ邮箱生成了专属“邮我”链接，
-             * 只需要替换下面这一行，不需要修改其他代码。
-             */
-            const QQ_MAIL_URL =
-                "https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=1289423102@qq.com";
 
             const body =
                 document.body;
@@ -1788,108 +1677,6 @@
                     "year"
                 );
 
-            const emailToast =
-                document.getElementById(
-                    "emailToast"
-                );
-
-            let toastTimer = null;
-
-            /*
-             * 设置所有QQ邮箱链接
-             */
-            document
-                .querySelectorAll(".qq-mail-link")
-                .forEach(function (link) {
-
-                    link.href = QQ_MAIL_URL;
-
-                    link.addEventListener(
-                        "click",
-                        function () {
-                            copyEmailAddress();
-                        }
-                    );
-
-                });
-
-            /*
-             * 复制收件人邮箱作为兜底
-             */
-            function copyEmailAddress() {
-                if (
-                    navigator.clipboard &&
-                    window.isSecureContext
-                ) {
-                    navigator.clipboard
-                        .writeText(EMAIL_ADDRESS)
-                        .then(showEmailToast)
-                        .catch(function () {
-                            fallbackCopyEmail();
-                        });
-
-                    return;
-                }
-
-                fallbackCopyEmail();
-            }
-
-            /*
-             * 兼容不支持Clipboard API的浏览器
-             */
-            function fallbackCopyEmail() {
-                const input =
-                    document.createElement("textarea");
-
-                input.value = EMAIL_ADDRESS;
-                input.setAttribute("readonly", "");
-
-                input.style.position = "fixed";
-                input.style.opacity = "0";
-                input.style.pointerEvents = "none";
-
-                document.body.appendChild(input);
-
-                input.select();
-                input.setSelectionRange(
-                    0,
-                    input.value.length
-                );
-
-                try {
-                    document.execCommand("copy");
-                    showEmailToast();
-                } catch (error) {
-                    console.warn(
-                        "邮箱地址复制失败：",
-                        error
-                    );
-                }
-
-                document.body.removeChild(input);
-            }
-
-            /*
-             * 显示复制提示
-             */
-            function showEmailToast() {
-                emailToast.classList.add("show");
-
-                window.clearTimeout(toastTimer);
-
-                toastTimer = window.setTimeout(
-                    function () {
-                        emailToast.classList.remove(
-                            "show"
-                        );
-                    },
-                    2600
-                );
-            }
-
-            /*
-             * 读取语言设置
-             */
             const savedLanguage =
                 localStorage.getItem(
                     "homepage-language"
@@ -1901,9 +1688,6 @@
                 languageToggle.textContent = "中";
             }
 
-            /*
-             * 中英文切换
-             */
             languageToggle.addEventListener(
                 "click",
                 function () {
@@ -1931,9 +1715,6 @@
                 }
             );
 
-            /*
-             * 手机端菜单
-             */
             menuToggle.addEventListener(
                 "click",
                 function () {
@@ -1959,9 +1740,7 @@
                 .forEach(function (link) {
                     link.addEventListener(
                         "click",
-                        function () {
-                            closeMobileMenu();
-                        }
+                        closeMobileMenu
                     );
                 });
 
@@ -2001,9 +1780,6 @@
                 menuToggle.textContent = "☰";
             }
 
-            /*
-             * 自动更新页脚年份
-             */
             if (yearElement) {
                 yearElement.textContent =
                     new Date().getFullYear();
