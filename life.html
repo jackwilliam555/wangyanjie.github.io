@@ -495,7 +495,14 @@
             color: var(--text-secondary);
 
             font-size: 14px;
-            line-height: 1.8;
+            line-height: 1.85;
+
+            text-align: justify;
+            text-justify: inter-ideograph;
+            text-indent: 2em;
+
+            word-break: normal;
+            overflow-wrap: break-word;
         }
 
         .life-tags {
@@ -544,15 +551,13 @@
                 repeat(3, minmax(0, 1fr));
 
             gap: 17px;
+            align-items: start;
 
             margin-top: 21px;
         }
 
         .life-card {
             min-width: 0;
-
-            display: flex;
-            flex-direction: column;
 
             overflow: hidden;
 
@@ -657,33 +662,32 @@
         }
 
         .life-card-body {
-            flex: 1;
-
-            display: flex;
-            flex-direction: column;
-
-            padding: 15px 16px 18px;
+            padding: 14px 16px 15px;
         }
 
         .life-card h3 {
-            min-height: 45px;
+            margin: 0;
 
             color: var(--text);
 
             font-size: 15px;
-            line-height: 1.5;
+            line-height: 1.45;
         }
 
         .life-card p {
-            flex: 1;
-
-            min-height: 82px;
-            margin-top: 7px;
+            margin-top: 8px;
 
             color: var(--muted);
 
             font-size: 12px;
-            line-height: 1.7;
+            line-height: 1.75;
+
+            text-align: justify;
+            text-justify: inter-ideograph;
+            text-indent: 2em;
+
+            word-break: normal;
+            overflow-wrap: break-word;
         }
 
         .life-card-meta {
@@ -691,12 +695,12 @@
             align-items: center;
             gap: 7px;
 
-            min-height: 17px;
-            margin-top: 12px;
+            margin-top: 9px;
 
             color: var(--light-muted);
 
             font-size: 10px;
+            line-height: 1.4;
         }
 
         .life-card-meta::before {
@@ -709,6 +713,18 @@
 
             background: #9cabbc;
             border-radius: 50%;
+        }
+
+        /* 英文状态不缩进、不进行两端对齐 */
+
+        body.lang-en .life-intro p,
+        body.lang-en .life-card p {
+            text-align: left;
+            text-indent: 0;
+
+            word-break: normal;
+            overflow-wrap: break-word;
+            hyphens: auto;
         }
 
         /* 邮箱提示 */
@@ -807,7 +823,15 @@
             }
 
             .life-card-body {
-                padding: 14px 14px 16px;
+                padding: 13px 14px 14px;
+            }
+
+            .life-card p {
+                margin-top: 7px;
+            }
+
+            .life-card-meta {
+                margin-top: 8px;
             }
         }
 
@@ -957,6 +981,11 @@
 
             .life-intro p {
                 font-size: 13px;
+                line-height: 1.8;
+
+                text-align: justify;
+                text-justify: inter-ideograph;
+                text-indent: 2em;
             }
 
             .life-grid {
@@ -966,19 +995,33 @@
             }
 
             .life-card-body {
-                padding: 16px 17px 19px;
+                padding: 14px 16px 15px;
             }
 
             .life-card h3 {
-                min-height: auto;
-
                 font-size: 16px;
+                line-height: 1.45;
             }
 
             .life-card p {
-                min-height: auto;
+                margin-top: 7px;
 
                 font-size: 13px;
+                line-height: 1.7;
+
+                text-align: justify;
+                text-justify: inter-ideograph;
+                text-indent: 2em;
+            }
+
+            .life-card-meta {
+                margin-top: 8px;
+            }
+
+            body.lang-en .life-intro p,
+            body.lang-en .life-card p {
+                text-align: left;
+                text-indent: 0;
             }
         }
 
@@ -1292,9 +1335,7 @@
 
                     <p>
                         <span class="zh">
-                            这里记录科研与课程之外的一些经历，包括学术交流、
-                            学科竞赛、科研实践、团队协作和校园生活。
-                            在学习与实践中不断探索，在合作与交流中持续成长。
+                            这里记录科研与课程之外的一些经历，包括学术交流、学科竞赛、科研实践、团队协作和校园生活。在学习与实践中不断探索，在合作与交流中持续成长。
                         </span>
 
                         <span class="en">
@@ -1337,7 +1378,7 @@
 
                 <div class="life-grid">
 
-                    <!-- 图片1：上海科技大学夏令营 -->
+                    <!-- 图片1 -->
                     <article class="life-card">
 
                         <div class="life-image-wrap">
@@ -1382,8 +1423,7 @@
 
                             <p>
                                 <span class="zh">
-                                    参加上海科技大学生物医学工程学院夏令营，
-                                    通过学术讲座、实验室参观与师生交流。
+                                    参加上海科技大学生物医学工程学院夏令营，通过学术讲座、实验室参观与师生交流。
                                 </span>
 
                                 <span class="en">
@@ -1402,7 +1442,7 @@
 
                     </article>
 
-                    <!-- 图片2：中国国际大学生创新大赛 -->
+                    <!-- 图片2 -->
                     <article class="life-card">
 
                         <div class="life-image-wrap">
@@ -1447,8 +1487,7 @@
 
                             <p>
                                 <span class="zh">
-                                    随项目团队前往郑州大学参加现场比赛，
-                                    完成项目展示与答辩并获得国家级金奖。
+                                    随项目团队前往郑州大学参加现场比赛，完成项目展示与答辩并获得国家级金奖。
                                 </span>
 
                                 <span class="en">
@@ -1459,15 +1498,20 @@
                             </p>
 
                             <div class="life-card-meta">
-                                <span class="zh">国家级金奖 · 郑州大学</span>
-                                <span class="en">National Gold Award</span>
+                                <span class="zh">
+                                    国家级金奖 · 郑州大学
+                                </span>
+
+                                <span class="en">
+                                    National Gold Award
+                                </span>
                             </div>
 
                         </div>
 
                     </article>
 
-                    <!-- 图片3：焊接调试 -->
+                    <!-- 图片3 -->
                     <article class="life-card">
 
                         <div class="life-image-wrap">
@@ -1512,8 +1556,7 @@
 
                             <p>
                                 <span class="zh">
-                                    完成传感器节点焊接、接口检查与上电调试，
-                                    逐步排查硬件连接和通信异常。
+                                    完成传感器节点焊接、接口检查与上电调试，逐步排查硬件连接和通信异常。
                                 </span>
 
                                 <span class="en">
@@ -1532,7 +1575,7 @@
 
                     </article>
 
-                    <!-- 图片4：PCB设计 -->
+                    <!-- 图片4 -->
                     <article class="life-card">
 
                         <div class="life-image-wrap">
@@ -1577,8 +1620,7 @@
 
                             <p>
                                 <span class="zh">
-                                    完成电路原理图设计与PCB布局布线，
-                                    并对板卡尺寸、供电和信号连接进行优化。
+                                    完成电路原理图设计与PCB布局布线，并对板卡尺寸、供电和信号连接进行优化。
                                 </span>
 
                                 <span class="en">
@@ -1597,7 +1639,7 @@
 
                     </article>
 
-                    <!-- 图片5：面包板测试 -->
+                    <!-- 图片5 -->
                     <article class="life-card">
 
                         <div class="life-image-wrap">
@@ -1642,8 +1684,7 @@
 
                             <p>
                                 <span class="zh">
-                                    使用面包板搭建核心电路并开展功能测试，
-                                    为后续PCB制板和程序联调提供依据。
+                                    使用面包板搭建核心电路并开展功能测试，为后续PCB制板和程序联调提供依据。
                                 </span>
 
                                 <span class="en">
@@ -1662,7 +1703,7 @@
 
                     </article>
 
-                    <!-- 图片6：团队聚餐 -->
+                    <!-- 图片6 -->
                     <article class="life-card">
 
                         <div class="life-image-wrap">
@@ -1707,8 +1748,7 @@
 
                             <p>
                                 <span class="zh">
-                                    与项目团队开展阶段性聚餐交流，
-                                    总结项目进展并记录共同协作与成长的时刻。
+                                    与项目团队开展阶段性聚餐交流，总结项目进展并记录共同协作与成长的时刻。
                                 </span>
 
                                 <span class="en">
@@ -2025,8 +2065,7 @@
                     "false"
                 );
 
-                menuToggle.textContent =
-                    "☰";
+                menuToggle.textContent = "☰";
             }
 
             if (yearElement) {
