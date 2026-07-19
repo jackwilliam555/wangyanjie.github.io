@@ -10,10 +10,10 @@
 
     <meta
         name="description"
-        content="王焱杰的个人学术主页，展示教育经历、学业表现与荣誉奖励。"
+        content="王焱杰的生活记录页面，展示校园生活、科研实践、竞赛经历、志愿服务与体育运动。"
     >
 
-    <title>教育与荣誉 | 王焱杰</title>
+    <title>生活记录 | 王焱杰</title>
 
     <style>
         :root {
@@ -27,6 +27,7 @@
             --card-inner: #f7f9fc;
 
             --text: #172033;
+            --text-secondary: #49566a;
             --muted: #687487;
             --light-muted: #8b96a5;
 
@@ -40,12 +41,14 @@
                 0 9px 26px rgba(32, 47, 68, 0.06);
 
             --shadow-hover:
-                0 16px 38px rgba(32, 47, 68, 0.10);
+                0 16px 38px rgba(32, 47, 68, 0.11);
 
             --shadow-avatar:
                 0 7px 24px rgba(32, 47, 68, 0.12),
                 0 0 0 1px rgba(255, 255, 255, 0.85) inset;
 
+            --radius: 16px;
+            --radius-small: 9px;
             --radius-full: 9999px;
 
             --transition:
@@ -115,7 +118,9 @@
             margin: 0 auto;
         }
 
-        /* 顶部导航栏 */
+        /* =========================
+           顶部导航栏
+        ========================= */
 
         .topbar {
             position: sticky;
@@ -211,6 +216,19 @@
 
             font-size: 11px;
             font-weight: 700;
+
+            transition:
+                color var(--transition),
+                border-color var(--transition),
+                box-shadow var(--transition);
+        }
+
+        .language-toggle:hover {
+            color: var(--blue);
+            border-color: #b9c8d9;
+
+            box-shadow:
+                0 4px 12px rgba(32, 47, 68, 0.09);
         }
 
         .menu-toggle {
@@ -225,12 +243,14 @@
             background: #ffffff;
 
             border: 1px solid var(--line-dark);
-            border-radius: 9px;
+            border-radius: var(--radius-small);
 
             font-size: 18px;
         }
 
-        /* 页面主体 */
+        /* =========================
+           页面整体布局
+        ========================= */
 
         .page-layout {
             display: grid;
@@ -247,7 +267,9 @@
             padding: 40px 0 78px;
         }
 
-        /* 左侧个人资料 */
+        /* =========================
+           左侧个人资料
+        ========================= */
 
         .profile {
             position: sticky;
@@ -286,7 +308,7 @@
             height: 100%;
 
             object-fit: cover;
-            object-position: center;
+            object-position: center center;
 
             background: #f0f4fa;
             border-radius: 50%;
@@ -300,12 +322,19 @@
             height: 100%;
 
             color: var(--blue);
-            background: linear-gradient(145deg, #eff5fc, #f9fbfd);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #eff5fc,
+                    #f9fbfd
+                );
 
             border-radius: 50%;
 
             font-size: 38px;
             font-weight: 800;
+            letter-spacing: -0.04em;
         }
 
         .profile-name {
@@ -320,7 +349,7 @@
         }
 
         .profile-role {
-            max-width: 225px;
+            max-width: 220px;
 
             margin-top: 11px;
 
@@ -366,10 +395,28 @@
         }
 
         .profile-meta .icon svg {
+            display: block;
+
             width: 100%;
             height: 100%;
 
             fill: currentColor;
+        }
+
+        .profile-meta .icon-location {
+            width: 14px;
+            height: 17px;
+        }
+
+        .profile-meta .icon-link,
+        .profile-meta .icon-github {
+            width: 17px;
+            height: 17px;
+        }
+
+        .profile-meta .icon-envelope {
+            width: 17px;
+            height: 15px;
         }
 
         .profile-meta a {
@@ -382,61 +429,13 @@
             color: var(--blue);
         }
 
-        .email-address {
-            color: var(--blue);
-            font-weight: 600;
-        }
-
-        .profile-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 9px;
-
-            margin-top: 22px;
-        }
-
-        .button-outline {
-            min-height: 36px;
-
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-
-            padding: 7px 13px;
-
-            color: var(--blue);
-            background: #ffffff;
-
-            border: 1px solid #ced8e5;
-            border-radius: 8px;
-
-            font-size: 11px;
-            font-weight: 700;
-
-            transition:
-                color var(--transition),
-                background var(--transition),
-                border-color var(--transition),
-                transform var(--transition);
-        }
-
-        .button-outline:hover {
-            color: #ffffff;
-            background: var(--blue);
-            border-color: var(--blue);
-
-            transform: translateY(-1px);
-        }
-
-        /* 右侧内容 */
+        /* =========================
+           右侧主体内容
+        ========================= */
 
         .content {
             min-width: 0;
             width: 100%;
-        }
-
-        .section + .section {
-            margin-top: 34px;
         }
 
         .section-heading {
@@ -483,12 +482,19 @@
             background: var(--line);
         }
 
-        /* 教育经历 */
+        /* =========================
+           生活简介卡片
+        ========================= */
 
-        .education-card {
+        .life-intro {
             padding: 25px 28px;
 
-            background: var(--card-background);
+            background:
+                linear-gradient(
+                    145deg,
+                    #fbfcfd 0%,
+                    #f8fafc 100%
+                );
 
             border: 1px solid var(--line-dark);
             border-radius: 19px;
@@ -496,216 +502,224 @@
             box-shadow: var(--shadow);
         }
 
-        .education-header {
-            display: grid;
-
-            grid-template-columns:
-                76px minmax(0, 1fr);
-
-            gap: 19px;
-            align-items: center;
-        }
-
-        .school-logo {
-            width: 72px;
-            height: 72px;
-
-            display: grid;
-            place-items: center;
-
-            overflow: hidden;
-
-            color: var(--blue);
-            background: #ffffff;
-
-            border: 1px solid var(--line);
-            border-radius: 16px;
-
-            font-size: 15px;
-            font-weight: 800;
-        }
-
-        .school-logo img {
-            width: 100%;
-            height: 100%;
-
-            padding: 7px;
-
-            object-fit: contain;
-        }
-
-        .school-logo .fallback {
-            display: none;
-            place-items: center;
-
-            width: 100%;
-            height: 100%;
-        }
-
-        .school-info h3 {
+        .life-intro h2 {
             color: var(--text);
 
-            font-size: 20px;
-            line-height: 1.35;
+            font-size: 18px;
+            line-height: 1.5;
         }
 
-        .school-info p {
-            margin-top: 6px;
+        .life-intro p {
+            margin-top: 9px;
 
-            color: var(--muted);
+            color: var(--text-secondary);
 
             font-size: 14px;
+            line-height: 1.8;
         }
 
-        .divider {
-            display: inline-block;
+        .life-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
 
-            margin: 0 10px;
-
-            color: #a1a9b4;
+            margin-top: 17px;
         }
 
-        .stats-grid {
+        .life-tag {
+            min-height: 31px;
+
+            display: inline-flex;
+            align-items: center;
+
+            padding: 5px 12px;
+
+            color: #445165;
+            background: #ffffff;
+
+            border: 1px solid var(--line-dark);
+            border-radius: 9px;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            transition:
+                color var(--transition),
+                background var(--transition),
+                border-color var(--transition);
+        }
+
+        .life-tag:hover {
+            color: var(--blue);
+            background: var(--blue-soft);
+            border-color: #cbd9e9;
+        }
+
+        /* =========================
+           照片卡片
+        ========================= */
+
+        .life-grid {
             display: grid;
 
             grid-template-columns:
                 repeat(3, minmax(0, 1fr));
 
-            gap: 15px;
+            gap: 16px;
 
-            margin-top: 23px;
+            margin-top: 20px;
         }
 
-        .stat-item {
-            min-height: 78px;
+        .life-card {
+            min-width: 0;
 
-            padding: 15px 17px;
+            overflow: hidden;
 
-            background: var(--card-inner);
-
-            border: 1px solid var(--line);
-            border-radius: 13px;
-        }
-
-        .stat-item strong {
-            display: block;
-
-            color: #3b4657;
-
-            font-size: 14px;
-            font-weight: 700;
-        }
-
-        .stat-item span {
-            display: block;
-
-            margin-top: 5px;
-
-            color: #566275;
-
-            font-size: 14px;
-        }
-
-        .course-area {
-            margin-top: 22px;
-            padding-top: 20px;
-
-            border-top: 1px solid var(--line);
-        }
-
-        .course-area h4 {
-            margin-bottom: 12px;
-
-            color: #394557;
-
-            font-size: 14px;
-        }
-
-        .course-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 9px;
-        }
-
-        .course-tag {
-            padding: 6px 11px;
-
-            color: #586476;
             background: #ffffff;
-
-            border: 1px solid var(--line);
-            border-radius: 8px;
-
-            font-size: 12px;
-
-            transition:
-                color var(--transition),
-                border-color var(--transition),
-                background var(--transition);
-        }
-
-        .course-tag:hover {
-            color: var(--blue);
-            background: var(--blue-soft);
-            border-color: #cedced;
-        }
-
-        /* 荣誉奖励 */
-
-        .award-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, minmax(0, 1fr));
-
-            gap: 15px;
-        }
-
-        .award-item {
-            min-height: 102px;
-
-            padding: 18px 20px;
-
-            background: var(--card-background);
 
             border: 1px solid var(--line-dark);
             border-radius: 16px;
 
+            box-shadow:
+                0 5px 17px rgba(32, 47, 68, 0.045);
+
             transition:
                 transform var(--transition),
                 box-shadow var(--transition),
-                background var(--transition);
+                border-color var(--transition);
         }
 
-        .award-item:hover {
-            background: #ffffff;
+        .life-card:hover {
+            border-color: #d0d8e2;
 
             box-shadow: var(--shadow-hover);
 
-            transform: translateY(-3px);
+            transform: translateY(-4px);
         }
 
-        .award-item h3 {
+        .life-image-wrap {
+            position: relative;
+
+            width: 100%;
+            height: 175px;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #eef3f8,
+                    #f8fafc
+                );
+        }
+
+        .life-image {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+            object-position: center;
+
+            transition: transform 0.45s ease;
+        }
+
+        .life-card:hover .life-image {
+            transform: scale(1.045);
+        }
+
+        .life-image-fallback {
+            display: none;
+            place-items: center;
+
+            width: 100%;
+            height: 100%;
+
+            color: #7e8998;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #eef3f8,
+                    #f8fafc
+                );
+
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .life-category {
+            position: absolute;
+            top: 11px;
+            left: 11px;
+
+            min-height: 26px;
+
+            display: inline-flex;
+            align-items: center;
+
+            padding: 4px 10px;
+
+            color: #ffffff;
+            background: rgba(23, 32, 51, 0.72);
+
+            border: 1px solid rgba(255, 255, 255, 0.24);
+            border-radius: var(--radius-full);
+
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .life-card-body {
+            padding: 15px 16px 18px;
+        }
+
+        .life-card h3 {
             color: var(--text);
 
-            font-size: 16px;
-            line-height: 1.45;
+            font-size: 15px;
+            line-height: 1.5;
         }
 
-        .award-item p {
+        .life-card p {
             margin-top: 7px;
 
             color: var(--muted);
 
-            font-size: 14px;
-            line-height: 1.55;
+            font-size: 12px;
+            line-height: 1.7;
         }
 
-        /* 邮箱提示 */
+        .life-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+
+            margin-top: 12px;
+
+            color: var(--light-muted);
+
+            font-size: 10px;
+        }
+
+        .life-card-meta::before {
+            content: "";
+
+            width: 5px;
+            height: 5px;
+
+            background: #9cabbc;
+            border-radius: 50%;
+        }
+
+        /* =========================
+           邮箱提示
+        ========================= */
 
         .toast {
             position: fixed;
-
             left: 50%;
             bottom: 30px;
             z-index: 3000;
@@ -729,8 +743,7 @@
             opacity: 0;
             visibility: hidden;
 
-            transform:
-                translate(-50%, 15px);
+            transform: translate(-50%, 15px);
 
             transition:
                 opacity 0.25s ease,
@@ -742,9 +755,12 @@
             opacity: 1;
             visibility: visible;
 
-            transform:
-                translate(-50%, 0);
+            transform: translate(-50%, 0);
         }
+
+        /* =========================
+           页脚
+        ========================= */
 
         footer {
             padding: 24px 0 36px;
@@ -757,7 +773,9 @@
             text-align: center;
         }
 
-        /* 中等尺寸电脑 */
+        /* =========================
+           中等尺寸电脑
+        ========================= */
 
         @media
         (min-width: 901px)
@@ -782,12 +800,26 @@
                 font-size: 22px;
             }
 
+            .profile-role {
+                font-size: 13px;
+            }
+
+            .profile-meta li {
+                font-size: 12px;
+            }
+
             .section-title {
                 font-size: 22px;
             }
+
+            .life-image-wrap {
+                height: 153px;
+            }
         }
 
-        /* 平板 */
+        /* =========================
+           平板
+        ========================= */
 
         @media (max-width: 900px) {
             .main-nav {
@@ -852,13 +884,23 @@
                 margin: 0;
             }
 
-            .profile-meta,
-            .profile-actions {
+            .profile-meta {
                 grid-column: 2;
+            }
+
+            .life-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+
+            .life-image-wrap {
+                height: 190px;
             }
         }
 
-        /* 手机 */
+        /* =========================
+           手机
+        ========================= */
 
         @media (max-width: 650px) {
             .container {
@@ -902,8 +944,7 @@
                 font-size: 12px;
             }
 
-            .profile-meta,
-            .profile-actions {
+            .profile-meta {
                 grid-column: 1 / -1;
             }
 
@@ -916,37 +957,44 @@
 
                 width: 34px;
                 height: 34px;
+
+                font-size: 15px;
             }
 
-            .education-card {
-                padding: 18px;
+            .life-intro {
+                padding: 19px;
             }
 
-            .education-header {
-                grid-template-columns:
-                    54px minmax(0, 1fr);
-
-                gap: 12px;
-            }
-
-            .school-logo {
-                width: 52px;
-                height: 52px;
-
-                border-radius: 12px;
-            }
-
-            .school-info h3 {
+            .life-intro h2 {
                 font-size: 16px;
             }
 
-            .school-info p {
-                font-size: 11px;
+            .life-intro p {
+                font-size: 13px;
             }
 
-            .stats-grid,
-            .award-grid {
+            .life-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .life-image-wrap {
+                height: 215px;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .profile {
+                grid-template-columns:
+                    78px minmax(0, 1fr);
+            }
+
+            .avatar-wrap {
+                width: 78px;
+                height: 78px;
+            }
+
+            .life-image-wrap {
+                height: 190px;
             }
         }
     </style>
@@ -954,6 +1002,7 @@
 
 <body>
 
+    <!-- 顶部导航栏 -->
     <header class="topbar">
 
         <div class="container topbar-inner">
@@ -993,7 +1042,7 @@
 
                     <li>
                         <a
-                            class="nav-link active"
+                            class="nav-link"
                             href="index.html"
                         >
                             <span class="zh">教育</span>
@@ -1023,7 +1072,7 @@
 
                     <li>
                         <a
-                            class="nav-link"
+                            class="nav-link active"
                             href="life.html"
                         >
                             <span class="zh">生活</span>
@@ -1047,8 +1096,10 @@
 
     </header>
 
+    <!-- 页面主体 -->
     <div class="container page-layout">
 
+        <!-- 左侧个人资料 -->
         <aside class="profile">
 
             <div class="avatar-wrap">
@@ -1094,10 +1145,11 @@
 
             <ul class="profile-meta">
 
+                <!-- 所在地 -->
                 <li>
 
                     <span
-                        class="icon"
+                        class="icon icon-location"
                         aria-hidden="true"
                     >
                         <svg viewBox="0 0 384 512">
@@ -1112,28 +1164,33 @@
 
                 </li>
 
+                <!-- 学校 -->
                 <li>
 
                     <span
-                        class="icon"
+                        class="icon icon-location"
                         aria-hidden="true"
                     >
-                        <svg viewBox="0 0 576 512">
-                            <path d="M288 0L0 128l48 21.3V384h32V163.6L288 256l288-128L288 0zm-112 236.4V336c0 44.2 50.1 80 112 80s112-35.8 112-80v-99.6L288 286.2 176 236.4z"/>
+                        <svg viewBox="0 0 384 512">
+                            <path d="M384 192c0 87.4-117 243-168.3 307.2-12.3 15.3-35.1 15.3-47.4 0C117 435 0 279.4 0 192 0 86 86 0 192 0s192 86 192 192zm-192 64a64 64 0 1 0 0-128 64 64 0 1 0 0 128z"/>
                         </svg>
                     </span>
 
                     <span>
                         <span class="zh">武汉体育学院</span>
-                        <span class="en">Wuhan Sports University</span>
+
+                        <span class="en">
+                            Wuhan Sports University
+                        </span>
                     </span>
 
                 </li>
 
+                <!-- 个人主页 -->
                 <li>
 
                     <span
-                        class="icon"
+                        class="icon icon-link"
                         aria-hidden="true"
                     >
                         <svg viewBox="0 0 512 512">
@@ -1141,21 +1198,18 @@
                         </svg>
                     </span>
 
-                    <a
-                        href="https://jackwilliam555.github.io/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+                    <a href="index.html">
                         <span class="zh">个人主页</span>
                         <span class="en">Website</span>
                     </a>
 
                 </li>
 
+                <!-- 电子邮箱 -->
                 <li>
 
                     <span
-                        class="icon"
+                        class="icon icon-envelope"
                         aria-hidden="true"
                     >
                         <svg viewBox="0 0 512 512">
@@ -1164,21 +1218,23 @@
                     </span>
 
                     <a
-                        class="qq-mail-link email-address"
+                        class="qq-mail-link"
                         href="https://mail.qq.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        title="打开QQ邮箱并复制收件人地址"
+                        title="打开QQ邮箱并复制邮箱地址"
                     >
-                        1289423102@qq.com
+                        <span class="zh">电子邮箱</span>
+                        <span class="en">Email</span>
                     </a>
 
                 </li>
 
+                <!-- GitHub -->
                 <li>
 
                     <span
-                        class="icon"
+                        class="icon icon-github"
                         aria-hidden="true"
                     >
                         <svg viewBox="0 0 24 24">
@@ -1198,335 +1254,454 @@
 
             </ul>
 
-            <div class="profile-actions">
-
-                <a
-                    class="button-outline"
-                    href="files/CV.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <span class="zh">个人简历</span>
-                    <span class="en">CV</span>
-                </a>
-
-                <a
-                    class="button-outline qq-mail-link"
-                    href="https://mail.qq.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    title="打开QQ邮箱并复制收件人地址"
-                >
-                    <span class="zh">联系我</span>
-                    <span class="en">Contact</span>
-                </a>
-
-            </div>
-
         </aside>
 
+        <!-- 右侧生活页面内容 -->
         <main class="content">
 
-            <section class="section">
+            <section>
 
                 <div class="section-heading">
 
                     <div class="heading-icon">
-                        🎓
+                        🌿
                     </div>
 
-                    <h2 class="section-title">
-                        <span class="zh">教育经历</span>
-                        <span class="en">Education</span>
-                    </h2>
+                    <h1 class="section-title">
+                        <span class="zh">生活记录</span>
+                        <span class="en">Life</span>
+                    </h1>
 
                     <div class="heading-line"></div>
 
                 </div>
 
-                <article class="education-card">
+                <!-- 生活介绍 -->
+                <article class="life-intro">
 
-                    <div class="education-header">
+                    <h2>
+                        <span class="zh">
+                            校园生活与成长记录
+                        </span>
 
-                        <div class="school-logo">
+                        <span class="en">
+                            Campus Life and Personal Growth
+                        </span>
+                    </h2>
+
+                    <p>
+                        <span class="zh">
+                            这里记录科研与课程之外的一些经历，包括学科竞赛、
+                            创新创业、志愿服务、体育运动和校园生活。
+                            在学习与实践中不断探索，在合作与交流中持续成长。
+                        </span>
+
+                        <span class="en">
+                            This page records experiences beyond research
+                            and coursework, including academic competitions,
+                            innovation projects, volunteer service, sports
+                            activities and campus life.
+                        </span>
+                    </p>
+
+                    <div class="life-tags">
+
+                        <span class="life-tag">
+                            <span class="zh">学科竞赛</span>
+                            <span class="en">Competitions</span>
+                        </span>
+
+                        <span class="life-tag">
+                            <span class="zh">创新创业</span>
+                            <span class="en">Innovation</span>
+                        </span>
+
+                        <span class="life-tag">
+                            <span class="zh">科研实践</span>
+                            <span class="en">Research</span>
+                        </span>
+
+                        <span class="life-tag">
+                            <span class="zh">志愿服务</span>
+                            <span class="en">Volunteering</span>
+                        </span>
+
+                        <span class="life-tag">
+                            <span class="zh">体育运动</span>
+                            <span class="en">Sports</span>
+                        </span>
+
+                    </div>
+
+                </article>
+
+                <!-- 生活照片卡片 -->
+                <div class="life-grid">
+
+                    <!-- 卡片1 -->
+                    <article class="life-card">
+
+                        <div class="life-image-wrap">
 
                             <img
-                                src="assets/images/wsu-logo.jpg"
-                                alt="武汉体育学院校徽"
+                                class="life-image"
+                                src="assets/images/life/life-01.jpg"
+                                alt="中国国际大学生创新大赛"
+                                loading="lazy"
                                 onerror="
                                     this.style.display='none';
                                     this.nextElementSibling.style.display='grid';
                                 "
                             >
 
-                            <div class="fallback">
-                                WSU
+                            <div class="life-image-fallback">
+                                <span class="zh">竞赛照片</span>
+                                <span class="en">Competition Photo</span>
                             </div>
+
+                            <span class="life-category">
+                                <span class="zh">学科竞赛</span>
+                                <span class="en">Competition</span>
+                            </span>
 
                         </div>
 
-                        <div class="school-info">
+                        <div class="life-card-body">
 
                             <h3>
                                 <span class="zh">
-                                    武汉体育学院
+                                    中国国际大学生创新大赛
                                 </span>
 
                                 <span class="en">
-                                    Wuhan Sports University
+                                    Innovation Competition
                                 </span>
                             </h3>
 
                             <p>
-
-                                <span>
-                                    <span class="zh">
-                                        机械电子工程专业本科生
-                                    </span>
-
-                                    <span class="en">
-                                        B.Eng. Candidate in
-                                        Mechatronic Engineering
-                                    </span>
+                                <span class="zh">
+                                    参与项目方案设计、作品完善和现场答辩，
+                                    与团队共同完成项目成果展示。
                                 </span>
 
-                                <span class="divider">
-                                    |
+                                <span class="en">
+                                    Participated in project design,
+                                    development and final presentation.
                                 </span>
-
-                                <span>
-                                    2023.09 - 2027.06
-                                </span>
-
                             </p>
 
+                            <div class="life-card-meta">
+                                <span class="zh">竞赛经历</span>
+                                <span class="en">Competition Record</span>
+                            </div>
+
                         </div>
 
-                    </div>
+                    </article>
 
-                    <div class="stats-grid">
+                    <!-- 卡片2 -->
+                    <article class="life-card">
 
-                        <div class="stat-item">
-                            <strong>
-                                <span class="zh">平均绩点</span>
-                                <span class="en">GPA</span>
-                            </strong>
+                        <div class="life-image-wrap">
 
-                            <span>4.23 / 5.0</span>
-                        </div>
+                            <img
+                                class="life-image"
+                                src="assets/images/life/life-02.jpg"
+                                alt="项目路演与答辩"
+                                loading="lazy"
+                                onerror="
+                                    this.style.display='none';
+                                    this.nextElementSibling.style.display='grid';
+                                "
+                            >
 
-                        <div class="stat-item">
-                            <strong>
-                                <span class="zh">专业排名</span>
-                                <span class="en">Major Ranking</span>
-                            </strong>
+                            <div class="life-image-fallback">
+                                <span class="zh">项目答辩照片</span>
+                                <span class="en">Presentation Photo</span>
+                            </div>
 
-                            <span>1 / 32</span>
-                        </div>
-
-                        <div class="stat-item">
-                            <strong>
-                                <span class="zh">英语水平</span>
-                                <span class="en">English Proficiency</span>
-                            </strong>
-
-                            <span>CET-6：425</span>
-                        </div>
-
-                    </div>
-
-                    <div class="course-area">
-
-                        <h4>
-                            <span class="zh">主要课程</span>
-                            <span class="en">Major Coursework</span>
-                        </h4>
-
-                        <div class="course-tags">
-
-                            <span class="course-tag">
-                                <span class="zh">机械原理</span>
-                                <span class="en">Theory of Machines</span>
-                            </span>
-
-                            <span class="course-tag">
-                                <span class="zh">机械设计</span>
-                                <span class="en">Machine Design</span>
-                            </span>
-
-                            <span class="course-tag">
-                                <span class="zh">模拟电子技术</span>
-                                <span class="en">Analog Electronics</span>
-                            </span>
-
-                            <span class="course-tag">
-                                <span class="zh">数字电子技术</span>
-                                <span class="en">Digital Electronics</span>
-                            </span>
-
-                            <span class="course-tag">
-                                <span class="zh">单片机原理与应用</span>
-                                <span class="en">Microcontroller Systems</span>
-                            </span>
-
-                            <span class="course-tag">
-                                <span class="zh">传感器原理</span>
-                                <span class="en">Sensor Technology</span>
+                            <span class="life-category">
+                                <span class="zh">创新创业</span>
+                                <span class="en">Innovation</span>
                             </span>
 
                         </div>
 
-                    </div>
+                        <div class="life-card-body">
 
-                </article>
+                            <h3>
+                                <span class="zh">
+                                    项目路演与成果展示
+                                </span>
 
-            </section>
+                                <span class="en">
+                                    Project Presentation
+                                </span>
+                            </h3>
 
-            <section class="section">
+                            <p>
+                                <span class="zh">
+                                    通过项目路演和答辩交流，不断完善技术方案、
+                                    展示逻辑与现场表达能力。
+                                </span>
 
-                <div class="section-heading">
+                                <span class="en">
+                                    Improved technical solutions and
+                                    presentation skills through project defenses.
+                                </span>
+                            </p>
 
-                    <div class="heading-icon">
-                        🏆
-                    </div>
+                            <div class="life-card-meta">
+                                <span class="zh">项目记录</span>
+                                <span class="en">Project Record</span>
+                            </div>
 
-                    <h2 class="section-title">
-                        <span class="zh">荣誉奖励</span>
-                        <span class="en">Honors and Awards</span>
-                    </h2>
+                        </div>
 
-                    <div class="heading-line"></div>
-
-                </div>
-
-                <div class="award-grid">
-
-                    <article class="award-item">
-                        <h3>
-                            <span class="zh">国家级金奖</span>
-                            <span class="en">National Gold Award</span>
-                        </h3>
-
-                        <p>
-                            <span class="zh">
-                                中国国际大学生创新大赛
-                            </span>
-
-                            <span class="en">
-                                China International College Students'
-                                Innovation Competition
-                            </span>
-                        </p>
                     </article>
 
-                    <article class="award-item">
-                        <h3>
-                            <span class="zh">国家级铜奖</span>
-                            <span class="en">National Bronze Award</span>
-                        </h3>
+                    <!-- 卡片3 -->
+                    <article class="life-card">
 
-                        <p>
-                            <span class="zh">
-                                中国体育智能制造创新大赛
+                        <div class="life-image-wrap">
+
+                            <img
+                                class="life-image"
+                                src="assets/images/life/life-03.jpg"
+                                alt="团队合影"
+                                loading="lazy"
+                                onerror="
+                                    this.style.display='none';
+                                    this.nextElementSibling.style.display='grid';
+                                "
+                            >
+
+                            <div class="life-image-fallback">
+                                <span class="zh">团队照片</span>
+                                <span class="en">Team Photo</span>
+                            </div>
+
+                            <span class="life-category">
+                                <span class="zh">团队合作</span>
+                                <span class="en">Teamwork</span>
                             </span>
 
-                            <span class="en">
-                                China Sports Intelligent Manufacturing
-                                Innovation Competition
-                            </span>
-                        </p>
+                        </div>
+
+                        <div class="life-card-body">
+
+                            <h3>
+                                <span class="zh">
+                                    团队合作与共同成长
+                                </span>
+
+                                <span class="en">
+                                    Teamwork and Growth
+                                </span>
+                            </h3>
+
+                            <p>
+                                <span class="zh">
+                                    与团队成员共同完成项目开发、任务分工和成果展示，
+                                    在合作中提升沟通与协作能力。
+                                </span>
+
+                                <span class="en">
+                                    Worked with team members on project
+                                    development and collaborative tasks.
+                                </span>
+                            </p>
+
+                            <div class="life-card-meta">
+                                <span class="zh">团队记录</span>
+                                <span class="en">Team Record</span>
+                            </div>
+
+                        </div>
+
                     </article>
 
-                    <article class="award-item">
-                        <h3>
-                            <span class="zh">省级一等奖</span>
-                            <span class="en">Provincial First Prize</span>
-                        </h3>
+                    <!-- 卡片4 -->
+                    <article class="life-card">
 
-                        <p>
-                            <span class="zh">
-                                湖北省挑战杯
+                        <div class="life-image-wrap">
+
+                            <img
+                                class="life-image"
+                                src="assets/images/life/life-04.jpg"
+                                alt="实验室科研训练"
+                                loading="lazy"
+                                onerror="
+                                    this.style.display='none';
+                                    this.nextElementSibling.style.display='grid';
+                                "
+                            >
+
+                            <div class="life-image-fallback">
+                                <span class="zh">科研照片</span>
+                                <span class="en">Research Photo</span>
+                            </div>
+
+                            <span class="life-category">
+                                <span class="zh">科研实践</span>
+                                <span class="en">Research</span>
                             </span>
 
-                            <span class="en">
-                                Hubei Challenge Cup
-                            </span>
-                        </p>
+                        </div>
+
+                        <div class="life-card-body">
+
+                            <h3>
+                                <span class="zh">
+                                    实验室科研训练
+                                </span>
+
+                                <span class="en">
+                                    Research Training
+                                </span>
+                            </h3>
+
+                            <p>
+                                <span class="zh">
+                                    记录传感器调试、机械结构设计、程序开发和实验测试
+                                    过程中的日常片段。
+                                </span>
+
+                                <span class="en">
+                                    Daily moments from hardware debugging,
+                                    programming and experimental testing.
+                                </span>
+                            </p>
+
+                            <div class="life-card-meta">
+                                <span class="zh">科研日常</span>
+                                <span class="en">Research Life</span>
+                            </div>
+
+                        </div>
+
                     </article>
 
-                    <article class="award-item">
-                        <h3>
-                            <span class="zh">省级二等奖</span>
-                            <span class="en">Provincial Second Prize</span>
-                        </h3>
+                    <!-- 卡片5 -->
+                    <article class="life-card">
 
-                        <p>
-                            <span class="zh">
-                                蓝桥杯全国大学生软件和信息技术大赛
+                        <div class="life-image-wrap">
+
+                            <img
+                                class="life-image"
+                                src="assets/images/life/life-05.jpg"
+                                alt="志愿服务活动"
+                                loading="lazy"
+                                onerror="
+                                    this.style.display='none';
+                                    this.nextElementSibling.style.display='grid';
+                                "
+                            >
+
+                            <div class="life-image-fallback">
+                                <span class="zh">志愿活动照片</span>
+                                <span class="en">Volunteer Photo</span>
+                            </div>
+
+                            <span class="life-category">
+                                <span class="zh">志愿服务</span>
+                                <span class="en">Volunteering</span>
                             </span>
 
-                            <span class="en">
-                                Blue Bridge Cup National College Students
-                                Software and IT Competition
-                            </span>
-                        </p>
+                        </div>
+
+                        <div class="life-card-body">
+
+                            <h3>
+                                <span class="zh">
+                                    志愿服务与校园活动
+                                </span>
+
+                                <span class="en">
+                                    Volunteer Service
+                                </span>
+                            </h3>
+
+                            <p>
+                                <span class="zh">
+                                    参与校园志愿活动和集体服务，
+                                    在实践中增强责任意识与沟通能力。
+                                </span>
+
+                                <span class="en">
+                                    Participated in volunteer activities
+                                    and campus community service.
+                                </span>
+                            </p>
+
+                            <div class="life-card-meta">
+                                <span class="zh">志愿记录</span>
+                                <span class="en">Volunteer Record</span>
+                            </div>
+
+                        </div>
+
                     </article>
 
-                    <article class="award-item">
-                        <h3>
-                            <span class="zh">省级铜奖</span>
-                            <span class="en">Provincial Bronze Award</span>
-                        </h3>
+                    <!-- 卡片6 -->
+                    <article class="life-card">
 
-                        <p>
-                            <span class="zh">
-                                湖北省体育产业创新创业大赛
+                        <div class="life-image-wrap">
+
+                            <img
+                                class="life-image"
+                                src="assets/images/life/life-06.jpg"
+                                alt="体育运动与日常锻炼"
+                                loading="lazy"
+                                onerror="
+                                    this.style.display='none';
+                                    this.nextElementSibling.style.display='grid';
+                                "
+                            >
+
+                            <div class="life-image-fallback">
+                                <span class="zh">体育运动照片</span>
+                                <span class="en">Sports Photo</span>
+                            </div>
+
+                            <span class="life-category">
+                                <span class="zh">体育运动</span>
+                                <span class="en">Sports</span>
                             </span>
 
-                            <span class="en">
-                                Hubei Sports Industry Innovation and
-                                Entrepreneurship Competition
-                            </span>
-                        </p>
-                    </article>
+                        </div>
 
-                    <article class="award-item">
-                        <h3>
-                            <span class="zh">一等奖学金</span>
-                            <span class="en">First-Class Scholarship</span>
-                        </h3>
+                        <div class="life-card-body">
 
-                        <p>
-                            <span class="zh">校级荣誉奖励</span>
-                            <span class="en">University Scholarship</span>
-                        </p>
-                    </article>
+                            <h3>
+                                <span class="zh">
+                                    体育运动与日常锻炼
+                                </span>
 
-                    <article class="award-item">
-                        <h3>
-                            <span class="zh">三好学生</span>
-                            <span class="en">Outstanding Student</span>
-                        </h3>
+                                <span class="en">
+                                    Sports and Exercise
+                                </span>
+                            </h3>
 
-                        <p>
-                            <span class="zh">校级荣誉称号</span>
-                            <span class="en">University Honor</span>
-                        </p>
-                    </article>
+                            <p>
+                                <span class="zh">
+                                    坚持体育运动和日常锻炼，在运动中保持活力，
+                                    也进一步理解人体运动与工程技术的联系。
+                                </span>
 
-                    <article class="award-item">
-                        <h3>
-                            <span class="zh">优秀共青团员</span>
+                                <span class="en">
+                                    Staying active through regular exercise
+                                    and sports activities.
+                                </span>
+                            </p>
 
-                            <span class="en">
-                                Outstanding Youth League Member
-                            </span>
-                        </h3>
+                            <div class="life-card-meta">
+                                <span class="zh">运动记录</span>
+                                <span class="en">Sports Record</span>
+                            </div>
 
-                        <p>
-                            <span class="zh">校级荣誉称号</span>
-                            <span class="en">University Honor</span>
-                        </p>
+                        </div>
+
                     </article>
 
                 </div>
@@ -1537,13 +1712,17 @@
 
     </div>
 
+    <!-- 页脚 -->
     <footer>
+
         <div class="container">
             © <span id="year"></span>
             王焱杰 · Hosted on GitHub Pages
         </div>
+
     </footer>
 
+    <!-- 邮箱提示 -->
     <div
         class="toast"
         id="emailToast"
@@ -1551,11 +1730,11 @@
         aria-live="polite"
     >
         <span class="zh">
-            QQ邮箱已打开，收件人地址已复制：1289423102@qq.com
+            QQ邮箱已打开，邮箱地址已复制：1289423102@qq.com
         </span>
 
         <span class="en">
-            QQ Mail opened. Recipient address copied: 1289423102@qq.com
+            QQ Mail opened. Email copied: 1289423102@qq.com
         </span>
     </div>
 
@@ -1584,23 +1763,22 @@
                     "mainNav"
                 );
 
-            const emailToast =
-                document.getElementById(
-                    "emailToast"
-                );
-
             const yearElement =
                 document.getElementById(
                     "year"
                 );
 
+            const emailToast =
+                document.getElementById(
+                    "emailToast"
+                );
+
             let toastTimer = null;
 
-            /*
-             * 点击邮箱：
-             * 1. 链接自身打开QQ邮箱网页版
-             * 2. 同时复制收件人地址
-             */
+            /* =========================
+               QQ邮箱跳转并复制邮箱
+            ========================= */
+
             document
                 .querySelectorAll(".qq-mail-link")
                 .forEach(function (link) {
@@ -1622,9 +1800,7 @@
                     navigator.clipboard
                         .writeText(EMAIL_ADDRESS)
                         .then(showEmailToast)
-                        .catch(function () {
-                            fallbackCopyEmail();
-                        });
+                        .catch(fallbackCopyEmail);
 
                     return;
                 }
@@ -1675,7 +1851,7 @@
                     showEmailToast();
                 } catch (error) {
                     console.warn(
-                        "邮箱地址复制失败：",
+                        "邮箱复制失败：",
                         error
                     );
                 }
@@ -1705,9 +1881,10 @@
                     );
             }
 
-            /*
-             * 中英文切换
-             */
+            /* =========================
+               中英文切换
+            ========================= */
+
             const savedLanguage =
                 localStorage.getItem(
                     "homepage-language"
@@ -1752,9 +1929,10 @@
                 }
             );
 
-            /*
-             * 手机端导航菜单
-             */
+            /* =========================
+               手机端菜单
+            ========================= */
+
             menuToggle.addEventListener(
                 "click",
                 function () {
@@ -1824,6 +2002,8 @@
                 menuToggle.textContent =
                     "☰";
             }
+
+            /* 自动更新年份 */
 
             if (yearElement) {
                 yearElement.textContent =
