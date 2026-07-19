@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
 
-    <!-- 适配电脑、平板和手机 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta
@@ -19,14 +18,18 @@
         ================================================== */
 
         :root {
-            --page-width: 1160px;
-            --sidebar-width: 230px;
-            --content-width: 710px;
-            --nav-height: 58px;
+            /*
+             * 桌面端整体宽度放大
+             * 左侧250px + 间距60px + 右侧840px
+             */
+            --page-width: 1320px;
+            --sidebar-width: 250px;
+            --content-width: 840px;
+            --nav-height: 62px;
 
             --bg: #ffffff;
             --card-bg: #fbfbfc;
-            --card-inner: #f8fafc;
+            --card-inner: #f7f9fc;
 
             --text: #172033;
             --text-secondary: #49566a;
@@ -37,20 +40,21 @@
             --line-dark: #dce1e8;
 
             --blue: #244a80;
+            --blue-dark: #18375f;
             --blue-soft: #eef4fb;
 
             --shadow:
-                0 8px 24px rgba(32, 47, 68, 0.055);
+                0 9px 26px rgba(32, 47, 68, 0.06);
 
             --shadow-hover:
-                0 14px 34px rgba(32, 47, 68, 0.09);
+                0 16px 38px rgba(32, 47, 68, 0.10);
 
             --shadow-avatar:
-                0 6px 20px rgba(32, 47, 68, 0.10),
-                0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+                0 7px 24px rgba(32, 47, 68, 0.12),
+                0 0 0 1px rgba(255, 255, 255, 0.85) inset;
 
-            --radius: 14px;
-            --radius-small: 8px;
+            --radius: 16px;
+            --radius-small: 9px;
             --radius-full: 9999px;
 
             --transition:
@@ -73,6 +77,7 @@
 
         body {
             min-height: 100vh;
+
             color: var(--text);
             background: var(--bg);
 
@@ -84,14 +89,12 @@
                 Arial,
                 sans-serif;
 
-            font-size: 15px;
-            line-height: 1.65;
+            font-size: 16px;
+            line-height: 1.68;
 
             -webkit-font-smoothing: antialiased;
             text-rendering: optimizeLegibility;
         }
-
-        /* 中英文显示控制 */
 
         body.lang-en .zh {
             display: none !important;
@@ -119,7 +122,7 @@
         .container {
             width: min(
                 var(--page-width),
-                calc(100% - 36px)
+                calc(100% - 40px)
             );
 
             margin: 0 auto;
@@ -151,7 +154,7 @@
 
             display: flex;
             align-items: center;
-            gap: 26px;
+            gap: 30px;
         }
 
         .brand {
@@ -159,7 +162,7 @@
 
             color: var(--text);
 
-            font-size: 15px;
+            font-size: 17px;
             font-weight: 800;
             letter-spacing: 0.01em;
 
@@ -177,23 +180,23 @@
         .nav-list {
             display: flex;
             align-items: center;
-            gap: 2px;
+            gap: 4px;
 
             list-style: none;
         }
 
         .nav-link {
-            min-height: 36px;
+            min-height: 40px;
 
             display: inline-flex;
             align-items: center;
 
-            padding: 6px 11px;
+            padding: 7px 13px;
 
             color: #435064;
-            border-radius: 7px;
+            border-radius: 8px;
 
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 600;
 
             transition:
@@ -210,10 +213,10 @@
         .language-toggle {
             flex: 0 0 auto;
 
-            min-width: 39px;
-            height: 26px;
+            min-width: 44px;
+            height: 29px;
 
-            padding: 0 10px;
+            padding: 0 11px;
 
             color: #3f4e63;
             background: #ffffff;
@@ -224,26 +227,30 @@
             border-radius: var(--radius-full);
 
             box-shadow:
-                0 2px 7px rgba(32, 47, 68, 0.05);
+                0 2px 8px rgba(32, 47, 68, 0.06);
 
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 700;
 
             transition:
                 color var(--transition),
-                border-color var(--transition);
+                border-color var(--transition),
+                box-shadow var(--transition);
         }
 
         .language-toggle:hover {
             color: var(--blue);
             border-color: #b9c8d9;
+
+            box-shadow:
+                0 4px 12px rgba(32, 47, 68, 0.09);
         }
 
         .menu-toggle {
             display: none;
 
-            width: 36px;
-            height: 36px;
+            width: 38px;
+            height: 38px;
 
             margin-left: auto;
 
@@ -255,7 +262,7 @@
 
             border-radius: var(--radius-small);
 
-            font-size: 17px;
+            font-size: 18px;
         }
 
         /* ==================================================
@@ -269,11 +276,12 @@
                 var(--sidebar-width)
                 minmax(0, var(--content-width));
 
-            gap: 54px;
-
+            justify-content: center;
             align-items: start;
 
-            padding: 34px 0 70px;
+            gap: 60px;
+
+            padding: 40px 0 78px;
         }
 
         /* ==================================================
@@ -282,15 +290,15 @@
 
         .profile {
             position: sticky;
-            top: calc(var(--nav-height) + 24px);
+            top: calc(var(--nav-height) + 28px);
         }
 
         .avatar-wrap {
-            width: 160px;
-            height: 160px;
+            width: 182px;
+            height: 182px;
 
-            margin-bottom: 18px;
-            padding: 4px;
+            margin-bottom: 22px;
+            padding: 5px;
 
             overflow: hidden;
 
@@ -306,11 +314,11 @@
 
         .avatar-wrap:hover {
             box-shadow:
-                0 8px 28px rgba(32, 47, 68, 0.16),
+                0 10px 32px rgba(32, 47, 68, 0.17),
                 0 0 0 1px
-                rgba(255, 255, 255, 0.9) inset;
+                rgba(255, 255, 255, 0.92) inset;
 
-            transform: scale(1.01);
+            transform: scale(1.012);
         }
 
         .avatar {
@@ -342,7 +350,7 @@
 
             border-radius: 50%;
 
-            font-size: 34px;
+            font-size: 38px;
             font-weight: 800;
             letter-spacing: -0.04em;
         }
@@ -350,8 +358,8 @@
         .profile-name {
             color: #273246;
 
-            font-size: 21px;
-            line-height: 1.05;
+            font-size: 25px;
+            line-height: 1.03;
         }
 
         .profile-name span {
@@ -359,14 +367,14 @@
         }
 
         .profile-role {
-            max-width: 190px;
+            max-width: 220px;
 
-            margin-top: 8px;
+            margin-top: 11px;
 
             color: #4f5c6e;
 
-            font-size: 13px;
-            line-height: 1.55;
+            font-size: 14px;
+            line-height: 1.6;
         }
 
         /* ==================================================
@@ -375,9 +383,9 @@
 
         .profile-meta {
             display: grid;
-            gap: 10px;
+            gap: 12px;
 
-            margin-top: 20px;
+            margin-top: 23px;
 
             list-style: none;
         }
@@ -386,20 +394,20 @@
             display: grid;
 
             grid-template-columns:
-                18px minmax(0, 1fr);
+                20px minmax(0, 1fr);
 
-            gap: 8px;
+            gap: 9px;
             align-items: center;
 
             color: #536071;
 
-            font-size: 12px;
-            line-height: 1.45;
+            font-size: 13px;
+            line-height: 1.5;
         }
 
         .profile-meta .icon {
-            width: 16px;
-            height: 16px;
+            width: 17px;
+            height: 17px;
 
             display: flex;
             align-items: center;
@@ -418,23 +426,23 @@
         }
 
         .profile-meta .icon-location {
-            width: 13px;
-            height: 16px;
+            width: 14px;
+            height: 17px;
         }
 
         .profile-meta .icon-link {
-            width: 16px;
-            height: 16px;
+            width: 17px;
+            height: 17px;
         }
 
         .profile-meta .icon-envelope {
-            width: 16px;
-            height: 14px;
+            width: 17px;
+            height: 15px;
         }
 
         .profile-meta .icon-github {
-            width: 16px;
-            height: 16px;
+            width: 17px;
+            height: 17px;
         }
 
         .profile-meta a {
@@ -451,39 +459,42 @@
         .profile-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 7px;
+            gap: 9px;
 
-            margin-top: 18px;
+            margin-top: 22px;
         }
 
         .button-outline {
-            min-height: 32px;
+            min-height: 36px;
 
             display: inline-flex;
             align-items: center;
             justify-content: center;
 
-            padding: 5px 10px;
+            padding: 7px 13px;
 
             color: var(--blue);
             background: #ffffff;
 
             border: 1px solid #ced8e5;
-            border-radius: 7px;
+            border-radius: 8px;
 
-            font-size: 10px;
+            font-size: 11px;
             font-weight: 700;
 
             transition:
                 color var(--transition),
                 background var(--transition),
-                border-color var(--transition);
+                border-color var(--transition),
+                transform var(--transition);
         }
 
         .button-outline:hover {
             color: #ffffff;
             background: var(--blue);
             border-color: var(--blue);
+
+            transform: translateY(-1px);
         }
 
         /* ==================================================
@@ -492,25 +503,26 @@
 
         .content {
             min-width: 0;
+            width: 100%;
         }
 
         .section + .section {
-            margin-top: 28px;
+            margin-top: 34px;
         }
 
         .section-heading {
             display: flex;
             align-items: center;
-            gap: 11px;
+            gap: 13px;
 
-            margin-bottom: 15px;
+            margin-bottom: 19px;
         }
 
         .heading-icon {
-            flex: 0 0 34px;
+            flex: 0 0 39px;
 
-            width: 34px;
-            height: 34px;
+            width: 39px;
+            height: 39px;
 
             display: grid;
             place-items: center;
@@ -518,13 +530,13 @@
             background: #fafafa;
 
             border: 1px solid var(--line);
-            border-radius: 10px;
+            border-radius: 12px;
 
             box-shadow:
-                0 3px 8px
-                rgba(32, 47, 68, 0.04);
+                0 4px 10px
+                rgba(32, 47, 68, 0.045);
 
-            font-size: 15px;
+            font-size: 17px;
         }
 
         .section-title {
@@ -532,7 +544,7 @@
 
             color: var(--text);
 
-            font-size: 21px;
+            font-size: 25px;
             line-height: 1.2;
         }
 
@@ -548,14 +560,14 @@
         ================================================== */
 
         .education-card {
-            padding: 20px 23px;
+            padding: 25px 28px;
 
             background: var(--card-bg);
 
             border:
                 1px solid var(--line-dark);
 
-            border-radius: 16px;
+            border-radius: 19px;
 
             box-shadow: var(--shadow);
         }
@@ -564,15 +576,15 @@
             display: grid;
 
             grid-template-columns:
-                66px minmax(0, 1fr);
+                76px minmax(0, 1fr);
 
-            gap: 15px;
+            gap: 19px;
             align-items: center;
         }
 
         .school-logo {
-            width: 64px;
-            height: 64px;
+            width: 72px;
+            height: 72px;
 
             display: grid;
             place-items: center;
@@ -583,9 +595,9 @@
             background: #ffffff;
 
             border: 1px solid var(--line);
-            border-radius: var(--radius);
+            border-radius: 16px;
 
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 800;
         }
 
@@ -609,22 +621,22 @@
         .school-info h3 {
             color: var(--text);
 
-            font-size: 17px;
+            font-size: 20px;
             line-height: 1.35;
         }
 
         .school-info p {
-            margin-top: 4px;
+            margin-top: 6px;
 
             color: var(--muted);
 
-            font-size: 12px;
+            font-size: 14px;
         }
 
         .divider {
             display: inline-block;
 
-            margin: 0 8px;
+            margin: 0 10px;
 
             color: #a1a9b4;
         }
@@ -639,20 +651,20 @@
             grid-template-columns:
                 repeat(3, minmax(0, 1fr));
 
-            gap: 11px;
+            gap: 15px;
 
-            margin-top: 18px;
+            margin-top: 23px;
         }
 
         .stat-item {
-            min-height: 63px;
+            min-height: 78px;
 
-            padding: 12px 13px;
+            padding: 15px 17px;
 
             background: var(--card-inner);
 
             border: 1px solid var(--line);
-            border-radius: 11px;
+            border-radius: 13px;
         }
 
         .stat-item strong {
@@ -660,18 +672,18 @@
 
             color: #3b4657;
 
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 700;
         }
 
         .stat-item span {
             display: block;
 
-            margin-top: 3px;
+            margin-top: 5px;
 
             color: #566275;
 
-            font-size: 12px;
+            font-size: 14px;
         }
 
         /* ==================================================
@@ -679,36 +691,47 @@
         ================================================== */
 
         .course-area {
-            margin-top: 17px;
-            padding-top: 16px;
+            margin-top: 22px;
+            padding-top: 20px;
 
             border-top: 1px solid var(--line);
         }
 
         .course-area h4 {
-            margin-bottom: 9px;
+            margin-bottom: 12px;
 
             color: #394557;
 
-            font-size: 12px;
+            font-size: 14px;
         }
 
         .course-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 7px;
+            gap: 9px;
         }
 
         .course-tag {
-            padding: 4px 8px;
+            padding: 6px 11px;
 
             color: #586476;
             background: #ffffff;
 
             border: 1px solid var(--line);
-            border-radius: 6px;
+            border-radius: 8px;
 
-            font-size: 10px;
+            font-size: 12px;
+
+            transition:
+                color var(--transition),
+                border-color var(--transition),
+                background var(--transition);
+        }
+
+        .course-tag:hover {
+            color: var(--blue);
+            background: var(--blue-soft);
+            border-color: #cedced;
         }
 
         /* ==================================================
@@ -721,20 +744,20 @@
             grid-template-columns:
                 repeat(2, minmax(0, 1fr));
 
-            gap: 12px;
+            gap: 15px;
         }
 
         .award-item {
-            min-height: 82px;
+            min-height: 102px;
 
-            padding: 14px 16px;
+            padding: 18px 20px;
 
             background: var(--card-bg);
 
             border:
                 1px solid var(--line-dark);
 
-            border-radius: var(--radius);
+            border-radius: 16px;
 
             transition:
                 transform var(--transition),
@@ -747,23 +770,23 @@
 
             box-shadow: var(--shadow-hover);
 
-            transform: translateY(-2px);
+            transform: translateY(-3px);
         }
 
         .award-item h3 {
             color: var(--text);
 
-            font-size: 14px;
-            line-height: 1.4;
+            font-size: 16px;
+            line-height: 1.45;
         }
 
         .award-item p {
-            margin-top: 4px;
+            margin-top: 7px;
 
             color: var(--muted);
 
-            font-size: 12px;
-            line-height: 1.5;
+            font-size: 14px;
+            line-height: 1.55;
         }
 
         /* ==================================================
@@ -771,14 +794,70 @@
         ================================================== */
 
         footer {
-            padding: 21px 0 32px;
+            padding: 24px 0 36px;
 
             color: var(--light-muted);
 
             border-top: 1px solid var(--line);
 
-            font-size: 10px;
+            font-size: 11px;
             text-align: center;
+        }
+
+        /* ==================================================
+           中等尺寸电脑与小屏笔记本
+        ================================================== */
+
+        @media
+        (min-width: 901px)
+        and (max-width: 1180px) {
+
+            :root {
+                --page-width: 1040px;
+                --sidebar-width: 220px;
+                --content-width: 730px;
+            }
+
+            .page-layout {
+                gap: 42px;
+            }
+
+            .avatar-wrap {
+                width: 164px;
+                height: 164px;
+            }
+
+            .profile-name {
+                font-size: 22px;
+            }
+
+            .profile-role {
+                font-size: 13px;
+            }
+
+            .profile-meta li {
+                font-size: 12px;
+            }
+
+            .section-title {
+                font-size: 22px;
+            }
+
+            .education-card {
+                padding: 22px 24px;
+            }
+
+            .award-item {
+                min-height: 88px;
+            }
+
+            .award-item h3 {
+                font-size: 14px;
+            }
+
+            .award-item p {
+                font-size: 12px;
+            }
         }
 
         /* ==================================================
@@ -789,20 +868,20 @@
             .main-nav {
                 position: fixed;
 
-                top: calc(var(--nav-height) + 7px);
+                top: calc(var(--nav-height) + 8px);
                 left: 18px;
                 right: 18px;
 
                 display: none;
 
-                padding: 8px;
+                padding: 9px;
 
                 background: #ffffff;
 
                 border:
                     1px solid var(--line-dark);
 
-                border-radius: 11px;
+                border-radius: 12px;
 
                 box-shadow: var(--shadow-hover);
             }
@@ -825,7 +904,9 @@
 
             .page-layout {
                 grid-template-columns: 1fr;
-                gap: 32px;
+                gap: 34px;
+
+                padding-top: 32px;
             }
 
             .profile {
@@ -834,15 +915,15 @@
                 display: grid;
 
                 grid-template-columns:
-                    138px minmax(0, 1fr);
+                    145px minmax(0, 1fr);
 
-                gap: 21px;
+                gap: 23px;
                 align-items: start;
             }
 
             .avatar-wrap {
-                width: 138px;
-                height: 138px;
+                width: 145px;
+                height: 145px;
 
                 margin: 0;
             }
@@ -850,6 +931,10 @@
             .profile-meta,
             .profile-actions {
                 grid-column: 2;
+            }
+
+            .content {
+                width: 100%;
             }
         }
 
@@ -866,35 +951,36 @@
             }
 
             .topbar-inner {
-                gap: 9px;
+                gap: 10px;
             }
 
             .brand {
-                font-size: 14px;
+                font-size: 15px;
             }
 
             .page-layout {
-                padding-top: 27px;
+                padding-top: 28px;
             }
 
             .profile {
                 grid-template-columns:
-                    90px minmax(0, 1fr);
+                    94px minmax(0, 1fr);
 
-                gap: 15px;
+                gap: 16px;
             }
 
             .avatar-wrap {
-                width: 90px;
-                height: 90px;
+                width: 94px;
+                height: 94px;
             }
 
             .profile-name {
-                font-size: 18px;
+                font-size: 19px;
             }
 
             .profile-role {
-                margin-top: 5px;
+                margin-top: 6px;
+                font-size: 12px;
             }
 
             .profile-meta,
@@ -903,33 +989,56 @@
             }
 
             .section-title {
-                font-size: 19px;
+                font-size: 20px;
+            }
+
+            .heading-icon {
+                flex-basis: 34px;
+                width: 34px;
+                height: 34px;
+                font-size: 15px;
             }
 
             .education-card {
-                padding: 17px;
+                padding: 18px;
             }
 
             .education-header {
                 grid-template-columns:
-                    52px minmax(0, 1fr);
+                    54px minmax(0, 1fr);
 
-                gap: 11px;
+                gap: 12px;
             }
 
             .school-logo {
-                width: 50px;
-                height: 50px;
+                width: 52px;
+                height: 52px;
 
-                border-radius: 11px;
+                border-radius: 12px;
+            }
+
+            .school-info h3 {
+                font-size: 16px;
+            }
+
+            .school-info p {
+                font-size: 11px;
             }
 
             .stats-grid {
                 grid-template-columns: 1fr;
             }
 
+            .stat-item {
+                min-height: auto;
+            }
+
             .award-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .award-item {
+                min-height: auto;
             }
         }
 
@@ -940,12 +1049,12 @@
         @media (max-width: 380px) {
             .profile {
                 grid-template-columns:
-                    76px minmax(0, 1fr);
+                    78px minmax(0, 1fr);
             }
 
             .avatar-wrap {
-                width: 76px;
-                height: 76px;
+                width: 78px;
+                height: 78px;
             }
 
             .education-header {
@@ -956,7 +1065,7 @@
                 display: none;
             }
 
-            .school-info p span {
+            .school-info p > span {
                 display: block;
             }
         }
@@ -1005,7 +1114,6 @@
                         </a>
                     </li>
 
-                    <!-- 首页就是教育页面 -->
                     <li>
                         <a
                             class="nav-link active"
@@ -1117,7 +1225,7 @@
 
             </div>
 
-            <!-- 个人信息图标列表 -->
+            <!-- 个人信息 -->
             <ul class="profile-meta">
 
                 <!-- 所在城市 -->
@@ -1299,7 +1407,6 @@
                         </svg>
                     </span>
 
-                    <!-- 将邮箱替换成你的真实邮箱 -->
                     <a href="mailto:your-email@example.com">
 
                         <span class="zh">电子邮箱</span>
@@ -1420,14 +1527,6 @@
 
                         <!-- 学校校徽 -->
                         <div class="school-logo">
-
-                            <!--
-                                如果你的文件是png：
-                                assets/images/wsu-logo.png
-
-                                如果你的文件是jpg：
-                                assets/images/wsu-logo.jpg
-                            -->
 
                             <img
                                 src="assets/images/wsu-logo.jpg"
@@ -1961,10 +2060,6 @@
                     "year"
                 );
 
-            /*
-              读取用户之前选择的语言
-            */
-
             const savedLanguage =
                 localStorage.getItem(
                     "homepage-language"
@@ -1981,10 +2076,6 @@
                 languageToggle.textContent =
                     "中";
             }
-
-            /*
-              中英文切换
-            */
 
             languageToggle.addEventListener(
                 "click",
@@ -2013,10 +2104,6 @@
                 }
             );
 
-            /*
-              手机端菜单展开和关闭
-            */
-
             menuToggle.addEventListener(
                 "click",
                 function () {
@@ -2036,10 +2123,6 @@
                             : "☰";
                 }
             );
-
-            /*
-              点击导航链接后关闭菜单
-            */
 
             document
                 .querySelectorAll(
@@ -2065,10 +2148,6 @@
                         );
                     }
                 );
-
-            /*
-              点击导航外区域关闭菜单
-            */
 
             document.addEventListener(
                 "click",
@@ -2104,10 +2183,6 @@
                     }
                 }
             );
-
-            /*
-              自动更新页脚年份
-            */
 
             if (yearElement) {
                 yearElement.textContent =
