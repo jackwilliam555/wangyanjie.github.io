@@ -10,10 +10,10 @@
 
     <meta
         name="description"
-        content="王焱杰的技术博客，记录可穿戴设备、嵌入式系统、人体运动感知、生理信号处理与机械结构设计。"
+        content="王焱杰的技术文章页面，记录可穿戴设备、嵌入式系统、人体运动感知、生理信号处理与机械结构设计。"
     >
 
-    <title>技术博客 | 王焱杰</title>
+    <title>技术文章 | 王焱杰</title>
 
     <style>
         :root {
@@ -23,8 +23,9 @@
             --nav-height: 62px;
 
             --background: #ffffff;
-            --card-background: #fbfbfc;
-            --card-inner: #f7f9fc;
+            --page-background: #f7f8fa;
+            --card-background: #ffffff;
+            --card-soft: #f7f9fc;
 
             --text: #172033;
             --text-secondary: #49566a;
@@ -35,7 +36,7 @@
             --line-dark: #dce1e8;
 
             --blue: #244a80;
-            --blue-light: #507aad;
+            --blue-hover: #1d3f70;
             --blue-soft: #eef4fb;
 
             --green: #317259;
@@ -48,10 +49,10 @@
             --orange-soft: #fff6e7;
 
             --shadow:
-                0 9px 26px rgba(32, 47, 68, 0.06);
+                0 7px 22px rgba(32, 47, 68, 0.055);
 
             --shadow-hover:
-                0 16px 38px rgba(32, 47, 68, 0.11);
+                0 14px 34px rgba(32, 47, 68, 0.11);
 
             --shadow-avatar:
                 0 7px 24px rgba(32, 47, 68, 0.12),
@@ -77,7 +78,7 @@
             min-height: 100vh;
 
             color: var(--text);
-            background: var(--background);
+            background: var(--page-background);
 
             font-family:
                 Inter,
@@ -112,8 +113,13 @@
             max-width: 100%;
         }
 
-        button {
+        button,
+        input,
+        select {
             font: inherit;
+        }
+
+        button {
             cursor: pointer;
         }
 
@@ -126,7 +132,9 @@
             margin: 0 auto;
         }
 
-        /* 顶部导航栏 */
+        /* =========================
+           顶部导航栏
+        ========================= */
 
         .topbar {
             position: sticky;
@@ -254,7 +262,9 @@
             font-size: 18px;
         }
 
-        /* 页面布局 */
+        /* =========================
+           页面布局
+        ========================= */
 
         .page-layout {
             display: grid;
@@ -268,10 +278,12 @@
 
             gap: 60px;
 
-            padding: 40px 0 78px;
+            padding: 34px 0 78px;
         }
 
-        /* 左侧个人资料 */
+        /* =========================
+           左侧个人资料
+        ========================= */
 
         .profile {
             position: sticky;
@@ -471,359 +483,373 @@
             transform: translateY(-1px);
         }
 
-        /* 右侧内容 */
+        /* =========================
+           右侧主体
+        ========================= */
 
         .content {
             min-width: 0;
             width: 100%;
         }
 
-        .section-heading {
-            display: flex;
-            align-items: center;
-            gap: 13px;
+        /* =========================
+           搜索区域
+        ========================= */
 
-            margin-bottom: 19px;
-        }
+        .search-section {
+            padding: 18px;
 
-        .heading-icon {
-            flex: 0 0 39px;
-
-            width: 39px;
-            height: 39px;
-
-            display: grid;
-            place-items: center;
-
-            background: #fafafa;
-
-            border: 1px solid var(--line);
-            border-radius: 12px;
-
-            box-shadow:
-                0 4px 10px rgba(32, 47, 68, 0.045);
-
-            font-size: 17px;
-        }
-
-        .section-title {
-            flex: 0 0 auto;
-
-            color: var(--text);
-
-            font-size: 25px;
-            line-height: 1.2;
-        }
-
-        .heading-line {
-            flex: 1;
-            height: 1px;
-
-            background: var(--line);
-        }
-
-        /* 博客介绍 */
-
-        .blog-intro {
-            padding: 25px 28px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #f7faff 0%,
-                    #fbfcfd 100%
-                );
+            background: #ffffff;
 
             border: 1px solid var(--line-dark);
-            border-radius: 19px;
+            border-radius: 14px;
 
             box-shadow: var(--shadow);
         }
 
-        .blog-intro h2 {
-            color: var(--text);
+        .search-row {
+            display: grid;
 
-            font-size: 19px;
-            line-height: 1.5;
-        }
+            grid-template-columns:
+                minmax(0, 1fr) auto;
 
-        .blog-intro p {
-            max-width: 730px;
-
-            margin-top: 9px;
-
-            color: var(--text-secondary);
-
-            font-size: 14px;
-            line-height: 1.85;
-
-            text-align: justify;
-            text-justify: inter-ideograph;
-            text-indent: 2em;
-        }
-
-        body.lang-en .blog-intro p {
-            text-align: left;
-            text-indent: 0;
-        }
-
-        .blog-summary {
-            display: flex;
-            flex-wrap: wrap;
             gap: 10px;
-
-            margin-top: 18px;
         }
 
-        .summary-item {
-            min-height: 31px;
+        .search-input-wrap {
+            position: relative;
+        }
 
-            display: inline-flex;
-            align-items: center;
+        .search-icon {
+            position: absolute;
+            top: 50%;
+            left: 15px;
 
-            padding: 5px 12px;
+            width: 18px;
+            height: 18px;
 
-            color: #4e5d72;
-            background: #ffffff;
+            display: grid;
+            place-items: center;
 
-            border: 1px solid var(--line-dark);
+            color: #8290a2;
+
+            transform: translateY(-50%);
+
+            pointer-events: none;
+        }
+
+        .search-icon svg {
+            width: 16px;
+            height: 16px;
+
+            fill: currentColor;
+        }
+
+        .search-input {
+            width: 100%;
+            height: 44px;
+
+            padding:
+                0 42px
+                0 43px;
+
+            color: var(--text);
+            background: #f7f8fa;
+
+            border: 1px solid #dbe1e8;
             border-radius: 9px;
 
-            font-size: 11px;
-            font-weight: 700;
+            outline: none;
+
+            font-size: 13px;
+
+            transition:
+                border-color var(--transition),
+                background var(--transition),
+                box-shadow var(--transition);
         }
 
-        /* 分类筛选 */
+        .search-input:focus {
+            background: #ffffff;
+            border-color: #8ca9cb;
 
-        .filter-area {
+            box-shadow:
+                0 0 0 3px rgba(36, 74, 128, 0.09);
+        }
+
+        .search-input::placeholder {
+            color: #939dab;
+        }
+
+        .clear-search {
+            position: absolute;
+            top: 50%;
+            right: 12px;
+
+            width: 24px;
+            height: 24px;
+
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+            color: #788598;
+            background: transparent;
+
+            border: 0;
+            border-radius: 50%;
+
+            font-size: 17px;
+
+            transform: translateY(-50%);
+        }
+
+        .clear-search.show {
+            display: flex;
+        }
+
+        .clear-search:hover {
+            color: var(--text);
+            background: #e9edf2;
+        }
+
+        .search-button {
+            min-width: 88px;
+            height: 44px;
+
+            padding: 0 19px;
+
+            color: #ffffff;
+            background: var(--blue);
+
+            border: 1px solid var(--blue);
+            border-radius: 9px;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            transition:
+                background var(--transition),
+                border-color var(--transition),
+                transform var(--transition);
+        }
+
+        .search-button:hover {
+            background: var(--blue-hover);
+            border-color: var(--blue-hover);
+
+            transform: translateY(-1px);
+        }
+
+        .search-footer {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 18px;
+            gap: 15px;
 
-            margin: 27px 0 19px;
+            margin-top: 13px;
         }
 
-        .filter-title {
-            color: #344156;
+        .search-result {
+            color: var(--light-muted);
 
-            font-size: 14px;
-            font-weight: 700;
+            font-size: 11px;
         }
 
-        .filter-buttons {
+        .search-result strong {
+            color: var(--blue);
+        }
+
+        .quick-keywords {
             display: flex;
             flex-wrap: wrap;
             justify-content: flex-end;
-            gap: 8px;
+            gap: 7px;
         }
 
-        .filter-button {
-            min-height: 32px;
+        .quick-keyword {
+            padding: 3px 8px;
+
+            color: #667487;
+            background: transparent;
+
+            border: 0;
+            border-radius: 6px;
+
+            font-size: 10px;
+
+            transition:
+                color var(--transition),
+                background var(--transition);
+        }
+
+        .quick-keyword:hover {
+            color: var(--blue);
+            background: var(--blue-soft);
+        }
+
+        /* =========================
+           分类导航
+        ========================= */
+
+        .category-bar {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+
+            margin-top: 16px;
+            padding: 10px 12px;
+
+            overflow-x: auto;
+
+            background: #ffffff;
+
+            border: 1px solid var(--line-dark);
+            border-radius: 12px;
+
+            scrollbar-width: thin;
+        }
+
+        .category-button {
+            flex: 0 0 auto;
+
+            min-height: 31px;
 
             padding: 5px 12px;
 
             color: #5a687c;
-            background: #ffffff;
+            background: transparent;
 
-            border: 1px solid var(--line-dark);
-            border-radius: var(--radius-full);
+            border: 0;
+            border-radius: 7px;
 
             font-size: 11px;
             font-weight: 700;
 
             transition:
                 color var(--transition),
-                background var(--transition),
-                border-color var(--transition);
+                background var(--transition);
         }
 
-        .filter-button:hover,
-        .filter-button.active {
-            color: #ffffff;
-            background: var(--blue);
-            border-color: var(--blue);
+        .category-button:hover,
+        .category-button.active {
+            color: var(--blue);
+            background: var(--blue-soft);
         }
 
-        /* 精选文章 */
+        /* =========================
+           博客主体布局
+        ========================= */
 
-        .featured-post {
+        .blog-layout {
             display: grid;
 
             grid-template-columns:
-                minmax(0, 0.92fr)
-                minmax(0, 1.08fr);
+                minmax(0, 1fr) 220px;
 
-            overflow: hidden;
+            gap: 17px;
+            align-items: start;
 
-            background: var(--card-background);
-
-            border: 1px solid var(--line-dark);
-            border-radius: 18px;
-
-            box-shadow: var(--shadow);
-
-            transition:
-                transform var(--transition),
-                box-shadow var(--transition),
-                border-color var(--transition);
+            margin-top: 17px;
         }
 
-        .featured-post:hover {
-            border-color: #ccd7e4;
+        .article-column {
+            min-width: 0;
+        }
+
+        .article-list {
+            display: grid;
+            gap: 13px;
+        }
+
+        /* =========================
+           文章卡片
+        ========================= */
+
+        .article-card {
+            overflow: hidden;
+
+            background: #ffffff;
+
+            border: 1px solid var(--line-dark);
+            border-radius: 13px;
+
+            box-shadow:
+                0 4px 14px rgba(32, 47, 68, 0.04);
+
+            transition:
+                border-color var(--transition),
+                box-shadow var(--transition),
+                transform var(--transition);
+        }
+
+        .article-card:hover {
+            border-color: #cbd6e2;
 
             box-shadow: var(--shadow-hover);
 
-            transform: translateY(-3px);
+            transform: translateY(-2px);
         }
 
-        .featured-image {
-            position: relative;
+        .article-main {
+            display: grid;
 
-            min-height: 300px;
+            grid-template-columns:
+                minmax(0, 1fr) 150px;
 
-            overflow: hidden;
+            gap: 17px;
 
-            background:
-                linear-gradient(
-                    145deg,
-                    #dfeaf6,
-                    #eef3f8
-                );
+            padding: 18px;
         }
 
-        .featured-image img {
-            width: 100%;
-            height: 100%;
-
-            object-fit: cover;
-            object-position: center;
-
-            transition: transform 0.5s ease;
+        .article-content {
+            min-width: 0;
         }
 
-        .featured-post:hover .featured-image img {
-            transform: scale(1.04);
-        }
-
-        .image-fallback {
-            display: none;
-            place-items: center;
-
-            width: 100%;
-            height: 100%;
-
-            color: var(--blue);
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #e6eef8,
-                    #f6f9fc
-                );
-
-            font-size: 42px;
-        }
-
-        .featured-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            z-index: 2;
-
-            display: inline-flex;
-            align-items: center;
-
-            min-height: 27px;
-
-            padding: 4px 11px;
-
-            color: #ffffff;
-            background: rgba(36, 74, 128, 0.88);
-
-            border:
-                1px solid rgba(255, 255, 255, 0.22);
-
-            border-radius: var(--radius-full);
-
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-
-            font-size: 10px;
-            font-weight: 700;
-        }
-
-        .featured-content {
-            padding: 25px 27px;
-        }
-
-        .post-meta {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 7px 13px;
-
-            color: var(--light-muted);
-
-            font-size: 10px;
-            font-weight: 600;
-        }
-
-        .post-meta span {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .post-meta span + span::before {
-            content: "";
-
-            width: 4px;
-            height: 4px;
-
-            background: #a4afbc;
-            border-radius: 50%;
-        }
-
-        .featured-content h2 {
-            margin-top: 12px;
-
+        .article-title {
             color: var(--text);
 
-            font-size: 21px;
+            font-size: 17px;
             line-height: 1.45;
+            font-weight: 800;
+
+            transition: color var(--transition);
         }
 
-        .post-excerpt {
-            margin-top: 11px;
+        .article-title:hover {
+            color: var(--blue);
+        }
+
+        .article-summary {
+            margin-top: 8px;
 
             color: var(--muted);
 
-            font-size: 13px;
-            line-height: 1.8;
+            font-size: 12px;
+            line-height: 1.75;
 
             text-align: justify;
             text-justify: inter-ideograph;
             text-indent: 2em;
         }
 
-        body.lang-en .post-excerpt {
+        body.lang-en .article-summary {
             text-align: left;
             text-indent: 0;
         }
 
-        .post-tags {
+        .article-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 7px;
+            gap: 6px;
 
-            margin-top: 15px;
+            margin-top: 11px;
         }
 
-        .post-tag {
-            padding: 4px 9px;
+        .article-tag {
+            padding: 3px 8px;
 
-            border-radius: var(--radius-full);
+            border-radius: 6px;
 
             font-size: 9px;
             font-weight: 700;
@@ -849,140 +875,38 @@
             background: var(--orange-soft);
         }
 
-        /* 文章展开 */
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 7px 13px;
 
-        .post-details {
-            margin-top: 17px;
-            padding-top: 14px;
+            margin-top: 12px;
 
-            border-top: 1px solid var(--line);
+            color: var(--light-muted);
+
+            font-size: 10px;
         }
 
-        .post-details summary {
-            width: max-content;
-
+        .article-meta span {
             display: inline-flex;
             align-items: center;
-            gap: 7px;
-
-            color: var(--blue);
-
-            font-size: 11px;
-            font-weight: 700;
-
-            cursor: pointer;
-
-            list-style: none;
+            gap: 5px;
         }
 
-        .post-details summary::-webkit-details-marker {
-            display: none;
+        .article-meta span + span::before {
+            content: "";
+
+            width: 4px;
+            height: 4px;
+
+            background: #a4afbc;
+            border-radius: 50%;
         }
 
-        .post-details summary::after {
-            content: "→";
-
-            font-size: 14px;
-
-            transition: transform var(--transition);
-        }
-
-        .post-details[open] summary::after {
-            transform: rotate(90deg);
-        }
-
-        .detail-content {
-            margin-top: 16px;
-            padding: 17px 18px;
-
-            color: #596779;
-            background: var(--card-inner);
-
-            border: 1px solid var(--line);
-            border-radius: 12px;
-
-            font-size: 12px;
-            line-height: 1.75;
-        }
-
-        .detail-content h3 {
-            margin-top: 15px;
-
-            color: #324056;
-
-            font-size: 13px;
-        }
-
-        .detail-content h3:first-child {
-            margin-top: 0;
-        }
-
-        .detail-content p {
-            margin-top: 7px;
-
-            text-align: justify;
-            text-justify: inter-ideograph;
-            text-indent: 2em;
-        }
-
-        .detail-content ul {
-            display: grid;
-            gap: 7px;
-
-            margin-top: 9px;
-            padding-left: 20px;
-        }
-
-        body.lang-en .detail-content p {
-            text-align: left;
-            text-indent: 0;
-        }
-
-        /* 普通文章网格 */
-
-        .post-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, minmax(0, 1fr));
-
-            gap: 17px;
-
-            margin-top: 18px;
-        }
-
-        .blog-post {
-            min-width: 0;
-
-            overflow: hidden;
-
-            background: #ffffff;
-
-            border: 1px solid var(--line-dark);
-            border-radius: 16px;
-
-            box-shadow:
-                0 5px 17px rgba(32, 47, 68, 0.045);
-
-            transition:
-                transform var(--transition),
-                box-shadow var(--transition),
-                border-color var(--transition);
-        }
-
-        .blog-post:hover {
-            border-color: #ced8e4;
-
-            box-shadow: var(--shadow-hover);
-
-            transform: translateY(-4px);
-        }
-
-        .post-cover {
-            position: relative;
-
-            width: 100%;
-            aspect-ratio: 16 / 9;
+        .article-cover {
+            width: 150px;
+            aspect-ratio: 4 / 3;
 
             overflow: hidden;
 
@@ -990,90 +914,350 @@
                 linear-gradient(
                     145deg,
                     #e7eef6,
-                    #f6f9fc
+                    #f5f8fb
                 );
+
+            border-radius: 9px;
         }
 
-        .post-cover img {
+        .article-cover img {
             width: 100%;
             height: 100%;
 
             object-fit: cover;
             object-position: center;
 
-            transition: transform 0.45s ease;
+            transition: transform 0.4s ease;
         }
 
-        .blog-post:hover .post-cover img {
+        .article-card:hover .article-cover img {
             transform: scale(1.045);
         }
 
-        .post-category {
-            position: absolute;
-            top: 11px;
-            left: 11px;
-            z-index: 2;
+        .image-fallback {
+            display: none;
+            place-items: center;
 
-            min-height: 25px;
+            width: 100%;
+            height: 100%;
 
-            display: inline-flex;
+            color: var(--blue);
+
+            font-size: 31px;
+        }
+
+        /* =========================
+           文章展开内容
+        ========================= */
+
+        .article-details {
+            border-top: 1px solid var(--line);
+        }
+
+        .article-details summary {
+            min-height: 38px;
+
+            display: flex;
             align-items: center;
+            justify-content: space-between;
 
-            padding: 4px 10px;
+            padding: 8px 18px;
 
-            color: #ffffff;
-            background: rgba(23, 32, 51, 0.76);
+            color: var(--blue);
+            background: #fbfcfd;
 
-            border:
-                1px solid rgba(255, 255, 255, 0.2);
-
-            border-radius: var(--radius-full);
-
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-
-            font-size: 9px;
+            font-size: 11px;
             font-weight: 700;
+
+            cursor: pointer;
+            list-style: none;
         }
 
-        .post-body {
-            padding: 17px 18px 18px;
-        }
-
-        .post-body h2 {
-            margin-top: 9px;
-
-            color: var(--text);
-
-            font-size: 17px;
-            line-height: 1.5;
-        }
-
-        .post-body .post-excerpt {
-            font-size: 12px;
-            line-height: 1.75;
-        }
-
-        .blog-post.hidden,
-        .featured-post.hidden {
+        .article-details summary::-webkit-details-marker {
             display: none;
         }
 
-        /* 空内容提示 */
+        .article-details summary::after {
+            content: "展开";
+
+            color: var(--light-muted);
+
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        body.lang-en .article-details summary::after {
+            content: "Expand";
+        }
+
+        .article-details[open] summary::after {
+            content: "收起";
+        }
+
+        body.lang-en .article-details[open] summary::after {
+            content: "Collapse";
+        }
+
+        .article-body {
+            padding: 20px 22px 23px;
+
+            color: #526074;
+            background: #ffffff;
+
+            font-size: 13px;
+            line-height: 1.85;
+        }
+
+        .article-body h3 {
+            margin-top: 20px;
+
+            color: #26354a;
+
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .article-body h3:first-child {
+            margin-top: 0;
+        }
+
+        .article-body p {
+            margin-top: 9px;
+
+            text-align: justify;
+            text-justify: inter-ideograph;
+            text-indent: 2em;
+        }
+
+        .article-body ul {
+            display: grid;
+            gap: 7px;
+
+            margin-top: 10px;
+            padding-left: 21px;
+        }
+
+        body.lang-en .article-body p {
+            text-align: left;
+            text-indent: 0;
+        }
+
+        .article-card.hidden {
+            display: none;
+        }
+
+        /* =========================
+           右侧博客信息栏
+        ========================= */
+
+        .blog-sidebar {
+            position: sticky;
+            top: calc(var(--nav-height) + 18px);
+
+            display: grid;
+            gap: 13px;
+        }
+
+        .sidebar-card {
+            padding: 16px;
+
+            background: #ffffff;
+
+            border: 1px solid var(--line-dark);
+            border-radius: 12px;
+
+            box-shadow:
+                0 4px 13px rgba(32, 47, 68, 0.04);
+        }
+
+        .sidebar-title {
+            padding-bottom: 10px;
+
+            color: #2b394d;
+            border-bottom: 1px solid var(--line);
+
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .article-statistics {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+
+            gap: 9px;
+
+            margin-top: 12px;
+        }
+
+        .statistics-item {
+            padding: 10px 7px;
+
+            background: var(--card-soft);
+
+            border: 1px solid var(--line);
+            border-radius: 8px;
+
+            text-align: center;
+        }
+
+        .statistics-item strong {
+            display: block;
+
+            color: var(--blue);
+
+            font-size: 17px;
+            line-height: 1.2;
+        }
+
+        .statistics-item span {
+            display: block;
+
+            margin-top: 4px;
+
+            color: var(--light-muted);
+
+            font-size: 9px;
+        }
+
+        .sidebar-category-list {
+            display: grid;
+            gap: 4px;
+
+            margin-top: 10px;
+
+            list-style: none;
+        }
+
+        .sidebar-category-button {
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 8px 9px;
+
+            color: #586679;
+            background: transparent;
+
+            border: 0;
+            border-radius: 7px;
+
+            font-size: 11px;
+            text-align: left;
+
+            transition:
+                color var(--transition),
+                background var(--transition);
+        }
+
+        .sidebar-category-button:hover,
+        .sidebar-category-button.active {
+            color: var(--blue);
+            background: var(--blue-soft);
+        }
+
+        .category-count {
+            min-width: 20px;
+
+            padding: 1px 6px;
+
+            color: var(--light-muted);
+            background: #f0f2f5;
+
+            border-radius: var(--radius-full);
+
+            font-size: 9px;
+            text-align: center;
+        }
+
+        .sidebar-category-button.active .category-count {
+            color: var(--blue);
+            background: #ffffff;
+        }
+
+        .hot-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+
+            margin-top: 12px;
+        }
+
+        .hot-tag {
+            padding: 4px 8px;
+
+            color: #5f6e82;
+            background: #f5f7fa;
+
+            border: 1px solid var(--line);
+            border-radius: 6px;
+
+            font-size: 9px;
+
+            transition:
+                color var(--transition),
+                background var(--transition),
+                border-color var(--transition);
+        }
+
+        .hot-tag:hover {
+            color: var(--blue);
+            background: var(--blue-soft);
+            border-color: #d0deed;
+        }
+
+        .recent-post-list {
+            display: grid;
+            gap: 10px;
+
+            margin-top: 12px;
+
+            list-style: none;
+        }
+
+        .recent-post-link {
+            display: block;
+
+            color: #586679;
+
+            font-size: 11px;
+            line-height: 1.5;
+
+            transition: color var(--transition);
+        }
+
+        .recent-post-link:hover {
+            color: var(--blue);
+        }
+
+        .recent-post-link span {
+            display: block;
+
+            margin-top: 3px;
+
+            color: var(--light-muted);
+
+            font-size: 9px;
+        }
+
+        /* =========================
+           无结果提示
+        ========================= */
 
         .empty-message {
             display: none;
 
-            padding: 34px 20px;
-            margin-top: 18px;
+            padding: 50px 20px;
 
             color: var(--muted);
-            background: var(--card-background);
+            background: #ffffff;
 
-            border: 1px dashed var(--line-dark);
-            border-radius: 15px;
+            border: 1px dashed #ccd5df;
+            border-radius: 13px;
 
-            font-size: 13px;
             text-align: center;
         }
 
@@ -1081,7 +1265,27 @@
             display: block;
         }
 
-        /* 邮箱提示 */
+        .empty-icon {
+            font-size: 32px;
+        }
+
+        .empty-message h3 {
+            margin-top: 10px;
+
+            color: #425065;
+
+            font-size: 15px;
+        }
+
+        .empty-message p {
+            margin-top: 5px;
+
+            font-size: 11px;
+        }
+
+        /* =========================
+           邮箱提示
+        ========================= */
 
         .toast {
             position: fixed;
@@ -1128,6 +1332,7 @@
             padding: 24px 0 36px;
 
             color: var(--light-muted);
+            background: #ffffff;
 
             border-top: 1px solid var(--line);
 
@@ -1135,7 +1340,9 @@
             text-align: center;
         }
 
-        /* 中等尺寸电脑 */
+        /* =========================
+           中等尺寸电脑
+        ========================= */
 
         @media
         (min-width: 901px)
@@ -1168,24 +1375,24 @@
                 font-size: 12px;
             }
 
-            .section-title {
-                font-size: 22px;
+            .blog-layout {
+                grid-template-columns:
+                    minmax(0, 1fr) 200px;
             }
 
-            .featured-content {
-                padding: 22px;
+            .article-main {
+                grid-template-columns:
+                    minmax(0, 1fr) 130px;
             }
 
-            .featured-content h2 {
-                font-size: 19px;
-            }
-
-            .post-grid {
-                gap: 14px;
+            .article-cover {
+                width: 130px;
             }
         }
 
-        /* 平板 */
+        /* =========================
+           平板
+        ========================= */
 
         @media (max-width: 900px) {
             .main-nav {
@@ -1254,9 +1461,15 @@
             .profile-actions {
                 grid-column: 2;
             }
+
+            .blog-sidebar {
+                position: static;
+            }
         }
 
-        /* 手机 */
+        /* =========================
+           手机
+        ========================= */
 
         @media (max-width: 650px) {
             .container {
@@ -1275,7 +1488,7 @@
             }
 
             .page-layout {
-                padding-top: 28px;
+                padding-top: 25px;
             }
 
             .profile {
@@ -1305,79 +1518,75 @@
                 grid-column: 1 / -1;
             }
 
-            .section-title {
-                font-size: 20px;
+            .search-section {
+                padding: 13px;
             }
 
-            .heading-icon {
-                flex-basis: 34px;
+            .search-row {
+                grid-template-columns:
+                    minmax(0, 1fr) 72px;
 
-                width: 34px;
-                height: 34px;
-
-                font-size: 15px;
+                gap: 7px;
             }
 
-            .blog-intro {
-                padding: 19px;
+            .search-button {
+                min-width: 72px;
+
+                padding: 0 12px;
             }
 
-            .blog-intro h2 {
-                font-size: 17px;
-            }
-
-            .blog-intro p {
-                font-size: 13px;
-                line-height: 1.8;
-            }
-
-            .filter-area {
+            .search-footer {
                 display: block;
             }
 
-            .filter-buttons {
+            .quick-keywords {
                 justify-content: flex-start;
 
-                margin-top: 11px;
+                margin-top: 8px;
             }
 
-            .featured-post {
+            .category-bar {
+                margin-top: 12px;
+            }
+
+            .blog-layout {
                 grid-template-columns: 1fr;
             }
 
-            .featured-image {
-                min-height: auto;
+            .article-main {
+                grid-template-columns: 1fr;
+
+                padding: 16px;
+            }
+
+            .article-cover {
+                grid-row: 1;
+
+                width: 100%;
                 aspect-ratio: 16 / 9;
             }
 
-            .featured-content {
-                padding: 19px;
+            .article-content {
+                grid-row: 2;
             }
 
-            .featured-content h2 {
-                font-size: 18px;
+            .article-title {
+                font-size: 16px;
             }
 
-            .post-grid {
+            .article-summary {
+                font-size: 13px;
+                line-height: 1.7;
+            }
+
+            .article-body {
+                padding: 17px;
+
+                font-size: 13px;
+            }
+
+            .blog-sidebar {
                 grid-template-columns: 1fr;
-
-                gap: 18px;
-            }
-
-            .post-body {
-                padding: 16px 17px 18px;
-            }
-
-            .post-body h2 {
-                font-size: 17px;
-            }
-
-            .post-excerpt {
-                font-size: 13px !important;
-            }
-
-            .detail-content {
-                padding: 15px;
             }
         }
 
@@ -1390,6 +1599,14 @@
             .avatar-wrap {
                 width: 78px;
                 height: 78px;
+            }
+
+            .search-row {
+                grid-template-columns: 1fr;
+            }
+
+            .search-button {
+                width: 100%;
             }
         }
 
@@ -1509,7 +1726,7 @@
     <!-- 页面主体 -->
     <div class="container page-layout">
 
-        <!-- 左侧个人资料 -->
+        <!-- 左侧个人信息 -->
         <aside class="profile">
 
             <div class="avatar-wrap">
@@ -1558,7 +1775,6 @@
 
             <ul class="profile-meta">
 
-                <!-- 所在地 -->
                 <li>
 
                     <span
@@ -1577,7 +1793,6 @@
 
                 </li>
 
-                <!-- 学校 -->
                 <li>
 
                     <span
@@ -1596,7 +1811,6 @@
 
                 </li>
 
-                <!-- 个人主页 -->
                 <li>
 
                     <span
@@ -1615,7 +1829,6 @@
 
                 </li>
 
-                <!-- 电子邮箱 -->
                 <li>
 
                     <span
@@ -1640,7 +1853,6 @@
 
                 </li>
 
-                <!-- GitHub -->
                 <li>
 
                     <span
@@ -1690,463 +1902,505 @@
 
         </aside>
 
-        <!-- 技术博客主体 -->
+        <!-- 右侧博客内容 -->
         <main class="content">
 
-            <section>
+            <!-- 搜索框 -->
+            <section class="search-section">
 
-                <div class="section-heading">
+                <div class="search-row">
 
-                    <div class="heading-icon">
-                        💻
+                    <div class="search-input-wrap">
+
+                        <span
+                            class="search-icon"
+                            aria-hidden="true"
+                        >
+                            <svg viewBox="0 0 512 512">
+                                <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376C296.3 401.1 253.9 416 208 416 93.1 416 0 322.9 0 208S93.1 0 208 0s208 93.1 208 208zm-208 144a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
+                            </svg>
+                        </span>
+
+                        <input
+                            class="search-input"
+                            id="searchInput"
+                            type="search"
+                            autocomplete="off"
+                            placeholder="搜索文章标题、技术关键词或文章内容"
+                            aria-label="搜索技术文章"
+                        >
+
+                        <button
+                            class="clear-search"
+                            id="clearSearch"
+                            type="button"
+                            aria-label="清空搜索内容"
+                        >
+                            ×
+                        </button>
+
                     </div>
 
-                    <h1 class="section-title">
-                        <span class="zh">技术博客</span>
-                        <span class="en">Technical Blog</span>
-                    </h1>
-
-                    <div class="heading-line"></div>
+                    <button
+                        class="search-button"
+                        id="searchButton"
+                        type="button"
+                    >
+                        <span class="zh">搜索</span>
+                        <span class="en">Search</span>
+                    </button>
 
                 </div>
 
-                <!-- 博客介绍 -->
-                <article class="blog-intro">
+                <div class="search-footer">
 
-                    <h2>
+                    <div
+                        class="search-result"
+                        id="searchResult"
+                        aria-live="polite"
+                    >
                         <span class="zh">
-                            工程实践、技术思考与项目复盘
+                            共找到 <strong>4</strong> 篇文章
                         </span>
 
                         <span class="en">
-                            Engineering Practice and Technical Notes
+                            <strong>4</strong> articles found
                         </span>
-                    </h2>
-
-                    <p>
-                        <span class="zh">
-                            这里记录我在可穿戴设备、人体运动感知、生理信号处理、
-                            嵌入式系统和机械结构设计等方向的学习与实践。内容主要来自
-                            项目开发过程中的方案设计、实验验证、问题排查和工程总结。
-                        </span>
-
-                        <span class="en">
-                            This blog records my work in wearable devices,
-                            human motion sensing, physiological signal
-                            processing, embedded systems and mechanical design.
-                        </span>
-                    </p>
-
-                    <div class="blog-summary">
-
-                        <span class="summary-item">
-                            <span class="zh">4 篇技术文章</span>
-                            <span class="en">4 Technical Posts</span>
-                        </span>
-
-                        <span class="summary-item">
-                            <span class="zh">持续更新</span>
-                            <span class="en">Continuously Updated</span>
-                        </span>
-
-                        <span class="summary-item">
-                            <span class="zh">项目驱动</span>
-                            <span class="en">Project-Oriented</span>
-                        </span>
-
                     </div>
 
-                </article>
-
-                <!-- 分类筛选 -->
-                <div class="filter-area">
-
-                    <div class="filter-title">
-                        <span class="zh">文章分类</span>
-                        <span class="en">Categories</span>
-                    </div>
-
-                    <div class="filter-buttons">
+                    <div class="quick-keywords">
 
                         <button
-                            class="filter-button active"
+                            class="quick-keyword"
                             type="button"
-                            data-filter="all"
+                            data-keyword="STM32"
                         >
-                            <span class="zh">全部</span>
-                            <span class="en">All</span>
+                            STM32
                         </button>
 
                         <button
-                            class="filter-button"
+                            class="quick-keyword"
                             type="button"
-                            data-filter="embedded"
+                            data-keyword="PPG"
                         >
-                            <span class="zh">嵌入式系统</span>
-                            <span class="en">Embedded</span>
+                            PPG
                         </button>
 
                         <button
-                            class="filter-button"
+                            class="quick-keyword"
                             type="button"
-                            data-filter="signal"
+                            data-keyword="姿态解算"
                         >
-                            <span class="zh">信号处理</span>
-                            <span class="en">Signal Processing</span>
+                            姿态解算
                         </button>
 
                         <button
-                            class="filter-button"
+                            class="quick-keyword"
                             type="button"
-                            data-filter="mechanical"
+                            data-keyword="PCB"
                         >
-                            <span class="zh">机械设计</span>
-                            <span class="en">Mechanical Design</span>
-                        </button>
-
-                        <button
-                            class="filter-button"
-                            type="button"
-                            data-filter="review"
-                        >
-                            <span class="zh">项目复盘</span>
-                            <span class="en">Project Review</span>
+                            PCB
                         </button>
 
                     </div>
 
                 </div>
 
-                <!-- 精选文章 -->
-                <article
-                    class="featured-post blog-filter-item"
-                    data-category="embedded review"
+            </section>
+
+            <!-- 顶部分类栏 -->
+            <nav
+                class="category-bar"
+                aria-label="技术文章分类"
+            >
+
+                <button
+                    class="category-button active"
+                    type="button"
+                    data-category="all"
                 >
+                    <span class="zh">全部文章</span>
+                    <span class="en">All</span>
+                </button>
 
-                    <div class="featured-image">
+                <button
+                    class="category-button"
+                    type="button"
+                    data-category="embedded"
+                >
+                    <span class="zh">嵌入式系统</span>
+                    <span class="en">Embedded</span>
+                </button>
 
-                        <img
-                            src="assets/images/projects/imu-system.jpg"
-                            alt="多节点惯性姿态采集系统"
-                            loading="eager"
-                            decoding="async"
-                            onerror="
-                                this.style.display='none';
-                                this.nextElementSibling.style.display='grid';
-                            "
-                        >
+                <button
+                    class="category-button"
+                    type="button"
+                    data-category="signal"
+                >
+                    <span class="zh">信号处理</span>
+                    <span class="en">Signal Processing</span>
+                </button>
 
-                        <div class="image-fallback">
-                            🧭
-                        </div>
+                <button
+                    class="category-button"
+                    type="button"
+                    data-category="mechanical"
+                >
+                    <span class="zh">机械设计</span>
+                    <span class="en">Mechanical</span>
+                </button>
 
-                        <span class="featured-badge">
-                            <span class="zh">精选文章</span>
-                            <span class="en">Featured</span>
-                        </span>
+                <button
+                    class="category-button"
+                    type="button"
+                    data-category="hardware"
+                >
+                    <span class="zh">硬件设计</span>
+                    <span class="en">Hardware</span>
+                </button>
 
-                    </div>
+            </nav>
 
-                    <div class="featured-content">
+            <div class="blog-layout">
 
-                        <div class="post-meta">
+                <!-- 左侧文章列表 -->
+                <div class="article-column">
 
-                            <span>2026.07</span>
-
-                            <span>
-                                <span class="zh">嵌入式系统</span>
-                                <span class="en">Embedded Systems</span>
-                            </span>
-
-                            <span>
-                                <span class="zh">约 8 分钟</span>
-                                <span class="en">8 min read</span>
-                            </span>
-
-                        </div>
-
-                        <h2>
-                            <span class="zh">
-                                多节点惯性姿态采集系统：从传感器节点到人体运动捕捉
-                            </span>
-
-                            <span class="en">
-                                Multi-Node Inertial Motion Capture:
-                                From Sensor Nodes to Human Motion Tracking
-                            </span>
-                        </h2>
-
-                        <p class="post-excerpt">
-
-                            <span class="zh">
-                                本文梳理多节点人体动作捕捉系统的整体架构，
-                                包括惯性传感器数据采集、零偏校准、姿态解算、
-                                无线通信、上位机接收和人体姿态重构等关键环节。
-                            </span>
-
-                            <span class="en">
-                                This article introduces the architecture of
-                                a multi-node inertial motion capture system,
-                                including sensing, calibration, attitude
-                                estimation and wireless communication.
-                            </span>
-
-                        </p>
-
-                        <div class="post-tags">
-
-                            <span class="post-tag tag-blue">
-                                IMU
-                            </span>
-
-                            <span class="post-tag tag-green">
-                                STM32
-                            </span>
-
-                            <span class="post-tag tag-purple">
-                                EKF
-                            </span>
-
-                            <span class="post-tag tag-orange">
-                                Motion Capture
-                            </span>
-
-                        </div>
-
-                        <details class="post-details">
-
-                            <summary>
-                                <span class="zh">阅读全文</span>
-                                <span class="en">Read More</span>
-                            </summary>
-
-                            <div class="detail-content">
-
-                                <h3>
-                                    <span class="zh">一、系统整体架构</span>
-                                    <span class="en">1. System Architecture</span>
-                                </h3>
-
-                                <p>
-                                    <span class="zh">
-                                        系统由多个可穿戴惯性传感器节点、无线通信网络、
-                                        数据接收终端和人体姿态重构程序组成。每个节点负责
-                                        采集局部肢段的加速度、角速度和磁场信息，并输出姿态四元数。
-                                    </span>
-
-                                    <span class="en">
-                                        The system consists of wearable
-                                        inertial nodes, wireless communication,
-                                        a receiver and motion reconstruction software.
-                                    </span>
-                                </p>
-
-                                <h3>
-                                    <span class="zh">二、节点数据处理流程</span>
-                                    <span class="en">2. Node Processing Flow</span>
-                                </h3>
-
-                                <ul>
-                                    <li>
-                                        <span class="zh">
-                                            读取加速度计、陀螺仪和磁力计数据；
-                                        </span>
-
-                                        <span class="en">
-                                            Acquire accelerometer, gyroscope
-                                            and magnetometer data.
-                                        </span>
-                                    </li>
-
-                                    <li>
-                                        <span class="zh">
-                                            完成零偏补偿、尺度校准与异常值检查；
-                                        </span>
-
-                                        <span class="en">
-                                            Perform bias correction and calibration.
-                                        </span>
-                                    </li>
-
-                                    <li>
-                                        <span class="zh">
-                                            使用互补滤波或扩展卡尔曼滤波完成姿态融合；
-                                        </span>
-
-                                        <span class="en">
-                                            Estimate attitude using complementary
-                                            filtering or EKF.
-                                        </span>
-                                    </li>
-
-                                    <li>
-                                        <span class="zh">
-                                            将节点编号、时间戳和姿态四元数组帧发送。
-                                        </span>
-
-                                        <span class="en">
-                                            Transmit node ID, timestamp
-                                            and quaternion data.
-                                        </span>
-                                    </li>
-                                </ul>
-
-                                <h3>
-                                    <span class="zh">三、主要工程难点</span>
-                                    <span class="en">3. Engineering Challenges</span>
-                                </h3>
-
-                                <p>
-                                    <span class="zh">
-                                        实际开发中需要重点解决节点时间同步、陀螺仪漂移、
-                                        磁场干扰、无线丢包和传感器安装误差。相比单节点姿态解算，
-                                        多节点系统更强调各节点数据之间的同步性和坐标系一致性。
-                                    </span>
-
-                                    <span class="en">
-                                        Major challenges include synchronization,
-                                        gyroscope drift, magnetic interference,
-                                        packet loss and sensor alignment.
-                                    </span>
-                                </p>
-
-                            </div>
-
-                        </details>
-
-                    </div>
-
-                </article>
-
-                <!-- 普通文章 -->
-                <div class="post-grid">
-
-                    <!-- PPG文章 -->
-                    <article
-                        class="blog-post blog-filter-item"
-                        data-category="signal embedded review"
+                    <div
+                        class="article-list"
+                        id="articleList"
                     >
 
-                        <div class="post-cover">
+                        <!-- 文章1 -->
+                        <article
+                            class="article-card"
+                            id="article-imu"
+                            data-category="embedded hardware"
+                            data-search="多节点惯性姿态采集系统 IMU STM32 ICM20948 ESP32 姿态解算 EKF 四元数 无线通信 人体运动捕捉 传感器节点"
+                        >
 
-                            <img
-                                src="assets/images/projects/ppg-heart-rate.jpg"
-                                alt="运动状态下PPG心率估计"
-                                loading="lazy"
-                                decoding="async"
-                                onerror="
-                                    this.style.display='none';
-                                    this.nextElementSibling.style.display='grid';
-                                "
-                            >
+                            <div class="article-main">
 
-                            <div class="image-fallback">
-                                ❤️
+                                <div class="article-content">
+
+                                    <a
+                                        class="article-title"
+                                        href="#article-imu"
+                                    >
+                                        <span class="zh">
+                                            多节点惯性姿态采集系统：从传感器节点到人体运动捕捉
+                                        </span>
+
+                                        <span class="en">
+                                            Multi-Node Inertial Motion Capture System
+                                        </span>
+                                    </a>
+
+                                    <p class="article-summary">
+
+                                        <span class="zh">
+                                            本文梳理多节点人体动作捕捉系统的整体架构，包括惯性传感器数据采集、零偏校准、姿态解算、无线通信、上位机接收和人体姿态重构等关键环节。
+                                        </span>
+
+                                        <span class="en">
+                                            This article introduces the architecture
+                                            of a multi-node inertial motion capture system.
+                                        </span>
+
+                                    </p>
+
+                                    <div class="article-tags">
+
+                                        <span class="article-tag tag-blue">
+                                            IMU
+                                        </span>
+
+                                        <span class="article-tag tag-green">
+                                            STM32
+                                        </span>
+
+                                        <span class="article-tag tag-purple">
+                                            EKF
+                                        </span>
+
+                                        <span class="article-tag tag-orange">
+                                            Motion Capture
+                                        </span>
+
+                                    </div>
+
+                                    <div class="article-meta">
+
+                                        <span>2026-07-19</span>
+
+                                        <span>
+                                            <span class="zh">嵌入式系统</span>
+                                            <span class="en">Embedded</span>
+                                        </span>
+
+                                        <span>
+                                            <span class="zh">约8分钟阅读</span>
+                                            <span class="en">8 min read</span>
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="article-cover">
+
+                                    <img
+                                        src="assets/images/projects/imu-system.jpg"
+                                        alt="多节点惯性姿态采集系统"
+                                        loading="eager"
+                                        decoding="async"
+                                        onerror="
+                                            this.style.display='none';
+                                            this.nextElementSibling.style.display='grid';
+                                        "
+                                    >
+
+                                    <div class="image-fallback">
+                                        🧭
+                                    </div>
+
+                                </div>
+
                             </div>
 
-                            <span class="post-category">
-                                <span class="zh">信号处理</span>
-                                <span class="en">Signal Processing</span>
-                            </span>
-
-                        </div>
-
-                        <div class="post-body">
-
-                            <div class="post-meta">
-
-                                <span>2026.07</span>
-
-                                <span>
-                                    <span class="zh">约 6 分钟</span>
-                                    <span class="en">6 min read</span>
-                                </span>
-
-                            </div>
-
-                            <h2>
-                                <span class="zh">
-                                    ACC辅助的运动PPG心率估计方法
-                                </span>
-
-                                <span class="en">
-                                    ACC-Assisted Motion PPG Heart Rate Estimation
-                                </span>
-                            </h2>
-
-                            <p class="post-excerpt">
-
-                                <span class="zh">
-                                    运动状态下的PPG信号容易受到手腕位移、皮肤接触变化
-                                    和环境光干扰。本文介绍如何利用三轴加速度信息识别
-                                    运动伪影，并提高心率输出的连续性和稳定性。
-                                </span>
-
-                                <span class="en">
-                                    This article discusses the use of
-                                    accelerometer information to improve
-                                    motion PPG heart-rate estimation.
-                                </span>
-
-                            </p>
-
-                            <div class="post-tags">
-
-                                <span class="post-tag tag-blue">
-                                    PPG
-                                </span>
-
-                                <span class="post-tag tag-green">
-                                    ACC
-                                </span>
-
-                                <span class="post-tag tag-purple">
-                                    MATLAB
-                                </span>
-
-                            </div>
-
-                            <details class="post-details">
+                            <details class="article-details">
 
                                 <summary>
-                                    <span class="zh">阅读全文</span>
-                                    <span class="en">Read More</span>
+                                    <span class="zh">展开阅读全文</span>
+                                    <span class="en">Read Full Article</span>
                                 </summary>
 
-                                <div class="detail-content">
+                                <div class="article-body">
 
                                     <h3>
-                                        <span class="zh">一、问题来源</span>
-                                        <span class="en">1. Problem</span>
+                                        <span class="zh">一、系统整体架构</span>
+                                        <span class="en">1. System Architecture</span>
                                     </h3>
 
                                     <p>
                                         <span class="zh">
-                                            PPG通过检测血容量随心搏产生的周期性变化估计心率。
-                                            在运动状态下，传感器与皮肤之间的相对位移会引入较强
-                                            的运动伪影，其频率可能与真实心率接近。
+                                            系统由多个可穿戴惯性传感器节点、无线通信网络、数据接收终端和人体姿态重构程序组成。每个节点负责采集对应人体肢段的加速度、角速度和磁场信息，并通过姿态融合算法计算四元数。
                                         </span>
 
                                         <span class="en">
-                                            Motion artifacts may overlap with
-                                            the true heart-rate frequency,
-                                            making peak selection difficult.
+                                            The system consists of multiple wearable
+                                            sensor nodes, wireless communication,
+                                            a receiver and motion reconstruction software.
                                         </span>
                                     </p>
 
                                     <h3>
-                                        <span class="zh">二、处理流程</span>
+                                        <span class="zh">二、数据处理流程</span>
+                                        <span class="en">2. Data Processing Flow</span>
+                                    </h3>
+
+                                    <ul>
+                                        <li>
+                                            <span class="zh">
+                                                读取加速度计、陀螺仪和磁力计原始数据；
+                                            </span>
+
+                                            <span class="en">
+                                                Acquire accelerometer, gyroscope and magnetometer data.
+                                            </span>
+                                        </li>
+
+                                        <li>
+                                            <span class="zh">
+                                                完成零偏补偿、尺度校准与异常值检查；
+                                            </span>
+
+                                            <span class="en">
+                                                Perform bias correction and calibration.
+                                            </span>
+                                        </li>
+
+                                        <li>
+                                            <span class="zh">
+                                                使用互补滤波或扩展卡尔曼滤波完成姿态融合；
+                                            </span>
+
+                                            <span class="en">
+                                                Estimate attitude using complementary filtering or EKF.
+                                            </span>
+                                        </li>
+
+                                        <li>
+                                            <span class="zh">
+                                                将节点编号、时间戳和姿态四元数组帧发送。
+                                            </span>
+
+                                            <span class="en">
+                                                Transmit node ID, timestamp and quaternion data.
+                                            </span>
+                                        </li>
+                                    </ul>
+
+                                    <h3>
+                                        <span class="zh">三、主要工程难点</span>
+                                        <span class="en">3. Engineering Challenges</span>
+                                    </h3>
+
+                                    <p>
+                                        <span class="zh">
+                                            实际开发中需要重点解决节点时间同步、陀螺仪漂移、磁场干扰、无线丢包和传感器安装误差。相比单节点姿态解算，多节点系统更强调各节点之间的时间同步和坐标系一致性。
+                                        </span>
+
+                                        <span class="en">
+                                            Major challenges include synchronization,
+                                            sensor drift, magnetic interference,
+                                            packet loss and sensor alignment.
+                                        </span>
+                                    </p>
+
+                                </div>
+
+                            </details>
+
+                        </article>
+
+                        <!-- 文章2 -->
+                        <article
+                            class="article-card"
+                            id="article-ppg"
+                            data-category="signal embedded"
+                            data-search="运动PPG心率估计 ACC 加速度计 PPG-DaLiA 运动伪影 心率 BPM 嵌入式 STM32 信号处理 滤波 频谱"
+                        >
+
+                            <div class="article-main">
+
+                                <div class="article-content">
+
+                                    <a
+                                        class="article-title"
+                                        href="#article-ppg"
+                                    >
+                                        <span class="zh">
+                                            ACC辅助的运动PPG心率估计方法
+                                        </span>
+
+                                        <span class="en">
+                                            ACC-Assisted Motion PPG Heart Rate Estimation
+                                        </span>
+                                    </a>
+
+                                    <p class="article-summary">
+
+                                        <span class="zh">
+                                            运动状态下的PPG信号容易受到手腕位移、皮肤接触变化和环境光干扰。本文介绍如何利用三轴加速度信息识别运动伪影，并提高心率输出的连续性和稳定性。
+                                        </span>
+
+                                        <span class="en">
+                                            This article discusses how accelerometer
+                                            information can improve motion PPG
+                                            heart-rate estimation.
+                                        </span>
+
+                                    </p>
+
+                                    <div class="article-tags">
+
+                                        <span class="article-tag tag-blue">
+                                            PPG
+                                        </span>
+
+                                        <span class="article-tag tag-green">
+                                            ACC
+                                        </span>
+
+                                        <span class="article-tag tag-purple">
+                                            MATLAB
+                                        </span>
+
+                                        <span class="article-tag tag-orange">
+                                            Embedded
+                                        </span>
+
+                                    </div>
+
+                                    <div class="article-meta">
+
+                                        <span>2026-07-14</span>
+
+                                        <span>
+                                            <span class="zh">信号处理</span>
+                                            <span class="en">Signal Processing</span>
+                                        </span>
+
+                                        <span>
+                                            <span class="zh">约6分钟阅读</span>
+                                            <span class="en">6 min read</span>
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="article-cover">
+
+                                    <img
+                                        src="assets/images/projects/ppg-heart-rate.jpg"
+                                        alt="运动状态下PPG心率估计"
+                                        loading="lazy"
+                                        decoding="async"
+                                        onerror="
+                                            this.style.display='none';
+                                            this.nextElementSibling.style.display='grid';
+                                        "
+                                    >
+
+                                    <div class="image-fallback">
+                                        ❤️
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <details class="article-details">
+
+                                <summary>
+                                    <span class="zh">展开阅读全文</span>
+                                    <span class="en">Read Full Article</span>
+                                </summary>
+
+                                <div class="article-body">
+
+                                    <h3>
+                                        <span class="zh">一、运动伪影来源</span>
+                                        <span class="en">1. Motion Artifacts</span>
+                                    </h3>
+
+                                    <p>
+                                        <span class="zh">
+                                            PPG通过检测血容量随心搏产生的周期性变化估计心率。在运动状态下，传感器与皮肤之间的相对位移会引入明显的运动伪影，其频率可能与真实心率频率接近，导致频谱峰选择错误。
+                                        </span>
+
+                                        <span class="en">
+                                            Motion artifacts may overlap with the true
+                                            heart-rate frequency and cause incorrect
+                                            spectral peak selection.
+                                        </span>
+                                    </p>
+
+                                    <h3>
+                                        <span class="zh">二、算法处理流程</span>
                                         <span class="en">2. Processing Pipeline</span>
                                     </h3>
 
                                     <ul>
                                         <li>
                                             <span class="zh">
-                                                对PPG信号进行去趋势、低通滤波和归一化；
+                                                对PPG信号进行去趋势、滤波和归一化；
                                             </span>
 
                                             <span class="en">
-                                                Detrend, filter and normalize the PPG.
+                                                Detrend, filter and normalize the PPG signal.
                                             </span>
                                         </li>
 
@@ -2162,7 +2416,7 @@
 
                                         <li>
                                             <span class="zh">
-                                                提取频谱候选峰并结合历史心率进行跟踪；
+                                                提取频谱候选峰并结合历史心率进行连续跟踪；
                                             </span>
 
                                             <span class="en">
@@ -2172,31 +2426,29 @@
 
                                         <li>
                                             <span class="zh">
-                                                ACC主要用于极端运动状态下的异常拒绝和质量门控。
+                                                使用ACC对剧烈运动状态进行异常拒绝和质量门控。
                                             </span>
 
                                             <span class="en">
-                                                Use ACC as a quality gate for severe motion.
+                                                Use ACC as a quality gate during severe motion.
                                             </span>
                                         </li>
                                     </ul>
 
                                     <h3>
-                                        <span class="zh">三、工程结论</span>
-                                        <span class="en">3. Engineering Conclusion</span>
+                                        <span class="zh">三、嵌入式部署思路</span>
+                                        <span class="en">3. Embedded Deployment</span>
                                     </h3>
 
                                     <p>
                                         <span class="zh">
-                                            工程实践表明，复杂的ACC修正策略并不一定优于简单方法。
-                                            对资源有限的嵌入式设备而言，采用固定跟踪、变化限幅和
-                                            极端异常门控，通常具有更好的稳定性和部署价值。
+                                            对资源有限的嵌入式设备而言，复杂的自适应修正策略并不一定优于简单方法。采用固定跟踪、变化限幅和极端异常门控，可以降低运算量并提升输出稳定性。
                                         </span>
 
                                         <span class="en">
-                                            A simple tracking and gating strategy
-                                            can be more suitable for embedded deployment
-                                            than a complex correction model.
+                                            Fixed tracking, rate limiting and motion
+                                            gating can provide stable results with
+                                            lower computational cost.
                                         </span>
                                     </p>
 
@@ -2204,103 +2456,114 @@
 
                             </details>
 
-                        </div>
+                        </article>
 
-                    </article>
+                        <!-- 文章3 -->
+                        <article
+                            class="article-card"
+                            id="article-mechanism"
+                            data-category="mechanical"
+                            data-search="单电机运动康复机构 机械设计 圆柱凸轮 偏心套筒 棘轮机构 V8轨迹 MATLAB SolidWorks 骨盆运动 马术治疗"
+                        >
 
-                    <!-- 康复机构文章 -->
-                    <article
-                        class="blog-post blog-filter-item"
-                        data-category="mechanical review"
-                    >
+                            <div class="article-main">
 
-                        <div class="post-cover">
+                                <div class="article-content">
 
-                            <img
-                                src="assets/images/projects/rehab-device.jpg"
-                                alt="运动康复器材机械结构设计"
-                                loading="lazy"
-                                decoding="async"
-                                onerror="
-                                    this.style.display='none';
-                                    this.nextElementSibling.style.display='grid';
-                                "
-                            >
+                                    <a
+                                        class="article-title"
+                                        href="#article-mechanism"
+                                    >
+                                        <span class="zh">
+                                            单电机驱动的空间运动康复机构设计
+                                        </span>
 
-                            <div class="image-fallback">
-                                ⚙️
+                                        <span class="en">
+                                            Single-Motor Spatial Rehabilitation Mechanism
+                                        </span>
+                                    </a>
+
+                                    <p class="article-summary">
+
+                                        <span class="zh">
+                                            本文介绍如何利用可调偏心套筒、圆柱凸轮和棘轮机构，在单电机驱动条件下输出近似骨盆运动的空间轨迹，并通过MATLAB完成轨迹参数优化。
+                                        </span>
+
+                                        <span class="en">
+                                            This article introduces a single-motor
+                                            rehabilitation mechanism using an eccentric
+                                            sleeve, cylindrical cam and ratchet.
+                                        </span>
+
+                                    </p>
+
+                                    <div class="article-tags">
+
+                                        <span class="article-tag tag-blue">
+                                            SolidWorks
+                                        </span>
+
+                                        <span class="article-tag tag-green">
+                                            Mechanism
+                                        </span>
+
+                                        <span class="article-tag tag-purple">
+                                            MATLAB
+                                        </span>
+
+                                        <span class="article-tag tag-orange">
+                                            Rehabilitation
+                                        </span>
+
+                                    </div>
+
+                                    <div class="article-meta">
+
+                                        <span>2026-07-02</span>
+
+                                        <span>
+                                            <span class="zh">机械设计</span>
+                                            <span class="en">Mechanical Design</span>
+                                        </span>
+
+                                        <span>
+                                            <span class="zh">约7分钟阅读</span>
+                                            <span class="en">7 min read</span>
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="article-cover">
+
+                                    <img
+                                        src="assets/images/projects/rehab-device.jpg"
+                                        alt="空间运动康复机构"
+                                        loading="lazy"
+                                        decoding="async"
+                                        onerror="
+                                            this.style.display='none';
+                                            this.nextElementSibling.style.display='grid';
+                                        "
+                                    >
+
+                                    <div class="image-fallback">
+                                        ⚙️
+                                    </div>
+
+                                </div>
+
                             </div>
 
-                            <span class="post-category">
-                                <span class="zh">机械设计</span>
-                                <span class="en">Mechanical Design</span>
-                            </span>
-
-                        </div>
-
-                        <div class="post-body">
-
-                            <div class="post-meta">
-
-                                <span>2026.06</span>
-
-                                <span>
-                                    <span class="zh">约 7 分钟</span>
-                                    <span class="en">7 min read</span>
-                                </span>
-
-                            </div>
-
-                            <h2>
-                                <span class="zh">
-                                    单电机驱动的空间运动康复机构设计
-                                </span>
-
-                                <span class="en">
-                                    Single-Motor Spatial Rehabilitation Mechanism
-                                </span>
-                            </h2>
-
-                            <p class="post-excerpt">
-
-                                <span class="zh">
-                                    本文介绍如何利用可调偏心套筒、圆柱凸轮和棘轮机构，
-                                    在单电机驱动条件下输出近似骨盆运动的空间轨迹，
-                                    并通过MATLAB进行轨迹参数优化。
-                                </span>
-
-                                <span class="en">
-                                    This article introduces a single-motor
-                                    rehabilitation mechanism using an eccentric
-                                    sleeve, cylindrical cam and ratchet.
-                                </span>
-
-                            </p>
-
-                            <div class="post-tags">
-
-                                <span class="post-tag tag-orange">
-                                    MATLAB
-                                </span>
-
-                                <span class="post-tag tag-blue">
-                                    SolidWorks
-                                </span>
-
-                                <span class="post-tag tag-green">
-                                    Mechanism
-                                </span>
-
-                            </div>
-
-                            <details class="post-details">
+                            <details class="article-details">
 
                                 <summary>
-                                    <span class="zh">阅读全文</span>
-                                    <span class="en">Read More</span>
+                                    <span class="zh">展开阅读全文</span>
+                                    <span class="en">Read Full Article</span>
                                 </summary>
 
-                                <div class="detail-content">
+                                <div class="article-body">
 
                                     <h3>
                                         <span class="zh">一、设计目标</span>
@@ -2309,9 +2572,7 @@
 
                                     <p>
                                         <span class="zh">
-                                            机构需要在较少驱动源的条件下产生上下、左右和前后方向
-                                            的耦合运动，使座椅输出类似马术治疗或步行骨盆运动的
-                                            空间轨迹，同时保证运动幅度可调。
+                                            机构需要在较少驱动源的条件下产生上下、左右和前后方向的耦合运动，使座椅输出类似马术治疗或步行骨盆运动的空间轨迹，同时保证运动幅度可以调节。
                                         </span>
 
                                         <span class="en">
@@ -2322,7 +2583,7 @@
                                     </p>
 
                                     <h3>
-                                        <span class="zh">二、结构方案</span>
+                                        <span class="zh">二、机械结构组成</span>
                                         <span class="en">2. Mechanical Structure</span>
                                     </h3>
 
@@ -2333,7 +2594,7 @@
                                             </span>
 
                                             <span class="en">
-                                                Adjustable eccentric sleeve controls amplitude.
+                                                An adjustable eccentric sleeve controls amplitude.
                                             </span>
                                         </li>
 
@@ -2343,7 +2604,7 @@
                                             </span>
 
                                             <span class="en">
-                                                Cylindrical cam generates vertical motion.
+                                                A cylindrical cam generates vertical motion.
                                             </span>
                                         </li>
 
@@ -2353,7 +2614,7 @@
                                             </span>
 
                                             <span class="en">
-                                                Ratchet mechanism enables locking and adjustment.
+                                                A ratchet enables locking and adjustment.
                                             </span>
                                         </li>
 
@@ -2369,21 +2630,19 @@
                                     </ul>
 
                                     <h3>
-                                        <span class="zh">三、验证方法</span>
-                                        <span class="en">3. Verification</span>
+                                        <span class="zh">三、仿真与验证</span>
+                                        <span class="en">3. Simulation and Verification</span>
                                     </h3>
 
                                     <p>
                                         <span class="zh">
-                                            使用MATLAB建立运动学模型并优化关键参数，
-                                            在SolidWorks中完成三维建模、装配和干涉检查，
-                                            最后通过座椅参考点的运动轨迹验证机构输出效果。
+                                            使用MATLAB建立运动学模型并优化关键尺寸参数，在SolidWorks中完成三维建模、装配和机构干涉检查，最后通过座椅参考点轨迹验证机构输出效果。
                                         </span>
 
                                         <span class="en">
-                                            MATLAB was used for kinematic
-                                            optimization, while SolidWorks was
-                                            used for assembly and interference checks.
+                                            MATLAB was used for kinematic optimization,
+                                            while SolidWorks was used for modeling,
+                                            assembly and interference checking.
                                         </span>
                                     </p>
 
@@ -2391,101 +2650,113 @@
 
                             </details>
 
-                        </div>
+                        </article>
 
-                    </article>
+                        <!-- 文章4 -->
+                        <article
+                            class="article-card"
+                            id="article-pcb"
+                            data-category="hardware embedded"
+                            data-search="可穿戴传感器 PCB设计 原理图 布局布线 焊接 调试 面包板 STM32 ICM20948 SWD 电源 去耦电容"
+                        >
 
-                    <!-- PCB文章 -->
-                    <article
-                        class="blog-post blog-filter-item"
-                        data-category="embedded review"
-                    >
+                            <div class="article-main">
 
-                        <div class="post-cover">
+                                <div class="article-content">
 
-                            <img
-                                src="assets/images/projects/pcb-design.jpg"
-                                alt="传感器节点PCB设计与调试"
-                                loading="lazy"
-                                decoding="async"
-                                onerror="
-                                    this.style.display='none';
-                                    this.nextElementSibling.style.display='grid';
-                                "
-                            >
+                                    <a
+                                        class="article-title"
+                                        href="#article-pcb"
+                                    >
+                                        <span class="zh">
+                                            可穿戴传感器节点的PCB设计与调试流程
+                                        </span>
 
-                            <div class="image-fallback">
-                                🔧
+                                        <span class="en">
+                                            PCB Design and Debugging for Wearable Sensor Nodes
+                                        </span>
+                                    </a>
+
+                                    <p class="article-summary">
+
+                                        <span class="zh">
+                                            从面包板原型到PCB成品，硬件设计需要依次完成接口验证、原理图设计、供电规划、布局布线、焊接检查和分模块调试。
+                                        </span>
+
+                                        <span class="en">
+                                            This article presents the complete workflow
+                                            from breadboard prototyping to PCB debugging.
+                                        </span>
+
+                                    </p>
+
+                                    <div class="article-tags">
+
+                                        <span class="article-tag tag-blue">
+                                            PCB
+                                        </span>
+
+                                        <span class="article-tag tag-green">
+                                            STM32
+                                        </span>
+
+                                        <span class="article-tag tag-purple">
+                                            ICM20948
+                                        </span>
+
+                                        <span class="article-tag tag-orange">
+                                            Debugging
+                                        </span>
+
+                                    </div>
+
+                                    <div class="article-meta">
+
+                                        <span>2026-06-28</span>
+
+                                        <span>
+                                            <span class="zh">硬件设计</span>
+                                            <span class="en">Hardware</span>
+                                        </span>
+
+                                        <span>
+                                            <span class="zh">约5分钟阅读</span>
+                                            <span class="en">5 min read</span>
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="article-cover">
+
+                                    <img
+                                        src="assets/images/projects/pcb-design.jpg"
+                                        alt="传感器节点PCB设计"
+                                        loading="lazy"
+                                        decoding="async"
+                                        onerror="
+                                            this.style.display='none';
+                                            this.nextElementSibling.style.display='grid';
+                                        "
+                                    >
+
+                                    <div class="image-fallback">
+                                        🔧
+                                    </div>
+
+                                </div>
+
                             </div>
 
-                            <span class="post-category">
-                                <span class="zh">嵌入式系统</span>
-                                <span class="en">Embedded Systems</span>
-                            </span>
-
-                        </div>
-
-                        <div class="post-body">
-
-                            <div class="post-meta">
-
-                                <span>2026.05</span>
-
-                                <span>
-                                    <span class="zh">约 5 分钟</span>
-                                    <span class="en">5 min read</span>
-                                </span>
-
-                            </div>
-
-                            <h2>
-                                <span class="zh">
-                                    可穿戴传感器节点的PCB设计与调试流程
-                                </span>
-
-                                <span class="en">
-                                    PCB Design and Debugging for Wearable Sensor Nodes
-                                </span>
-                            </h2>
-
-                            <p class="post-excerpt">
-
-                                <span class="zh">
-                                    从面包板原型到PCB成品，硬件设计需要依次完成接口验证、
-                                    原理图设计、供电规划、布局布线、焊接检查和分模块调试。
-                                </span>
-
-                                <span class="en">
-                                    This article presents the complete workflow
-                                    from breadboard prototyping to PCB debugging.
-                                </span>
-
-                            </p>
-
-                            <div class="post-tags">
-
-                                <span class="post-tag tag-blue">
-                                    PCB
-                                </span>
-
-                                <span class="post-tag tag-green">
-                                    STM32
-                                </span>
-
-                                <span class="post-tag tag-purple">
-                                    ICM20948
-                                </span>
-
-                            </div>
-
-                            <details class="post-details">
+                            <details class="article-details">
 
                                 <summary>
-                                    <span class="zh">阅读全文</span>
-                                    <span class="en">Read More</span>
+                                    <span class="zh">展开阅读全文</span>
+                                    <span class="en">Read Full Article</span>
                                 </summary>
 
-                                <div class="detail-content">
+                                <div class="article-body">
 
                                     <h3>
                                         <span class="zh">一、先验证再制板</span>
@@ -2494,14 +2765,13 @@
 
                                     <p>
                                         <span class="zh">
-                                            在绘制PCB之前，先使用开发板和面包板验证传感器通信、
-                                            供电电压、程序接口和无线模块。这样能够提前排除器件选型
-                                            和通信协议层面的问题。
+                                            在绘制PCB之前，先使用开发板和面包板验证传感器通信、供电电压、程序接口和无线模块，可以提前排除器件选型和通信协议层面的问题。
                                         </span>
 
                                         <span class="en">
                                             Breadboard validation helps identify
-                                            communication and power issues before PCB fabrication.
+                                            communication and power issues before
+                                            PCB fabrication.
                                         </span>
                                     </p>
 
@@ -2547,7 +2817,7 @@
                                             </span>
 
                                             <span class="en">
-                                                Keep digital traces short with a continuous ground.
+                                                Keep digital traces short with continuous ground.
                                             </span>
                                         </li>
                                     </ul>
@@ -2559,9 +2829,7 @@
 
                                     <p>
                                         <span class="zh">
-                                            调试时先断电检查短路，再测量各级电源，随后下载最小程序，
-                                            最后依次测试传感器、显示模块和无线通信。分模块调试能够
-                                            避免多个问题同时出现时难以定位故障。
+                                            调试时先断电检查短路，再测量各级电源，随后下载最小程序，最后依次测试传感器、显示模块和无线通信。分模块调试可以避免多个问题同时出现时难以定位故障。
                                         </span>
 
                                         <span class="en">
@@ -2574,26 +2842,294 @@
 
                             </details>
 
+                        </article>
+
+                    </div>
+
+                    <div
+                        class="empty-message"
+                        id="emptyMessage"
+                    >
+
+                        <div class="empty-icon">
+                            🔍
                         </div>
 
-                    </article>
+                        <h3>
+                            <span class="zh">没有找到相关文章</span>
+                            <span class="en">No matching articles found</span>
+                        </h3>
+
+                        <p>
+                            <span class="zh">
+                                请尝试更换关键词或选择其他文章分类。
+                            </span>
+
+                            <span class="en">
+                                Try another keyword or category.
+                            </span>
+                        </p>
+
+                    </div>
 
                 </div>
 
-                <div
-                    class="empty-message"
-                    id="emptyMessage"
-                >
-                    <span class="zh">
-                        当前分类下暂无文章。
-                    </span>
+                <!-- 右侧信息栏 -->
+                <aside class="blog-sidebar">
 
-                    <span class="en">
-                        No articles are available in this category.
-                    </span>
-                </div>
+                    <section class="sidebar-card">
 
-            </section>
+                        <h2 class="sidebar-title">
+                            <span class="zh">文章数据</span>
+                            <span class="en">Statistics</span>
+                        </h2>
+
+                        <div class="article-statistics">
+
+                            <div class="statistics-item">
+                                <strong>4</strong>
+
+                                <span>
+                                    <span class="zh">技术文章</span>
+                                    <span class="en">Articles</span>
+                                </span>
+                            </div>
+
+                            <div class="statistics-item">
+                                <strong>4</strong>
+
+                                <span>
+                                    <span class="zh">技术分类</span>
+                                    <span class="en">Categories</span>
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                    <section class="sidebar-card">
+
+                        <h2 class="sidebar-title">
+                            <span class="zh">文章分类</span>
+                            <span class="en">Categories</span>
+                        </h2>
+
+                        <ul class="sidebar-category-list">
+
+                            <li>
+                                <button
+                                    class="sidebar-category-button active"
+                                    type="button"
+                                    data-category="all"
+                                >
+                                    <span>
+                                        <span class="zh">全部文章</span>
+                                        <span class="en">All Articles</span>
+                                    </span>
+
+                                    <span class="category-count">
+                                        4
+                                    </span>
+                                </button>
+                            </li>
+
+                            <li>
+                                <button
+                                    class="sidebar-category-button"
+                                    type="button"
+                                    data-category="embedded"
+                                >
+                                    <span>
+                                        <span class="zh">嵌入式系统</span>
+                                        <span class="en">Embedded</span>
+                                    </span>
+
+                                    <span class="category-count">
+                                        3
+                                    </span>
+                                </button>
+                            </li>
+
+                            <li>
+                                <button
+                                    class="sidebar-category-button"
+                                    type="button"
+                                    data-category="signal"
+                                >
+                                    <span>
+                                        <span class="zh">信号处理</span>
+                                        <span class="en">Signal Processing</span>
+                                    </span>
+
+                                    <span class="category-count">
+                                        1
+                                    </span>
+                                </button>
+                            </li>
+
+                            <li>
+                                <button
+                                    class="sidebar-category-button"
+                                    type="button"
+                                    data-category="mechanical"
+                                >
+                                    <span>
+                                        <span class="zh">机械设计</span>
+                                        <span class="en">Mechanical</span>
+                                    </span>
+
+                                    <span class="category-count">
+                                        1
+                                    </span>
+                                </button>
+                            </li>
+
+                            <li>
+                                <button
+                                    class="sidebar-category-button"
+                                    type="button"
+                                    data-category="hardware"
+                                >
+                                    <span>
+                                        <span class="zh">硬件设计</span>
+                                        <span class="en">Hardware</span>
+                                    </span>
+
+                                    <span class="category-count">
+                                        2
+                                    </span>
+                                </button>
+                            </li>
+
+                        </ul>
+
+                    </section>
+
+                    <section class="sidebar-card">
+
+                        <h2 class="sidebar-title">
+                            <span class="zh">热门标签</span>
+                            <span class="en">Popular Tags</span>
+                        </h2>
+
+                        <div class="hot-tags">
+
+                            <button
+                                class="hot-tag"
+                                type="button"
+                                data-keyword="STM32"
+                            >
+                                STM32
+                            </button>
+
+                            <button
+                                class="hot-tag"
+                                type="button"
+                                data-keyword="IMU"
+                            >
+                                IMU
+                            </button>
+
+                            <button
+                                class="hot-tag"
+                                type="button"
+                                data-keyword="PPG"
+                            >
+                                PPG
+                            </button>
+
+                            <button
+                                class="hot-tag"
+                                type="button"
+                                data-keyword="PCB"
+                            >
+                                PCB
+                            </button>
+
+                            <button
+                                class="hot-tag"
+                                type="button"
+                                data-keyword="MATLAB"
+                            >
+                                MATLAB
+                            </button>
+
+                            <button
+                                class="hot-tag"
+                                type="button"
+                                data-keyword="EKF"
+                            >
+                                EKF
+                            </button>
+
+                            <button
+                                class="hot-tag"
+                                type="button"
+                                data-keyword="SolidWorks"
+                            >
+                                SolidWorks
+                            </button>
+
+                        </div>
+
+                    </section>
+
+                    <section class="sidebar-card">
+
+                        <h2 class="sidebar-title">
+                            <span class="zh">最新文章</span>
+                            <span class="en">Recent Posts</span>
+                        </h2>
+
+                        <ul class="recent-post-list">
+
+                            <li>
+                                <a
+                                    class="recent-post-link"
+                                    href="#article-imu"
+                                >
+                                    多节点惯性姿态采集系统
+
+                                    <span>
+                                        2026-07-19
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a
+                                    class="recent-post-link"
+                                    href="#article-ppg"
+                                >
+                                    ACC辅助的运动PPG心率估计
+
+                                    <span>
+                                        2026-07-14
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a
+                                    class="recent-post-link"
+                                    href="#article-mechanism"
+                                >
+                                    单电机空间运动康复机构
+
+                                    <span>
+                                        2026-07-02
+                                    </span>
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </section>
+
+                </aside>
+
+            </div>
 
         </main>
 
@@ -2658,14 +3194,24 @@
                     "emailToast"
                 );
 
-            const filterButtons =
-                document.querySelectorAll(
-                    ".filter-button"
+            const searchInput =
+                document.getElementById(
+                    "searchInput"
                 );
 
-            const filterItems =
-                document.querySelectorAll(
-                    ".blog-filter-item"
+            const searchButton =
+                document.getElementById(
+                    "searchButton"
+                );
+
+            const clearSearch =
+                document.getElementById(
+                    "clearSearch"
+                );
+
+            const searchResult =
+                document.getElementById(
+                    "searchResult"
                 );
 
             const emptyMessage =
@@ -2673,20 +3219,326 @@
                     "emptyMessage"
                 );
 
+            const articleCards =
+                Array.from(
+                    document.querySelectorAll(
+                        ".article-card"
+                    )
+                );
+
+            const categoryButtons =
+                document.querySelectorAll(
+                    ".category-button"
+                );
+
+            const sidebarCategoryButtons =
+                document.querySelectorAll(
+                    ".sidebar-category-button"
+                );
+
+            const keywordButtons =
+                document.querySelectorAll(
+                    ".quick-keyword, .hot-tag"
+                );
+
+            let currentCategory = "all";
+            let currentKeyword = "";
             let toastTimer = null;
 
-            /* 邮箱跳转与复制 */
+            /* =========================
+               文章搜索
+            ========================= */
 
-            document
-                .querySelectorAll(".qq-mail-link")
-                .forEach(function (link) {
+            function normalizeText(text) {
+                return String(text || "")
+                    .trim()
+                    .toLowerCase();
+            }
 
-                    link.addEventListener(
-                        "click",
-                        copyEmailAddress
+            function applySearchAndFilter() {
+                const normalizedKeyword =
+                    normalizeText(currentKeyword);
+
+                let visibleCount = 0;
+
+                articleCards.forEach(
+                    function (card) {
+
+                        const categories =
+                            normalizeText(
+                                card.dataset.category
+                            ).split(/\s+/);
+
+                        const searchableText =
+                            normalizeText(
+                                card.dataset.search +
+                                " " +
+                                card.textContent
+                            );
+
+                        const matchesCategory =
+                            currentCategory === "all" ||
+                            categories.includes(
+                                currentCategory
+                            );
+
+                        const matchesKeyword =
+                            normalizedKeyword === "" ||
+                            searchableText.includes(
+                                normalizedKeyword
+                            );
+
+                        const shouldShow =
+                            matchesCategory &&
+                            matchesKeyword;
+
+                        card.classList.toggle(
+                            "hidden",
+                            !shouldShow
+                        );
+
+                        if (shouldShow) {
+                            visibleCount += 1;
+                        }
+                    }
+                );
+
+                updateSearchResult(
+                    visibleCount
+                );
+
+                if (emptyMessage) {
+                    emptyMessage.classList.toggle(
+                        "show",
+                        visibleCount === 0
+                    );
+                }
+
+                if (clearSearch) {
+                    clearSearch.classList.toggle(
+                        "show",
+                        currentKeyword.length > 0
+                    );
+                }
+            }
+
+            function updateSearchResult(count) {
+                if (!searchResult) {
+                    return;
+                }
+
+                const isEnglish =
+                    body.classList.contains(
+                        "lang-en"
                     );
 
-                });
+                if (isEnglish) {
+                    searchResult.innerHTML =
+                        "<strong>" +
+                        count +
+                        "</strong> articles found";
+                } else {
+                    searchResult.innerHTML =
+                        "共找到 <strong>" +
+                        count +
+                        "</strong> 篇文章";
+                }
+            }
+
+            function runSearch() {
+                currentKeyword =
+                    searchInput
+                        ? searchInput.value.trim()
+                        : "";
+
+                applySearchAndFilter();
+            }
+
+            if (searchButton) {
+                searchButton.addEventListener(
+                    "click",
+                    runSearch
+                );
+            }
+
+            if (searchInput) {
+                searchInput.addEventListener(
+                    "input",
+                    function () {
+                        currentKeyword =
+                            searchInput.value.trim();
+
+                        if (
+                            currentKeyword === ""
+                        ) {
+                            applySearchAndFilter();
+                        } else if (clearSearch) {
+                            clearSearch.classList.add(
+                                "show"
+                            );
+                        }
+                    }
+                );
+
+                searchInput.addEventListener(
+                    "keydown",
+                    function (event) {
+                        if (
+                            event.key === "Enter"
+                        ) {
+                            event.preventDefault();
+                            runSearch();
+                        }
+                    }
+                );
+            }
+
+            if (clearSearch) {
+                clearSearch.addEventListener(
+                    "click",
+                    function () {
+                        if (searchInput) {
+                            searchInput.value = "";
+                            searchInput.focus();
+                        }
+
+                        currentKeyword = "";
+
+                        applySearchAndFilter();
+                    }
+                );
+            }
+
+            /* =========================
+               快捷关键词
+            ========================= */
+
+            keywordButtons.forEach(
+                function (button) {
+
+                    button.addEventListener(
+                        "click",
+                        function () {
+                            const keyword =
+                                button.dataset.keyword || "";
+
+                            currentKeyword =
+                                keyword;
+
+                            if (searchInput) {
+                                searchInput.value =
+                                    keyword;
+                            }
+
+                            applySearchAndFilter();
+
+                            window.scrollTo({
+                                top:
+                                    document
+                                        .querySelector(
+                                            ".search-section"
+                                        )
+                                        .getBoundingClientRect()
+                                        .top +
+                                    window.scrollY -
+                                    75,
+                                behavior: "smooth"
+                            });
+                        }
+                    );
+                }
+            );
+
+            /* =========================
+               分类筛选
+            ========================= */
+
+            function selectCategory(category) {
+                currentCategory =
+                    category || "all";
+
+                categoryButtons.forEach(
+                    function (button) {
+                        button.classList.toggle(
+                            "active",
+                            button.dataset.category ===
+                                currentCategory
+                        );
+                    }
+                );
+
+                sidebarCategoryButtons.forEach(
+                    function (button) {
+                        button.classList.toggle(
+                            "active",
+                            button.dataset.category ===
+                                currentCategory
+                        );
+                    }
+                );
+
+                applySearchAndFilter();
+            }
+
+            categoryButtons.forEach(
+                function (button) {
+
+                    button.addEventListener(
+                        "click",
+                        function () {
+                            selectCategory(
+                                button.dataset.category
+                            );
+                        }
+                    );
+                }
+            );
+
+            sidebarCategoryButtons.forEach(
+                function (button) {
+
+                    button.addEventListener(
+                        "click",
+                        function () {
+                            selectCategory(
+                                button.dataset.category
+                            );
+
+                            window.scrollTo({
+                                top:
+                                    document
+                                        .querySelector(
+                                            ".category-bar"
+                                        )
+                                        .getBoundingClientRect()
+                                        .top +
+                                    window.scrollY -
+                                    75,
+                                behavior: "smooth"
+                            });
+                        }
+                    );
+                }
+            );
+
+            /* =========================
+               邮箱复制
+            ========================= */
+
+            document
+                .querySelectorAll(
+                    ".qq-mail-link"
+                )
+                .forEach(
+                    function (link) {
+
+                        link.addEventListener(
+                            "click",
+                            copyEmailAddress
+                        );
+
+                    }
+                );
 
             function copyEmailAddress() {
                 if (
@@ -2694,9 +3546,15 @@
                     window.isSecureContext
                 ) {
                     navigator.clipboard
-                        .writeText(EMAIL_ADDRESS)
-                        .then(showEmailToast)
-                        .catch(fallbackCopyEmail);
+                        .writeText(
+                            EMAIL_ADDRESS
+                        )
+                        .then(
+                            showEmailToast
+                        )
+                        .catch(
+                            fallbackCopyEmail
+                        );
 
                     return;
                 }
@@ -2740,7 +3598,10 @@
                 );
 
                 try {
-                    document.execCommand("copy");
+                    document.execCommand(
+                        "copy"
+                    );
+
                     showEmailToast();
                 } catch (error) {
                     console.warn(
@@ -2759,9 +3620,13 @@
                     return;
                 }
 
-                emailToast.classList.add("show");
+                emailToast.classList.add(
+                    "show"
+                );
 
-                window.clearTimeout(toastTimer);
+                window.clearTimeout(
+                    toastTimer
+                );
 
                 toastTimer =
                     window.setTimeout(
@@ -2774,7 +3639,9 @@
                     );
             }
 
-            /* 中英文切换 */
+            /* =========================
+               中英文切换
+            ========================= */
 
             let savedLanguage = "zh";
 
@@ -2791,13 +3658,20 @@
                 savedLanguage === "en" &&
                 languageToggle
             ) {
-                body.classList.add("lang-en");
+                body.classList.add(
+                    "lang-en"
+                );
 
                 document.documentElement.lang =
                     "en";
 
                 languageToggle.textContent =
                     "中";
+
+                if (searchInput) {
+                    searchInput.placeholder =
+                        "Search titles, tags or article content";
+                }
             }
 
             if (languageToggle) {
@@ -2819,6 +3693,13 @@
                                 ? "中"
                                 : "EN";
 
+                        if (searchInput) {
+                            searchInput.placeholder =
+                                isEnglish
+                                    ? "Search titles, tags or article content"
+                                    : "搜索文章标题、技术关键词或文章内容";
+                        }
+
                         try {
                             localStorage.setItem(
                                 "homepage-language",
@@ -2832,11 +3713,15 @@
                                 error
                             );
                         }
+
+                        applySearchAndFilter();
                     }
                 );
             }
 
-            /* 手机端导航 */
+            /* =========================
+               手机端导航
+            ========================= */
 
             if (
                 menuToggle &&
@@ -2863,15 +3748,19 @@
                 );
 
                 document
-                    .querySelectorAll(".nav-link")
-                    .forEach(function (link) {
+                    .querySelectorAll(
+                        ".nav-link"
+                    )
+                    .forEach(
+                        function (link) {
 
-                        link.addEventListener(
-                            "click",
-                            closeMobileMenu
-                        );
+                            link.addEventListener(
+                                "click",
+                                closeMobileMenu
+                            );
 
-                    });
+                        }
+                    );
 
                 document.addEventListener(
                     "click",
@@ -2907,7 +3796,9 @@
                     return;
                 }
 
-                mainNav.classList.remove("open");
+                mainNav.classList.remove(
+                    "open"
+                );
 
                 menuToggle.setAttribute(
                     "aria-expanded",
@@ -2918,73 +3809,12 @@
                     "☰";
             }
 
-            /* 文章分类筛选 */
-
-            filterButtons.forEach(
-                function (button) {
-
-                    button.addEventListener(
-                        "click",
-                        function () {
-
-                            const selectedFilter =
-                                button.dataset.filter;
-
-                            filterButtons.forEach(
-                                function (item) {
-                                    item.classList.remove(
-                                        "active"
-                                    );
-                                }
-                            );
-
-                            button.classList.add(
-                                "active"
-                            );
-
-                            let visibleCount = 0;
-
-                            filterItems.forEach(
-                                function (item) {
-
-                                    const categories =
-                                        item.dataset.category
-                                            .split(" ");
-
-                                    const shouldShow =
-                                        selectedFilter === "all" ||
-                                        categories.includes(
-                                            selectedFilter
-                                        );
-
-                                    item.classList.toggle(
-                                        "hidden",
-                                        !shouldShow
-                                    );
-
-                                    if (shouldShow) {
-                                        visibleCount += 1;
-                                    }
-                                }
-                            );
-
-                            if (emptyMessage) {
-                                emptyMessage.classList.toggle(
-                                    "show",
-                                    visibleCount === 0
-                                );
-                            }
-                        }
-                    );
-                }
-            );
-
-            /* 自动更新年份 */
-
             if (yearElement) {
                 yearElement.textContent =
                     new Date().getFullYear();
             }
+
+            applySearchAndFilter();
         })();
     </script>
 
