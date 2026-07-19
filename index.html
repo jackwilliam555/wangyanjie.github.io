@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="王焱杰的个人主页。" />
-    <title>个人信息 | 王焱杰</title>
+    <meta name="description" content="王焱杰的教育经历、学业表现与荣誉奖励。" />
+    <title>首页 | 王焱杰</title>
 
     <style>
         /* ===== 设计令牌 ===== */
@@ -179,8 +179,8 @@
         .avatar {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            object-position: center 18%;  /* 针对竖版证件照，可微调 */
+            object-fit: contain;
+            object-position: center center;
             border-radius: 50%;
             background: #f0f4fa;
         }
@@ -399,7 +399,7 @@
             color: #586476;
         }
 
-        /* ===== 荣誉奖励（更新为7项） ===== */
+        /* ===== 荣誉奖励 ===== */
         .award-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -544,9 +544,10 @@
             <button class="menu-toggle" id="menuToggle" type="button" aria-label="展开导航菜单" aria-expanded="false">☰</button>
             <nav class="main-nav" id="mainNav">
                 <ul class="nav-list">
-                    <li><a class="nav-link" href="index.html"><span class="zh">首页</span><span class="en">Home</span></a></li>
+                    <!-- 首页高亮 active -->
+                    <li><a class="nav-link active" href="index.html"><span class="zh">首页</span><span class="en">Home</span></a></li>
                     <li><a class="nav-link" href="news.html"><span class="zh">动态</span><span class="en">News</span></a></li>
-                    <li><a class="nav-link active" href="education.html"><span class="zh">教育</span><span class="en">Education</span></a></li>
+                    <li><a class="nav-link" href="education.html"><span class="zh">教育</span><span class="en">Education</span></a></li>
                     <li><a class="nav-link" href="publications.html"><span class="zh">论文</span><span class="en">Publications</span></a></li>
                     <li><a class="nav-link" href="projects.html"><span class="zh">项目</span><span class="en">Projects</span></a></li>
                     <li><a class="nav-link" href="life.html"><span class="zh">生活</span><span class="en">Life</span></a></li>
@@ -586,7 +587,7 @@
             </div>
         </aside>
 
-        <!-- 右侧内容 -->
+        <!-- 右侧内容：教育经历 -->
         <main class="content">
 
             <!-- 教育经历 -->
@@ -599,7 +600,7 @@
                 <article class="edu-card">
                     <div class="edu-header">
                         <div class="school-logo">
-                            <img src="assets/wsu-logo.jpg" alt="武汉体育学院校徽"
+                            <img src="assets/wsu-logo.png" alt="武汉体育学院校徽"
                             onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">
                             <div class="fallback">WSU</div>
                         </div>
@@ -641,7 +642,7 @@
                 </article>
             </section>
 
-            <!-- ===== 荣誉奖励（已更新为 7 项） ===== -->
+            <!-- 荣誉奖励 -->
             <section class="section">
                 <div class="section-heading">
                     <div class="heading-icon">🏆</div>
@@ -650,43 +651,40 @@
                 </div>
                 <div class="award-grid">
 
-                    <!-- 1. 国家级金奖 -->
                     <article class="award-item">
                         <h3><span class="zh">国家级金奖</span><span class="en">National Gold Award</span></h3>
                         <p><span class="zh">中国国际大学生创新大赛</span><span class="en">China International College Students' Innovation Competition</span></p>
                     </article>
 
-                    <!-- 2. 国家级铜奖 -->
                     <article class="award-item">
                         <h3><span class="zh">国家级铜奖</span><span class="en">National Bronze Award</span></h3>
                         <p><span class="zh">中国体育智能制造创新大赛</span><span class="en">China Sports Intelligent Manufacturing Innovation Competition</span></p>
                     </article>
 
-                    <!-- 3. 省级一等奖 -->
                     <article class="award-item">
                         <h3><span class="zh">省级一等奖</span><span class="en">Provincial First Prize</span></h3>
-                        <p><span class="zh">“挑战杯”全国大学生课外学术科技作品竞赛</span><span class="en">Hubei "Challenge Cup"</span></p>
+                        <p><span class="zh">湖北省挑战杯</span><span class="en">Hubei "Challenge Cup"</span></p>
                     </article>
 
-                    <!-- 4. 省级二等奖 -->
                     <article class="award-item">
                         <h3><span class="zh">省级二等奖</span><span class="en">Provincial Second Prize</span></h3>
                         <p><span class="zh">蓝桥杯全国大学生软件和信息技术大赛</span><span class="en">Blue Bridge Cup National College Students Software and IT Competition</span></p>
                     </article>
 
-                    <!-- 5. 省级铜奖 -->
                     <article class="award-item">
                         <h3><span class="zh">省级铜奖</span><span class="en">Provincial Bronze Award</span></h3>
                         <p><span class="zh">湖北省体育产业创新创业大赛</span><span class="en">Hubei Sports Industry Innovation and Entrepreneurship Competition</span></p>
                     </article>
 
-                    <!-- 6. 校级 三好学生 -->
                     <article class="award-item">
                         <h3><span class="zh">三好学生</span><span class="en">Outstanding Student</span></h3>
                         <p><span class="zh">校级荣誉称号</span><span class="en">University Honor</span></p>
                     </article>
 
-
+                    <article class="award-item">
+                        <h3><span class="zh">优秀共青团员</span><span class="en">Outstanding Youth League Member</span></h3>
+                        <p><span class="zh">校级荣誉称号</span><span class="en">University Honor</span></p>
+                    </article>
 
                 </div>
             </section>
